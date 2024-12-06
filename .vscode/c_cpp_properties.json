@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "name": "windows-msvc-x64",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/VulkanSDK/1.3.296.0",
+                "X:/Pro/GameDev/vulkan/Libraries",
+                "X:/Pro/GameDev/vulkan/Libraries/glfw-3.4.bin.WIN64/include"
+            ],
+            "compilerPath": "N:\\apps\\VS2022-IDE\\VC\\Tools\\MSVC\\14.29.30133\\bin\\HostX64\\x64\\cl.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "windows-msvc-x64",
+            "compilerArgs": [
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}
