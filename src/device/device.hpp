@@ -74,12 +74,12 @@ class Device {
   VkPhysicalDeviceProperties properties;
 
  private:
-  void CreateInstance();
-  void SetupDebugMessenger();
-  void CreateSurface();
-  void PickPhysicalDevice();
-  void CreateLogicalDevice();
-  void CreateCommandPool();
+  void createInstance();
+  void setupDebugMessenger();
+  void createSurface();
+  void pickPhysicalDevice();
+  void createLogicalDevice();
+  void createCommandPool();
 
   // helper functions
   bool isDeviceSuitable(VkPhysicalDevice device);

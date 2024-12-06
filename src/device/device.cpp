@@ -48,12 +48,12 @@ void DestroyDebugUtilsMessengerEXT(
 
 // class member functions
 Device::Device(Window &window) : window{window} {
-  CreateInstance();
-  SetupDebugMessenger();
-  CreateSurface();
-  PickPhysicalDevice();
-  CreateLogicalDevice();
-  CreateCommandPool();
+  createInstance();
+  setupDebugMessenger();
+  createSurface();
+  pickPhysicalDevice();
+  createLogicalDevice();
+  createCommandPool();
 }
 
 Device::~Device() {
@@ -68,7 +68,7 @@ Device::~Device() {
   vkDestroyInstance(instance, nullptr);
 }
 
-void Device::CreateInstance() {
+void Device::createInstance() {
   if (enableValidationLayers && !checkValidationLayerSupport()) {
     throw std::runtime_error("validation layers requested, but not available!");
   }
@@ -108,7 +108,7 @@ void Device::CreateInstance() {
   hasGflwRequiredInstanceExtensions();
 }
 
-void Device::PickPhysicalDevice() {
+void Device::pickPhysicalDevice() {
   uint32_t deviceCount = 0;
   vkEnumeratePhysicalDevices(instance, &deviceCount, nullptr);
   if (deviceCount == 0) {
@@ -133,7 +133,7 @@ void Device::PickPhysicalDevice() {
   std::cout << "physical device: " << properties.deviceName << std::endl;
 }
 
-void Device::CreateLogicalDevice() {
+void Device::createLogicalDevice() {
   QueueFamilyIndices indices = findQueueFamilies(physicalDevice);
 
   std::vector<VkDeviceQueueCreateInfo> queueCreateInfos;
@@ -179,7 +179,7 @@ void Device::CreateLogicalDevice() {
   vkGetDeviceQueue(device_, indices.presentFamily, 0, &presentQueue_);
 }
 
-void Device::CreateCommandPool() {
+void Device::createCommandPool() {
   QueueFamilyIndices queueFamilyIndices = findPhysicalQueueFamilies();
 
   VkCommandPoolCreateInfo poolInfo = {};
@@ -193,7 +193,7 @@ void Device::CreateCommandPool() {
   }
 }
 
-void Device::CreateSurface() { window.CreateWindowSurface(instance, &surface_); }
+void Device::createSurface() { window.CreateWindowSurface(instance, &surface_); }
 
 bool Device::isDeviceSuitable(VkPhysicalDevice device) {
   QueueFamilyIndices indices = findQueueFamilies(device);
@@ -226,7 +226,7 @@ void Device::populateDebugMessengerCreateInfo(
   createInfo.pUserData = nullptr;  // Optional
 }
 
-void Device::SetupDebugMessenger() {
+void Device::setupDebugMessenger() {
   if (!enableValidationLayers) return;
   VkDebugUtilsMessengerCreateInfoEXT createInfo;
   populateDebugMessengerCreateInfo(createInfo);
