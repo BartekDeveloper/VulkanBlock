@@ -1,18 +1,58 @@
 #pragma once
 
+#include "../device/device.hpp"
+
+
+// std
 #include <string>
 #include <vector>
 
 namespace BlockyVulkan {
 
-    class Pipeline {
-        public:
-            Pipeline( const std::string &vertFilePath, const std::string &fragFilePath );
+struct PipelineConfigInfo {
+    VkViewport viewport;
+    VkRect2D scissor;
+                                                                                    
+    VkPipelineInputAssemblyStateCreateInfo inputAssemblyInfo;
+    VkPipelineRasterizationStateCreateInfo rasterizationInfo;
+    VkPipelineMultisampleStateCreateInfo multisampleInfo;
+    VkPipelineColorBlendStateCreateInfo colorBlendInfo;
+    VkPipelineDepthStencilStateCreateInfo depthStencilInfo;
+   
+    VkPipelineColorBlendAttachmentState colorBlendAttachment;
 
-        private:
-            static std::vector<char> ReadFile(const std::string &filePath);
+    VkPipelineLayout pipelineLayout = nullptr;
+    VkRenderPass renderPass = nullptr;
+    uint32_t subpass = 0;
+};
 
-            void CreateGraphicsPipeline(const std::string &vertFilePath, const std::string &fragFilePath);
-        
-    };
-}
+class Pipeline {
+ public:
+  Pipeline(Device &device, const std::string &vertFilePath,
+           const std::string &fragFilePath,
+           const PipelineConfigInfo configInfo);
+  ~Pipeline();
+
+  Pipeline( const Pipeline & ) = delete;
+  void operator=( const Pipeline & ) = delete;
+
+  void Bind( VkCommandBuffer commandBuffer );
+
+  static PipelineConfigInfo DefaultPipelineConfigInfo( uint32_t width, uint32_t height );
+
+ private:
+  static std::vector<char> ReadFile(const std::string &filePath);
+
+  void CreateGraphicsPipeline(const std::string &vertFilePath,
+                              const std::string &fragFilePath,
+                              const PipelineConfigInfo &configInfo);
+
+  void CreateShaderModule( const std::vector<char> &code, VkShaderModule *shaderModule );
+
+  Device &Device;
+  VkPipeline graphicsPipeline;
+  VkShaderModule vertShaderModule;
+  VkShaderModule fragShaderModule;
+
+};
+}  // namespace BlockyVulkan

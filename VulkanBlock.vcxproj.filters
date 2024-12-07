@@ -30,18 +30,24 @@
     <ClCompile Include="src\device\device.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\swapchain\swap_chain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\window\window.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\test_1\test_1.hpp">
+    <ClInclude Include="src\test_1\first_test.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\pipeline\pipeline.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\device\device.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\swapchain\swap_chain.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

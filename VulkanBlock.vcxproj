@@ -174,13 +174,15 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\device\device.cpp" />
     <ClCompile Include="src\pipeline\pipeline.cpp" />
+    <ClCompile Include="src\swapchain\swap_chain.cpp" />
     <ClCompile Include="src\test_1\first_test.cpp" />
     <ClCompile Include="src\window\window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\device\device.hpp" />
     <ClInclude Include="src\pipeline\pipeline.hpp" />
-    <ClInclude Include="src\test_1\test_1.hpp" />
+    <ClInclude Include="src\swapchain\swap_chain.hpp" />
+    <ClInclude Include="src\test_1\first_test.hpp" />
     <ClInclude Include="src\window\window.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

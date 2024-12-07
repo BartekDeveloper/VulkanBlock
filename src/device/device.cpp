@@ -531,4 +531,4 @@ void Device::createImageWithInfo(
   }
 }
 
-}  // namespace lve
+}  // namespace BlockyVulkan
