@@ -21,6 +21,8 @@ namespace BlockyVulkan {
             glfwPollEvents();
             DrawFrame();
         }
+
+        vkDeviceWaitIdle( device.device() );
     }
 
     void FirstTest::CreatePipelineLayout() {
