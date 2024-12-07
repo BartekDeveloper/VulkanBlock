@@ -15,9 +15,11 @@ namespace BlockyVulkan {
     void Window::InitWindow() {
       glfwInit();
       glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
-      glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
+      glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
 
       window = glfwCreateWindow(width, height, name.c_str(), nullptr, nullptr);
+      glfwSetWindowUserPointer( window, this );
+      glfwSetFramebufferSizeCallback( window, FrameBufferResizeCallback );
     }
 
     void Window::CreateWindowSurface(VkInstance instance, VkSurfaceKHR *surface) {
@@ -26,4 +28,11 @@ namespace BlockyVulkan {
         }
     }
 
-}  // namespace BlockyVulkan
+    void Window::FrameBufferResizeCallback( GLFWwindow *window, int width, int height ) {
+        auto window__ = reinterpret_cast<Window *>( glfwGetWindowUserPointer( window ) );
+        window__->frameBufferResized = true;
+        window__->width = width;
+        window__->height = height;
+    }
+
+}
