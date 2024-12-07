@@ -3,6 +3,7 @@
 #include "../pipeline/pipeline.hpp"
 #include "../window/window.hpp"
 #include "../swapchain/swap_chain.hpp"
+#include "../model/model.hpp"
 
 // std
 #include <memory>
@@ -22,7 +23,15 @@ namespace BlockyVulkan {
 
       void run();
 
+      void Sierpinski(
+          std::vector<Model::Vertex> &vertices,
+          int depth,
+          glm::vec2 left,
+          glm::vec2 right,
+          glm::vec2 top );
+
      private:
+         void LoadModels();
          void CreatePipelineLayout();
          void CreatePipeline();
          void CreateCommandBuffers();
@@ -31,8 +40,9 @@ namespace BlockyVulkan {
           Window window{WIDTH, HEIGHT, "Hello Vulkan!"};
           Device device{window};
           SwapChain swapChain{device, window.getExtend()};
-          std::unique_ptr<Pipeline> pipeline;
+          std::unique_ptr<Pipeline> pipeline; 
           VkPipelineLayout pipelineLayout;
           std::vector<VkCommandBuffer> commandBuffers;
+          std::unique_ptr<Model> model;
     };
 };  // namespace BlockyVulkan

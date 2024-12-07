@@ -1,4 +1,5 @@
 #include "pipeline.hpp"
+#include "../model/model.hpp"
 
 #include <fstream>
 #include <iosfwd>
@@ -74,13 +75,17 @@ namespace BlockyVulkan {
         shaderStages[ 1 ].pNext = nullptr;
         shaderStages[ 1 ].pSpecializationInfo = nullptr;
 
+        // From model descriptions
+        auto BindingDescriptions = Model::Vertex::GetBindingDescriptions();
+        auto AttributeDescriptions = Model::Vertex::GetAttributeDescriptions();
+
         // Input info (Vertex)
         VkPipelineVertexInputStateCreateInfo vertexInputInfo{};
         vertexInputInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO;
-        vertexInputInfo.vertexAttributeDescriptionCount = 0;
-        vertexInputInfo.vertexBindingDescriptionCount = 0;
-        vertexInputInfo.pVertexAttributeDescriptions = nullptr;
-        vertexInputInfo.pVertexBindingDescriptions = nullptr;
+        vertexInputInfo.vertexAttributeDescriptionCount = static_cast<uint32_t>(AttributeDescriptions.size());
+        vertexInputInfo.vertexBindingDescriptionCount = static_cast<uint32_t>(BindingDescriptions.size());
+        vertexInputInfo.pVertexAttributeDescriptions = AttributeDescriptions.data();
+        vertexInputInfo.pVertexBindingDescriptions = BindingDescriptions.data(); 
 
         // Viewport
         VkPipelineViewportStateCreateInfo viewportInfo{};

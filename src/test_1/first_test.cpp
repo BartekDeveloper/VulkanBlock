@@ -7,6 +7,7 @@
 namespace BlockyVulkan {
     
     FirstTest::FirstTest() {
+        LoadModels();
         CreatePipelineLayout();
         CreatePipeline();
         CreateCommandBuffers();
@@ -23,6 +24,37 @@ namespace BlockyVulkan {
         }
 
         vkDeviceWaitIdle( device.device() );
+    }
+
+    void FirstTest::Sierpinski(
+        std::vector<Model::Vertex> &vertices,
+        int depth,
+        glm::vec2 left,
+        glm::vec2 right,
+        glm::vec2 top ) {
+        if( depth <= 0 ) {
+            vertices.push_back( { top } );
+            vertices.push_back( { right } );
+            vertices.push_back( { left } );
+        } else {
+            auto leftTop = 0.5f * ( left + top );
+            auto rightTop = 0.5f * ( right + top );
+            auto leftRight = 0.5f * ( left + right );
+            Sierpinski( vertices, depth - 1, left, leftRight, leftTop );
+            Sierpinski( vertices, depth - 1, leftRight, right, rightTop );
+            Sierpinski( vertices, depth - 1, leftTop, rightTop, top );
+        }
+    }
+    void FirstTest::LoadModels() {
+        //Sierpinski( vertices, 2, { -1.0f, -1.0f }, { 1.0f, -1.0f }, { 0.0f, 1.0f } );
+
+        std::vector<Model::Vertex> verticies{
+            {{ -.75f, -.75f }, { 1.0f, .0f, .0f}},
+            {{ .75f, -.75f }, {.0f, 0.0f, 1.0f}},
+            {{ -.0f, .75f }, { .0f, 1.0f, .0f }}
+        };
+
+        model = std::make_unique<Model>( device, verticies );
     }
 
     void FirstTest::CreatePipelineLayout() {
@@ -86,7 +118,8 @@ namespace BlockyVulkan {
             vkCmdBeginRenderPass( commandBuffers[i], &renderPassInfo, VK_SUBPASS_CONTENTS_INLINE );
 
             pipeline->Bind( commandBuffers[ i ] );
-            vkCmdDraw( commandBuffers[ i ], 3, 1, 0, 0 );
+            model->Bind( commandBuffers[ i ] );
+            model->Draw( commandBuffers[ i ] );
 
             vkCmdEndRenderPass( commandBuffers[ i ] );
             if( vkEndCommandBuffer( commandBuffers[ i ] ) != VK_SUCCESS ) {
@@ -109,4 +142,4 @@ namespace BlockyVulkan {
         }
     }
 
-}  // namespace BlockyVulkan
+}
