@@ -6,6 +6,7 @@
 #include <vulkan/vulkan.h>
 
 // std lib headers
+#include <memory>
 #include <string>
 #include <vector>
 
@@ -16,12 +17,16 @@ class SwapChain {
   static constexpr int MAX_FRAMES_IN_FLIGHT = 2;
 
   SwapChain(Device &deviceRef, VkExtent2D windowExtent);
+  SwapChain(Device &deviceRef, VkExtent2D windowExtent,
+            std::shared_ptr<SwapChain> previous);
   ~SwapChain();
 
   SwapChain(const SwapChain &) = delete;
   SwapChain &operator=(const SwapChain &) = delete;
 
-  VkFramebuffer getFrameBuffer(int index) { return swapChainFramebuffers[index]; }
+  VkFramebuffer getFrameBuffer(int index) {
+    return swapChainFramebuffers[index];
+  }
   VkRenderPass getRenderPass() { return renderPass; }
   VkImageView getImageView(int index) { return swapChainImageViews[index]; }
   size_t imageCount() { return swapChainImages.size(); }
@@ -31,14 +36,17 @@ class SwapChain {
   uint32_t height() { return swapChainExtent.height; }
 
   float extentAspectRatio() {
-    return static_cast<float>(swapChainExtent.width) / static_cast<float>(swapChainExtent.height);
+    return static_cast<float>(swapChainExtent.width) /
+           static_cast<float>(swapChainExtent.height);
   }
   VkFormat findDepthFormat();
 
   VkResult acquireNextImage(uint32_t *imageIndex);
-  VkResult submitCommandBuffers(const VkCommandBuffer *buffers, uint32_t *imageIndex);
+  VkResult submitCommandBuffers(const VkCommandBuffer *buffers,
+                                uint32_t *imageIndex);
 
  private:
+  void Init();
   void createSwapChain();
   void createImageViews();
   void createDepthResources();
@@ -69,6 +77,7 @@ class SwapChain {
   VkExtent2D windowExtent;
 
   VkSwapchainKHR swapChain;
+  std::shared_ptr<SwapChain> oldSwapChain;
 
   std::vector<VkSemaphore> imageAvailableSemaphores;
   std::vector<VkSemaphore> renderFinishedSemaphores;
@@ -77,4 +86,4 @@ class SwapChain {
   size_t currentFrame = 0;
 };
 
-}
+}  // namespace BlockyVulkan

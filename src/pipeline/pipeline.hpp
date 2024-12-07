@@ -10,9 +10,10 @@
 namespace BlockyVulkan {
 
 struct PipelineConfigInfo {
-    VkViewport viewport;
-    VkRect2D scissor;
-                                                                                    
+    PipelineConfigInfo() = default;
+    PipelineConfigInfo &operator=( const PipelineConfigInfo & ) = delete;
+
+    VkPipelineViewportStateCreateInfo viewportInfo;
     VkPipelineInputAssemblyStateCreateInfo inputAssemblyInfo;
     VkPipelineRasterizationStateCreateInfo rasterizationInfo;
     VkPipelineMultisampleStateCreateInfo multisampleInfo;
@@ -20,6 +21,9 @@ struct PipelineConfigInfo {
     VkPipelineDepthStencilStateCreateInfo depthStencilInfo;
    
     VkPipelineColorBlendAttachmentState colorBlendAttachment;
+
+    std::vector<VkDynamicState> dynamicStateEnables;
+    VkPipelineDynamicStateCreateInfo dynamicStateInfo;
 
     VkPipelineLayout pipelineLayout = nullptr;
     VkRenderPass renderPass = nullptr;
@@ -39,7 +43,7 @@ class Pipeline {
 
   void Bind( VkCommandBuffer commandBuffer );
 
-  static PipelineConfigInfo DefaultPipelineConfigInfo( uint32_t width, uint32_t height );
+  static void DefaultPipelineConfigInfo(PipelineConfigInfo &configInfo);
 
  private:
   static std::vector<char> ReadFile(const std::string &filePath);
