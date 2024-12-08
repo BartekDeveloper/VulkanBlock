@@ -25,12 +25,12 @@ SwapChain::SwapChain(Device &deviceRef, VkExtent2D extent, std::shared_ptr<SwapC
 }
 
 void SwapChain::Init() {
-    createSwapChain();
-    createImageViews();
-    createRenderPass();
-    createDepthResources();
-    createFramebuffers();
-    createSyncObjects();
+    CreateSwapChain();
+    CreateImageViews();
+    CreateRenderPass();
+    CreateDepthResources();
+    CreateFramebuffers();
+    CreateSyncObjects();
 }
 
 SwapChain::~SwapChain() {
@@ -64,7 +64,7 @@ SwapChain::~SwapChain() {
     }
 }
 
-VkResult SwapChain::acquireNextImage(uint32_t *imageIndex) {
+VkResult SwapChain::AcquireNextImage(uint32_t *imageIndex) {
     vkWaitForFences(device.device(), 1, &inFlightFences[currentFrame], VK_TRUE,
                     std::numeric_limits<uint64_t>::max());
 
@@ -77,7 +77,7 @@ VkResult SwapChain::acquireNextImage(uint32_t *imageIndex) {
     return result;
 }
 
-VkResult SwapChain::submitCommandBuffers(const VkCommandBuffer *buffers,
+VkResult SwapChain::SubmitCommandBuffers(const VkCommandBuffer *buffers,
         uint32_t *imageIndex) {
     if (imagesInFlight[*imageIndex] != VK_NULL_HANDLE) {
         vkWaitForFences(device.device(), 1, &imagesInFlight[*imageIndex], VK_TRUE,
@@ -128,14 +128,14 @@ VkResult SwapChain::submitCommandBuffers(const VkCommandBuffer *buffers,
     return result;
 }
 
-void SwapChain::createSwapChain() {
+void SwapChain::CreateSwapChain() {
     SwapChainSupportDetails swapChainSupport = device.getSwapChainSupport();
 
     VkSurfaceFormatKHR surfaceFormat =
-        chooseSwapSurfaceFormat(swapChainSupport.formats);
+        ChooseSwapSurfaceFormat(swapChainSupport.formats);
     VkPresentModeKHR presentMode =
-        chooseSwapPresentMode(swapChainSupport.presentModes);
-    VkExtent2D extent = chooseSwapExtent(swapChainSupport.capabilities);
+        ChooseSwapPresentMode(swapChainSupport.presentModes);
+    VkExtent2D extent = ChooseSwapExtent(swapChainSupport.capabilities);
 
     uint32_t imageCount = swapChainSupport.capabilities.minImageCount + 1;
     if (swapChainSupport.capabilities.maxImageCount > 0 &&
@@ -196,7 +196,7 @@ void SwapChain::createSwapChain() {
     swapChainExtent = extent;
 }
 
-void SwapChain::createImageViews() {
+void SwapChain::CreateImageViews() {
     swapChainImageViews.resize(swapChainImages.size());
     for (size_t i = 0; i < swapChainImages.size(); i++) {
         VkImageViewCreateInfo viewInfo{};
@@ -217,9 +217,9 @@ void SwapChain::createImageViews() {
     }
 }
 
-void SwapChain::createRenderPass() {
+void SwapChain::CreateRenderPass() {
     VkAttachmentDescription depthAttachment{};
-    depthAttachment.format = findDepthFormat();
+    depthAttachment.format = FindDepthFormat();
     depthAttachment.samples = VK_SAMPLE_COUNT_1_BIT;
     depthAttachment.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR;
     depthAttachment.storeOp = VK_ATTACHMENT_STORE_OP_DONT_CARE;
@@ -234,7 +234,7 @@ void SwapChain::createRenderPass() {
     depthAttachmentRef.layout = VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL;
 
     VkAttachmentDescription colorAttachment = {};
-    colorAttachment.format = getSwapChainImageFormat();
+    colorAttachment.format = GetSwapChainImageFormat();
     colorAttachment.samples = VK_SAMPLE_COUNT_1_BIT;
     colorAttachment.loadOp = VK_ATTACHMENT_LOAD_OP_CLEAR;
     colorAttachment.storeOp = VK_ATTACHMENT_STORE_OP_STORE;
@@ -282,14 +282,14 @@ void SwapChain::createRenderPass() {
     }
 }
 
-void SwapChain::createFramebuffers() {
-    swapChainFramebuffers.resize(imageCount());
-    for (size_t i = 0; i < imageCount(); i++) {
+void SwapChain::CreateFramebuffers() {
+    swapChainFramebuffers.resize(ImageCount());
+    for (size_t i = 0; i < ImageCount(); i++) {
         std::array<VkImageView, 2> attachments = {swapChainImageViews[i],
                                                   depthImageViews[i]
                                                  };
 
-        VkExtent2D swapChainExtent = getSwapChainExtent();
+        VkExtent2D swapChainExtent = GetSwapChainExtent();
         VkFramebufferCreateInfo framebufferInfo = {};
         framebufferInfo.sType = VK_STRUCTURE_TYPE_FRAMEBUFFER_CREATE_INFO;
         framebufferInfo.renderPass = renderPass;
@@ -306,13 +306,13 @@ void SwapChain::createFramebuffers() {
     }
 }
 
-void SwapChain::createDepthResources() {
-    VkFormat depthFormat = findDepthFormat();
-    VkExtent2D swapChainExtent = getSwapChainExtent();
+void SwapChain::CreateDepthResources() {
+    VkFormat depthFormat = FindDepthFormat();
+    VkExtent2D swapChainExtent = GetSwapChainExtent();
 
-    depthImages.resize(imageCount());
-    depthImageMemorys.resize(imageCount());
-    depthImageViews.resize(imageCount());
+    depthImages.resize(ImageCount());
+    depthImageMemorys.resize(ImageCount());
+    depthImageViews.resize(ImageCount());
 
     for (int i = 0; i < depthImages.size(); i++) {
         VkImageCreateInfo imageInfo{};
@@ -352,11 +352,11 @@ void SwapChain::createDepthResources() {
     }
 }
 
-void SwapChain::createSyncObjects() {
+void SwapChain::CreateSyncObjects() {
     imageAvailableSemaphores.resize(MAX_FRAMES_IN_FLIGHT);
     renderFinishedSemaphores.resize(MAX_FRAMES_IN_FLIGHT);
     inFlightFences.resize(MAX_FRAMES_IN_FLIGHT);
-    imagesInFlight.resize(imageCount(), VK_NULL_HANDLE);
+    imagesInFlight.resize(ImageCount(), VK_NULL_HANDLE);
 
     VkSemaphoreCreateInfo semaphoreInfo = {};
     semaphoreInfo.sType = VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO;
@@ -378,7 +378,7 @@ void SwapChain::createSyncObjects() {
     }
 }
 
-VkSurfaceFormatKHR SwapChain::chooseSwapSurfaceFormat(
+VkSurfaceFormatKHR SwapChain::ChooseSwapSurfaceFormat(
     const std::vector<VkSurfaceFormatKHR> &availableFormats) {
     for (const auto &availableFormat : availableFormats) {
         if (availableFormat.format == VK_FORMAT_B8G8R8A8_SRGB &&
@@ -390,7 +390,7 @@ VkSurfaceFormatKHR SwapChain::chooseSwapSurfaceFormat(
     return availableFormats[0];
 }
 
-VkPresentModeKHR SwapChain::chooseSwapPresentMode(
+VkPresentModeKHR SwapChain::ChooseSwapPresentMode(
     const std::vector<VkPresentModeKHR> &availablePresentModes) {
     for (const auto &availablePresentMode : availablePresentModes) {
         if (availablePresentMode == VK_PRESENT_MODE_MAILBOX_KHR) {
@@ -410,7 +410,7 @@ VkPresentModeKHR SwapChain::chooseSwapPresentMode(
     return VK_PRESENT_MODE_FIFO_KHR;
 }
 
-VkExtent2D SwapChain::chooseSwapExtent(
+VkExtent2D SwapChain::ChooseSwapExtent(
     const VkSurfaceCapabilitiesKHR &capabilities) {
     if (capabilities.currentExtent.width !=
             std::numeric_limits<uint32_t>::max()) {
@@ -428,7 +428,7 @@ VkExtent2D SwapChain::chooseSwapExtent(
     }
 }
 
-VkFormat SwapChain::findDepthFormat() {
+VkFormat SwapChain::FindDepthFormat() {
     return device.findSupportedFormat( {
         VK_FORMAT_D32_SFLOAT, VK_FORMAT_D32_SFLOAT_S8_UINT,
         VK_FORMAT_D24_UNORM_S8_UINT},

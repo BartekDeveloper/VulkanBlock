@@ -24,56 +24,56 @@ class SwapChain {
     SwapChain(const SwapChain &) = delete;
     SwapChain &operator=(const SwapChain &) = delete;
 
-    VkFramebuffer getFrameBuffer(int index) {
+    VkFramebuffer GetFrameBuffer(int index) {
         return swapChainFramebuffers[index];
     }
-    VkRenderPass getRenderPass() {
+    VkRenderPass GetRenderPass() {
         return renderPass;
     }
-    VkImageView getImageView(int index) {
+    VkImageView GetImageView(int index) {
         return swapChainImageViews[index];
     }
-    size_t imageCount() {
+    size_t ImageCount() {
         return swapChainImages.size();
     }
-    VkFormat getSwapChainImageFormat() {
+    VkFormat GetSwapChainImageFormat() {
         return swapChainImageFormat;
     }
-    VkExtent2D getSwapChainExtent() {
+    VkExtent2D GetSwapChainExtent() {
         return swapChainExtent;
     }
-    uint32_t width() {
+    uint32_t Width() {
         return swapChainExtent.width;
     }
-    uint32_t height() {
+    uint32_t Height() {
         return swapChainExtent.height;
     }
 
-    float extentAspectRatio() {
+    float ExtentAspectRatio() {
         return static_cast<float>(swapChainExtent.width) /
                static_cast<float>(swapChainExtent.height);
     }
-    VkFormat findDepthFormat();
+    VkFormat FindDepthFormat();
 
-    VkResult acquireNextImage(uint32_t *imageIndex);
-    VkResult submitCommandBuffers(const VkCommandBuffer *buffers,
+    VkResult AcquireNextImage(uint32_t *imageIndex);
+    VkResult SubmitCommandBuffers(const VkCommandBuffer *buffers,
                                   uint32_t *imageIndex);
 
   private:
     void Init();
-    void createSwapChain();
-    void createImageViews();
-    void createDepthResources();
-    void createRenderPass();
-    void createFramebuffers();
-    void createSyncObjects();
+    void CreateSwapChain();
+    void CreateImageViews();
+    void CreateDepthResources();
+    void CreateRenderPass();
+    void CreateFramebuffers();
+    void CreateSyncObjects();
 
     // Helper functions
-    VkSurfaceFormatKHR chooseSwapSurfaceFormat(
+    VkSurfaceFormatKHR ChooseSwapSurfaceFormat(
         const std::vector<VkSurfaceFormatKHR> &availableFormats);
-    VkPresentModeKHR chooseSwapPresentMode(
+    VkPresentModeKHR ChooseSwapPresentMode(
         const std::vector<VkPresentModeKHR> &availablePresentModes);
-    VkExtent2D chooseSwapExtent(const VkSurfaceCapabilitiesKHR &capabilities);
+    VkExtent2D ChooseSwapExtent(const VkSurfaceCapabilitiesKHR &capabilities);
 
     VkFormat swapChainImageFormat;
     VkExtent2D swapChainExtent;
@@ -100,4 +100,4 @@ class SwapChain {
     size_t currentFrame = 0;
 };
 
-}  // namespace BlockyVulkan
+}

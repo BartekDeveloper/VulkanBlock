@@ -40,7 +40,7 @@ class GameObject {
     GameObject(GameObject &&) = default;
     GameObject &operator=(GameObject &&) = default;
 
-    const id_t GetId() {
+    const id_t GetId() const {
         return id;
     }
 
