@@ -59,6 +59,10 @@ class SwapChain {
     VkResult SubmitCommandBuffers(const VkCommandBuffer *buffers,
                                   uint32_t *imageIndex);
 
+    const bool compareSwapFormats( const SwapChain &swapChain ) const {
+        return swapChain.swapChainDepthFormat == swapChainDepthFormat && swapChain.swapChainImageFormat == swapChainImageFormat;
+    }
+
   private:
     void Init();
     void CreateSwapChain();
@@ -76,6 +80,7 @@ class SwapChain {
     VkExtent2D ChooseSwapExtent(const VkSurfaceCapabilitiesKHR &capabilities);
 
     VkFormat swapChainImageFormat;
+    VkFormat swapChainDepthFormat;
     VkExtent2D swapChainExtent;
 
     std::vector<VkFramebuffer> swapChainFramebuffers;

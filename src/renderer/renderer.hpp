@@ -24,7 +24,12 @@ namespace BlockyVulkan {
 
         const VkCommandBuffer GetCurrentCommandBuffer() const {
             assert(didFrameStarted && "Cannot get command buffer when frame not in progress!");
-            return commandBuffers[currImgIdx];
+            return commandBuffers[currFrameIdx];
+        }
+
+        const int GetFrameIndex() const {
+            assert(didFrameStarted && "Cannot get `frame index` when frame not in progress");
+            return currFrameIdx;
         }
 
         VkCommandBuffer BeginFrame();
@@ -43,6 +48,7 @@ namespace BlockyVulkan {
         std::vector<VkCommandBuffer> commandBuffers;
 
         uint32_t currImgIdx;
-        bool didFrameStarted;
+        int currFrameIdx{0};
+        bool didFrameStarted{false};
     };
 };

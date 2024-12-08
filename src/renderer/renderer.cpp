@@ -7,7 +7,7 @@
 
 namespace BlockyVulkan {
 
-    Renderer::Renderer(Window &window, Device &device) : window{window}, device{device} {
+    Renderer::Renderer( Window &window, Device &device ): window{ window }, device{ device } {
         RecreateSwapChain();
         CreateCommandBuffers();
     }
@@ -28,11 +28,12 @@ namespace BlockyVulkan {
         if( swapChain == nullptr ) {
             swapChain = std::make_unique<SwapChain>( device, extent );
         } else {
-            swapChain =
-                std::make_unique<SwapChain>( device, extent, std::move( swapChain ) );
-            if( swapChain->ImageCount() != commandBuffers.size() ) {
-                FreeCommandBuffers();
-                CreateCommandBuffers();
+            std::shared_ptr<SwapChain> oldSwapChain = std::move( swapChain );
+
+            swapChain = std::make_unique<SwapChain>( device, extent, oldSwapChain );
+
+            if( !oldSwapChain->compareSwapFormats( *swapChain.get() )) {
+                throw std::runtime_error("Failed, swap chain image(or depth) format has changed!");
             }
         }
 
@@ -40,7 +41,7 @@ namespace BlockyVulkan {
     }
 
     void Renderer::CreateCommandBuffers() {
-        commandBuffers.resize( swapChain->ImageCount() );
+        commandBuffers.resize( SwapChain::MAX_FRAMES_IN_FLIGHT );
 
         VkCommandBufferAllocateInfo allocInfo{};
         allocInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
@@ -108,6 +109,7 @@ namespace BlockyVulkan {
         }
 
         didFrameStarted = false;
+        currFrameIdx = (currFrameIdx + 1) % SwapChain::MAX_FRAMES_IN_FLIGHT;
     }
     void Renderer::BeginSwapChainRenderPass( VkCommandBuffer commandBuffer ) {
         assert( didFrameStarted && "Cannot call `BeginSwapChainRenderPass` when frame IS NOT in progress!" );
