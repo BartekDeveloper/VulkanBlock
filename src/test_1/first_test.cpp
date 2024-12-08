@@ -10,8 +10,8 @@
 
 // std
 #include <array>
-#include <iostream>
 #include <cassert>
+#include <iostream>
 
 namespace BlockyVulkan {
 
@@ -19,9 +19,10 @@ FirstTest::FirstTest() { LoadGameObjects(); }
 FirstTest::~FirstTest() {}
 
 void FirstTest::Run() {
-  // Get number of max push constant (irrelevant, beacuse i dont need more than specs 128 bytes, but still, just for fun, i guess...)
-  std::cout << "Limit max push constant size: " << device.properties.limits.maxPushConstantsSize << "\n";
-
+  // Get number of max push constant (irrelevant, beacuse i dont need more than
+  // specs 128 bytes, but still, just for fun, i guess...)
+  std::cout << "Limit max push constant size: "
+            << device.properties.limits.maxPushConstantsSize << "\n";
 
   SimpleRenderSystem renderSystem{device, renderer.GetSwapChainRenderPass()};
 
@@ -29,14 +30,14 @@ void FirstTest::Run() {
     glfwPollEvents();
 
     // Begin frame
-    if( auto commandBuffer = renderer.BeginFrame() ) {
-        renderer.BeginSwapChainRenderPass(commandBuffer);
+    if (auto commandBuffer = renderer.BeginFrame()) {
+      renderer.BeginSwapChainRenderPass(commandBuffer);
 
-        renderSystem.RenderGameObjects(commandBuffer, gameObjects);
+      renderSystem.RenderGameObjects(commandBuffer, gameObjects);
 
-        // End frame
-        renderer.EndSwapChainRenderPass(commandBuffer);
-        renderer.EndFrame();
+      // End frame
+      renderer.EndSwapChainRenderPass(commandBuffer);
+      renderer.EndFrame();
     }
   }
 
@@ -44,23 +45,73 @@ void FirstTest::Run() {
   vkDeviceWaitIdle(device.device());
 }
 
+// temporary helper function, creates a 1x1x1 cube centered at offset
+std::unique_ptr<Model> CreateCubeModel(Device &device, glm::vec3 offset) {
+  std::vector<Model::Vertex> vertices{
+
+      // left face (white)
+      {{-.5f, -.5f, -.5f}, {.9f, .9f, .9f}},
+      {{-.5f, .5f, .5f}, {.9f, .9f, .9f}},
+      {{-.5f, -.5f, .5f}, {.9f, .9f, .9f}},
+      {{-.5f, -.5f, -.5f}, {.9f, .9f, .9f}},
+      {{-.5f, .5f, -.5f}, {.9f, .9f, .9f}},
+      {{-.5f, .5f, .5f}, {.9f, .9f, .9f}},
+
+      // right face (yellow)
+      {{.5f, -.5f, -.5f}, {.8f, .8f, .1f}},
+      {{.5f, .5f, .5f}, {.8f, .8f, .1f}},
+      {{.5f, -.5f, .5f}, {.8f, .8f, .1f}},
+      {{.5f, -.5f, -.5f}, {.8f, .8f, .1f}},
+      {{.5f, .5f, -.5f}, {.8f, .8f, .1f}},
+      {{.5f, .5f, .5f}, {.8f, .8f, .1f}},
+
+      // top face (orange, remember y axis points down)
+      {{-.5f, -.5f, -.5f}, {.9f, .6f, .1f}},
+      {{.5f, -.5f, .5f}, {.9f, .6f, .1f}},
+      {{-.5f, -.5f, .5f}, {.9f, .6f, .1f}},
+      {{-.5f, -.5f, -.5f}, {.9f, .6f, .1f}},
+      {{.5f, -.5f, -.5f}, {.9f, .6f, .1f}},
+      {{.5f, -.5f, .5f}, {.9f, .6f, .1f}},
+
+      // bottom face (red)
+      {{-.5f, .5f, -.5f}, {.8f, .1f, .1f}},
+      {{.5f, .5f, .5f}, {.8f, .1f, .1f}},
+      {{-.5f, .5f, .5f}, {.8f, .1f, .1f}},
+      {{-.5f, .5f, -.5f}, {.8f, .1f, .1f}},
+      {{.5f, .5f, -.5f}, {.8f, .1f, .1f}},
+      {{.5f, .5f, .5f}, {.8f, .1f, .1f}},
+
+      // nose face (blue)
+      {{-.5f, -.5f, 0.5f}, {.1f, .1f, .8f}},
+      {{.5f, .5f, 0.5f}, {.1f, .1f, .8f}},
+      {{-.5f, .5f, 0.5f}, {.1f, .1f, .8f}},
+      {{-.5f, -.5f, 0.5f}, {.1f, .1f, .8f}},
+      {{.5f, -.5f, 0.5f}, {.1f, .1f, .8f}},
+      {{.5f, .5f, 0.5f}, {.1f, .1f, .8f}},
+
+      // tail face (green)
+      {{-.5f, -.5f, -0.5f}, {.1f, .8f, .1f}},
+      {{.5f, .5f, -0.5f}, {.1f, .8f, .1f}},
+      {{-.5f, .5f, -0.5f}, {.1f, .8f, .1f}},
+      {{-.5f, -.5f, -0.5f}, {.1f, .8f, .1f}},
+      {{.5f, -.5f, -0.5f}, {.1f, .8f, .1f}},
+      {{.5f, .5f, -0.5f}, {.1f, .8f, .1f}},
+
+  };
+  for (auto &v : vertices) {
+    v.position += offset;
+  }
+  return std::make_unique<Model>(device, vertices);
+}
+
 void FirstTest::LoadGameObjects() {
+    std::shared_ptr<Model> model = CreateCubeModel(device, {.0f, .0f, .0f});
 
-  std::vector<Model::Vertex> verticies{
-      {{-.75f, -.75f}, {1.f, .0f, .0f}},
-      { { .75f, -.75f }, { .0f, .0f, 1.f } },
-      {{-.0f, .75f}, {.0f, 1.f, .0f}}
-    };
-
-  auto model = std::make_shared<Model>(device, verticies);
-
-  auto triangle = GameObject::createGameObject();
-  triangle.model = model;
-  triangle.color = {.2f, .1f, .8f};
-  triangle.transform2D.translation.x = .2f;
-  triangle.transform2D.scale = {2.f, .5f};
-  triangle.transform2D.rotation = -.25f * glm::two_pi<float>();
-
-  gameObjects.push_back(std::move(triangle));
+    auto cube = GameObject::createGameObject();
+    cube.model = model;
+    cube.transform3D.translation = {.0f, .0f, .5f};
+    cube.transform3D.scale = {.5f, .5f, .5f};
+    
+    gameObjects.push_back(std::move(cube));
 }
-}
+}  // namespace BlockyVulkan

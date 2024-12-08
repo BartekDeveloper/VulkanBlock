@@ -12,8 +12,7 @@
 namespace BlockyVulkan {
 
     struct SimplePushConstantData {
-        glm::mat2 transform{ 1.f };  // Initializes main diagonal, not every entry
-        glm::vec2 offset;
+        glm::mat4 transform{ 1.f };  // Initializes main diagonal, not every entry
         alignas( 16 ) glm::vec3 color;
     };
 
@@ -65,12 +64,12 @@ namespace BlockyVulkan {
         pipeline->Bind( commandBuffer );
 
         for( auto &obj : gameObjects ) {
-            obj.transform2D.rotation = glm::mod( obj.transform2D.rotation + 0.001f, glm::two_pi<float>() );
+            obj.transform3D.rotation.y = glm::mod( obj.transform3D.rotation.y + 0.0001f, glm::two_pi<float>() );
+            obj.transform3D.rotation.z = glm::mod( obj.transform3D.rotation.z + 0.000005f, glm::two_pi<float>() );
 
             SimplePushConstantData push{};
-            push.offset = obj.transform2D.translation;
             push.color = obj.color;
-            push.transform = obj.transform2D.mat2();
+            push.transform = obj.transform3D.Mat4();
 
             vkCmdPushConstants(
                 commandBuffer, pipelineLayout,

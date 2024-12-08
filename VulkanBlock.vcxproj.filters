@@ -75,4 +75,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="compile_shaders.bat">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="README.md" />
+    <None Include=".gitattributes" />
+    <None Include=".gitignore" />
+    <None Include="resources.bat">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
 </Project>
