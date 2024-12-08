@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_first__test_8hpp_source" xml:lang="en-US">
+<title>first_test.hpp</title>
+<indexterm><primary>src/test_1/first_test.hpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_first__test_8hpp_source_1l00001"/>00001 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="_first__test_8hpp_source_1l00002"/>00002 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_device_8hpp">../device/device.hpp</link>&quot;</emphasis>
+<anchor xml:id="_first__test_8hpp_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_game__object_8hpp">../game_object/game_object.hpp</link>&quot;</emphasis>
+<anchor xml:id="_first__test_8hpp_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_model_8hpp">../model/model.hpp</link>&quot;</emphasis>
+<anchor xml:id="_first__test_8hpp_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_pipeline_8hpp">../pipeline/pipeline.hpp</link>&quot;</emphasis>
+<anchor xml:id="_first__test_8hpp_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_swap__chain_8hpp">../swapchain/swap_chain.hpp</link>&quot;</emphasis>
+<anchor xml:id="_first__test_8hpp_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_window_8hpp">../window/window.hpp</link>&quot;</emphasis>
+<anchor xml:id="_first__test_8hpp_source_1l00008"/>00008 
+<anchor xml:id="_first__test_8hpp_source_1l00009"/>00009 <emphasis role="comment">//&#32;std</emphasis>
+<anchor xml:id="_first__test_8hpp_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&lt;memory&gt;</emphasis>
+<anchor xml:id="_first__test_8hpp_source_1l00011"/>00011 <emphasis role="preprocessor">#include&#32;&lt;vector&gt;</emphasis>
+<anchor xml:id="_first__test_8hpp_source_1l00012"/>00012 
+<anchor xml:id="_first__test_8hpp_source_1l00013"/>00013 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_blocky_vulkan">BlockyVulkan</link>&#32;{
+<anchor xml:id="_first__test_8hpp_source_1l00014"/><link linkend="_class_blocky_vulkan_1_1_first_test">00014</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_blocky_vulkan_1_1_first_test">FirstTest</link>&#32;{
+<anchor xml:id="_first__test_8hpp_source_1l00015"/>00015 &#32;&#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_first__test_8hpp_source_1l00016"/><link linkend="_class_blocky_vulkan_1_1_first_test_1a93b93e723eacdc4e26d7999f74e69b12">00016</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_blocky_vulkan_1_1_first_test_1a93b93e723eacdc4e26d7999f74e69b12">WIDTH</link>{800};
+<anchor xml:id="_first__test_8hpp_source_1l00017"/><link linkend="_class_blocky_vulkan_1_1_first_test_1aa881baa92f22b00b4435ba014a4ac40c">00017</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keyword">constexpr</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_blocky_vulkan_1_1_first_test_1aa881baa92f22b00b4435ba014a4ac40c">HEIGHT</link>{600};
+<anchor xml:id="_first__test_8hpp_source_1l00018"/>00018 
+<anchor xml:id="_first__test_8hpp_source_1l00019"/>00019 &#32;&#32;&#32;&#32;<link linkend="_class_blocky_vulkan_1_1_first_test_1aae748a33a479466a837baaa37df9c39f">FirstTest</link>();
+<anchor xml:id="_first__test_8hpp_source_1l00020"/>00020 &#32;&#32;&#32;&#32;<link linkend="_class_blocky_vulkan_1_1_first_test_1a21d40444d4659ff4b68046682665c84e">~FirstTest</link>();
+<anchor xml:id="_first__test_8hpp_source_1l00021"/>00021 
+<anchor xml:id="_first__test_8hpp_source_1l00022"/><link linkend="_class_blocky_vulkan_1_1_first_test_1ad39f53e8a673178131bd33cef109d98f">00022</link> &#32;&#32;&#32;&#32;<link linkend="_class_blocky_vulkan_1_1_first_test_1ad39f53e8a673178131bd33cef109d98f">FirstTest</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_blocky_vulkan_1_1_first_test">FirstTest</link>&#32;&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_first__test_8hpp_source_1l00023"/><link linkend="_class_blocky_vulkan_1_1_first_test_1a502edb60a80b8f233e2a606dc5a1bfc9">00023</link> &#32;&#32;&#32;&#32;<link linkend="_class_blocky_vulkan_1_1_first_test">FirstTest</link>&#32;&amp;<link linkend="_class_blocky_vulkan_1_1_first_test_1a502edb60a80b8f233e2a606dc5a1bfc9">operator=</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_blocky_vulkan_1_1_first_test">FirstTest</link>&#32;&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_first__test_8hpp_source_1l00024"/>00024 
+<anchor xml:id="_first__test_8hpp_source_1l00025"/>00025 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_blocky_vulkan_1_1_first_test_1a905363df2403c92de3da3fb24fa9673b">Run</link>();
+<anchor xml:id="_first__test_8hpp_source_1l00026"/>00026 
+<anchor xml:id="_first__test_8hpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_blocky_vulkan_1_1_first_test_1aae5365a9bbdf34c8d8b5ac1993bcebca">Sierpinski</link>(std::vector&lt;Model::Vertex&gt;&#32;&amp;vertices,&#32;<emphasis role="keywordtype">int</emphasis>&#32;depth,
+<anchor xml:id="_first__test_8hpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;glm::vec2&#32;left,&#32;glm::vec2&#32;right,&#32;glm::vec2&#32;top);
+<anchor xml:id="_first__test_8hpp_source_1l00029"/>00029 
+<anchor xml:id="_first__test_8hpp_source_1l00030"/>00030 &#32;&#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_first__test_8hpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;LoadGameObjects();
+<anchor xml:id="_first__test_8hpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;CreatePipelineLayout();
+<anchor xml:id="_first__test_8hpp_source_1l00033"/>00033 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;CreatePipeline();
+<anchor xml:id="_first__test_8hpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;CreateCommandBuffers();
+<anchor xml:id="_first__test_8hpp_source_1l00035"/>00035 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;FreeCommandBuffers();
+<anchor xml:id="_first__test_8hpp_source_1l00036"/>00036 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;DrawFrame();
+<anchor xml:id="_first__test_8hpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;RecreateSwapChain();
+<anchor xml:id="_first__test_8hpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;RecordCommandBuffer(<emphasis role="keywordtype">int</emphasis>&#32;imageIndex);
+<anchor xml:id="_first__test_8hpp_source_1l00039"/>00039 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;RenderGameObjects(VkCommandBuffer&#32;commandBuffer);
+<anchor xml:id="_first__test_8hpp_source_1l00040"/>00040 
+<anchor xml:id="_first__test_8hpp_source_1l00041"/>00041 &#32;&#32;&#32;&#32;<link linkend="_class_blocky_vulkan_1_1_window">Window</link>&#32;window{<link linkend="_class_blocky_vulkan_1_1_first_test_1a93b93e723eacdc4e26d7999f74e69b12">WIDTH</link>,&#32;<link linkend="_class_blocky_vulkan_1_1_first_test_1aa881baa92f22b00b4435ba014a4ac40c">HEIGHT</link>,&#32;<emphasis role="stringliteral">&quot;Hello&#32;Vulkan!&quot;</emphasis>};
+<anchor xml:id="_first__test_8hpp_source_1l00042"/>00042 &#32;&#32;&#32;&#32;<link linkend="_class_blocky_vulkan_1_1_device">Device</link>&#32;device{window};
+<anchor xml:id="_first__test_8hpp_source_1l00043"/>00043 &#32;&#32;&#32;&#32;std::unique_ptr&lt;SwapChain&gt;&#32;swapChain;
+<anchor xml:id="_first__test_8hpp_source_1l00044"/>00044 &#32;&#32;&#32;&#32;std::unique_ptr&lt;Pipeline&gt;&#32;pipeline;
+<anchor xml:id="_first__test_8hpp_source_1l00045"/>00045 &#32;&#32;&#32;&#32;VkPipelineLayout&#32;pipelineLayout;
+<anchor xml:id="_first__test_8hpp_source_1l00046"/>00046 &#32;&#32;&#32;&#32;std::vector&lt;VkCommandBuffer&gt;&#32;commandBuffers;
+<anchor xml:id="_first__test_8hpp_source_1l00047"/>00047 &#32;&#32;&#32;&#32;std::vector&lt;GameObject&gt;&#32;gameObjects;
+<anchor xml:id="_first__test_8hpp_source_1l00048"/>00048 };
+<anchor xml:id="_first__test_8hpp_source_1l00049"/>00049 };&#32;&#32;<emphasis role="comment">//&#32;namespace&#32;BlockyVulkan</emphasis>
+</programlisting></section>

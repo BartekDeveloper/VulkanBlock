@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_game__object_8hpp_source" xml:lang="en-US">
+<title>game_object.hpp</title>
+<indexterm><primary>src/game_object/game_object.hpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_game__object_8hpp_source_1l00001"/>00001 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+<anchor xml:id="_game__object_8hpp_source_1l00002"/>00002 
+<anchor xml:id="_game__object_8hpp_source_1l00003"/><link linkend="_game__object_8hpp_1a816ab7d5c2ce1f0a01216042837beb93">00003</link> <emphasis role="preprocessor">#define&#32;GLM_FORCE_RADIANS&#32;</emphasis><emphasis role="comment">//&#32;forcing&#32;radians&#32;instead&#32;of&#32;degrees&#32;(no&#32;matter&#32;your&#32;os&#32;settings)</emphasis>
+<anchor xml:id="_game__object_8hpp_source_1l00004"/><link linkend="_game__object_8hpp_1aa53e0967978ad7a8792f6961156ec968">00004</link> <emphasis role="preprocessor">#define&#32;GLM_FORCE_DEPTH_ZERO_TO_ONE&#32;</emphasis><emphasis role="comment">//&#32;forcing&#32;depth&#32;to&#32;be&#32;from&#32;0&#32;to&#32;1</emphasis>
+<anchor xml:id="_game__object_8hpp_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&lt;glm/glm.hpp&gt;</emphasis>
+<anchor xml:id="_game__object_8hpp_source_1l00006"/>00006 
+<anchor xml:id="_game__object_8hpp_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_model_8hpp">../model/model.hpp</link>&quot;</emphasis>
+<anchor xml:id="_game__object_8hpp_source_1l00008"/>00008 
+<anchor xml:id="_game__object_8hpp_source_1l00009"/>00009 <emphasis role="comment">//&#32;std</emphasis>
+<anchor xml:id="_game__object_8hpp_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&lt;memory&gt;</emphasis>
+<anchor xml:id="_game__object_8hpp_source_1l00011"/>00011 
+<anchor xml:id="_game__object_8hpp_source_1l00012"/>00012 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_blocky_vulkan">BlockyVulkan</link>&#32;{
+<anchor xml:id="_game__object_8hpp_source_1l00013"/>00013 
+<anchor xml:id="_game__object_8hpp_source_1l00014"/><link linkend="_struct_blocky_vulkan_1_1_transform2_d___component">00014</link> <emphasis role="keyword">struct&#32;</emphasis><link linkend="_struct_blocky_vulkan_1_1_transform2_d___component">Transform2D_Component</link>&#32;{
+<anchor xml:id="_game__object_8hpp_source_1l00015"/><link linkend="_struct_blocky_vulkan_1_1_transform2_d___component_1a61dd87d229118f0af6632a023dfbdfa0">00015</link> &#32;&#32;&#32;&#32;glm::vec2&#32;<link linkend="_struct_blocky_vulkan_1_1_transform2_d___component_1a61dd87d229118f0af6632a023dfbdfa0">translation</link>{};&#32;<emphasis role="comment">//&#32;(position&#32;offset)</emphasis>
+<anchor xml:id="_game__object_8hpp_source_1l00016"/>00016 
+<anchor xml:id="_game__object_8hpp_source_1l00017"/><link linkend="_struct_blocky_vulkan_1_1_transform2_d___component_1a3ab89de3300479569ee5ae092f9e0a1a">00017</link> &#32;&#32;&#32;&#32;glm::mat2&#32;<link linkend="_struct_blocky_vulkan_1_1_transform2_d___component_1a3ab89de3300479569ee5ae092f9e0a1a">mat2</link>()&#32;{
+<anchor xml:id="_game__object_8hpp_source_1l00018"/>00018 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;glm::mat2(1.f);
+<anchor xml:id="_game__object_8hpp_source_1l00019"/>00019 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_game__object_8hpp_source_1l00020"/>00020 };
+<anchor xml:id="_game__object_8hpp_source_1l00021"/>00021 
+<anchor xml:id="_game__object_8hpp_source_1l00022"/><link linkend="_class_blocky_vulkan_1_1_game_object">00022</link> <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link>&#32;{
+<anchor xml:id="_game__object_8hpp_source_1l00023"/>00023 &#32;&#32;<emphasis role="keyword">public</emphasis>:
+<anchor xml:id="_game__object_8hpp_source_1l00024"/><link linkend="_class_blocky_vulkan_1_1_game_object_1a5f35795b309b75a6307bc2b71d902ef2">00024</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis><link linkend="_class_blocky_vulkan_1_1_game_object_1a5f35795b309b75a6307bc2b71d902ef2">id_t</link>&#32;=&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;int;
+<anchor xml:id="_game__object_8hpp_source_1l00025"/>00025 
+<anchor xml:id="_game__object_8hpp_source_1l00026"/><link linkend="_class_blocky_vulkan_1_1_game_object_1a0cf4c0d3e2627d56d7385c4d98e7735a">00026</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link>&#32;<link linkend="_class_blocky_vulkan_1_1_game_object_1a0cf4c0d3e2627d56d7385c4d98e7735a">createGameObject</link>()&#32;{
+<anchor xml:id="_game__object_8hpp_source_1l00027"/>00027 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<link linkend="_class_blocky_vulkan_1_1_game_object_1a5f35795b309b75a6307bc2b71d902ef2">id_t</link>&#32;currentId&#32;=&#32;0;
+<anchor xml:id="_game__object_8hpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_class_blocky_vulkan_1_1_game_object_1af7d60a002f79a1b5d8d51d0264db2bb4">GameObject</link>(currentId++);
+<anchor xml:id="_game__object_8hpp_source_1l00029"/>00029 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_game__object_8hpp_source_1l00030"/>00030 
+<anchor xml:id="_game__object_8hpp_source_1l00031"/><link linkend="_class_blocky_vulkan_1_1_game_object_1af7d60a002f79a1b5d8d51d0264db2bb4">00031</link> &#32;&#32;&#32;&#32;<link linkend="_class_blocky_vulkan_1_1_game_object_1af7d60a002f79a1b5d8d51d0264db2bb4">GameObject</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link>&#32;&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_game__object_8hpp_source_1l00032"/><link linkend="_class_blocky_vulkan_1_1_game_object_1a55f79f0f069a6973bb3941bed867d648">00032</link> &#32;&#32;&#32;&#32;<link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link>&#32;&amp;<link linkend="_class_blocky_vulkan_1_1_game_object_1a55f79f0f069a6973bb3941bed867d648">operator=</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link>&#32;&amp;)&#32;=&#32;<emphasis role="keyword">delete</emphasis>;
+<anchor xml:id="_game__object_8hpp_source_1l00033"/><link linkend="_class_blocky_vulkan_1_1_game_object_1a3ae0b3a37c5d4506e5f86107699cf6cf">00033</link> &#32;&#32;&#32;&#32;<link linkend="_class_blocky_vulkan_1_1_game_object_1a3ae0b3a37c5d4506e5f86107699cf6cf">GameObject</link>(<link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link>&#32;&amp;&amp;)&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
+<anchor xml:id="_game__object_8hpp_source_1l00034"/><link linkend="_class_blocky_vulkan_1_1_game_object_1a2fb0731028d32dfdfd05522bbf55b0cd">00034</link> &#32;&#32;&#32;&#32;<link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link>&#32;&amp;<link linkend="_class_blocky_vulkan_1_1_game_object_1a2fb0731028d32dfdfd05522bbf55b0cd">operator=</link>(<link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link>&#32;&amp;&amp;)&#32;=&#32;<emphasis role="keywordflow">default</emphasis>;
+<anchor xml:id="_game__object_8hpp_source_1l00035"/>00035 
+<anchor xml:id="_game__object_8hpp_source_1l00036"/><link linkend="_class_blocky_vulkan_1_1_game_object_1a033bebd4ff0c3f8b319a9ea205e8378d">00036</link> &#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_class_blocky_vulkan_1_1_game_object_1a5f35795b309b75a6307bc2b71d902ef2">id_t</link>&#32;<link linkend="_class_blocky_vulkan_1_1_game_object_1a033bebd4ff0c3f8b319a9ea205e8378d">GetId</link>()&#32;{
+<anchor xml:id="_game__object_8hpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;id;
+<anchor xml:id="_game__object_8hpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_game__object_8hpp_source_1l00039"/>00039 
+<anchor xml:id="_game__object_8hpp_source_1l00040"/><link linkend="_class_blocky_vulkan_1_1_game_object_1a0e2537cdc1451bd103d085fe2f7ae8ec">00040</link> &#32;&#32;&#32;&#32;std::shared_ptr&lt;Model&gt;&#32;<link linkend="_class_blocky_vulkan_1_1_game_object_1a0e2537cdc1451bd103d085fe2f7ae8ec">model</link>{};
+<anchor xml:id="_game__object_8hpp_source_1l00041"/><link linkend="_class_blocky_vulkan_1_1_game_object_1ac420658a47b19a666a8c20ef8c6e5953">00041</link> &#32;&#32;&#32;&#32;glm::vec3&#32;<link linkend="_class_blocky_vulkan_1_1_game_object_1ac420658a47b19a666a8c20ef8c6e5953">color</link>{};
+<anchor xml:id="_game__object_8hpp_source_1l00042"/><link linkend="_class_blocky_vulkan_1_1_game_object_1a034f46f8f39f6bd03a89ea9749380fd5">00042</link> &#32;&#32;&#32;&#32;<link linkend="_struct_blocky_vulkan_1_1_transform2_d___component">Transform2D_Component</link>&#32;<link linkend="_class_blocky_vulkan_1_1_game_object_1a034f46f8f39f6bd03a89ea9749380fd5">transform2D</link>{};
+<anchor xml:id="_game__object_8hpp_source_1l00043"/>00043 
+<anchor xml:id="_game__object_8hpp_source_1l00044"/>00044 &#32;&#32;<emphasis role="keyword">private</emphasis>:
+<anchor xml:id="_game__object_8hpp_source_1l00045"/>00045 &#32;&#32;&#32;&#32;<link linkend="_class_blocky_vulkan_1_1_game_object_1af7d60a002f79a1b5d8d51d0264db2bb4">GameObject</link>(<link linkend="_class_blocky_vulkan_1_1_game_object_1a5f35795b309b75a6307bc2b71d902ef2">id_t</link>&#32;objId)&#32;:&#32;id{objId}&#32;{};
+<anchor xml:id="_game__object_8hpp_source_1l00046"/>00046 &#32;&#32;&#32;&#32;<link linkend="_class_blocky_vulkan_1_1_game_object_1a5f35795b309b75a6307bc2b71d902ef2">id_t</link>&#32;id;
+<anchor xml:id="_game__object_8hpp_source_1l00047"/>00047 };
+<anchor xml:id="_game__object_8hpp_source_1l00048"/>00048 }
+</programlisting></section>

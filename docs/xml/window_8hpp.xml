@@ -1,0 +1,184 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="window_8hpp" kind="file" language="C++">
+    <compoundname>window.hpp</compoundname>
+    <includes local="no">vulkan/vulkan.h</includes>
+    <includes local="no">GLFW/glfw3.h</includes>
+    <includes local="no">string</includes>
+    <includedby refid="device_8hpp" local="yes">device.hpp</includedby>
+    <includedby refid="first__test_8hpp" local="yes">first_test.hpp</includedby>
+    <includedby refid="window_8cpp" local="yes">window.cpp</includedby>
+    <incdepgraph>
+      <node id="3">
+        <label>GLFW/glfw3.h</label>
+      </node>
+      <node id="1">
+        <label>window.hpp</label>
+        <link refid="window_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>string</label>
+      </node>
+      <node id="2">
+        <label>vulkan/vulkan.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="6">
+        <label>main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="3">
+        <label>device.cpp</label>
+        <link refid="device_8cpp"/>
+      </node>
+      <node id="2">
+        <label>device.hpp</label>
+        <link refid="device_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>game_object.hpp</label>
+        <link refid="game__object_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>model.cpp</label>
+        <link refid="model_8cpp"/>
+      </node>
+      <node id="7">
+        <label>model.hpp</label>
+        <link refid="model_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>pipeline.cpp</label>
+        <link refid="pipeline_8cpp"/>
+      </node>
+      <node id="11">
+        <label>pipeline.hpp</label>
+        <link refid="pipeline_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>swap_chain.cpp</label>
+        <link refid="swap__chain_8cpp"/>
+      </node>
+      <node id="12">
+        <label>swap_chain.hpp</label>
+        <link refid="swap__chain_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>first_test.cpp</label>
+        <link refid="first__test_8cpp"/>
+      </node>
+      <node id="4">
+        <label>first_test.hpp</label>
+        <link refid="first__test_8hpp"/>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="14">
+        <label>window.cpp</label>
+        <link refid="window_8cpp"/>
+      </node>
+      <node id="1">
+        <label>window.hpp</label>
+        <link refid="window_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_blocky_vulkan_1_1_window" prot="public">BlockyVulkan::Window</innerclass>
+    <innernamespace refid="namespace_blocky_vulkan">BlockyVulkan</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vulkan/vulkan.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;GLFW/glfw3.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;GLFW/glfw3.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_blocky_vulkan" kindref="compound">BlockyVulkan</ref><sp/>{</highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="class_blocky_vulkan_1_1_window" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_blocky_vulkan_1_1_window" kindref="compound">Window</ref><sp/>{</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_blocky_vulkan_1_1_window_1a8e9aec6037e2788564d22151d08c7baf" kindref="member">Window</ref>(<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>w,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>h,<sp/>std::string<sp/>name<sp/>);</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_blocky_vulkan_1_1_window_1a2cee7976fcb8feddc70c346ac300e940" kindref="member">~Window</ref>();</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15" refid="class_blocky_vulkan_1_1_window_1a6e7eb3b0adfb60564df5db025a10f309" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_blocky_vulkan_1_1_window_1a6e7eb3b0adfb60564df5db025a10f309" kindref="member">Window</ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_window" kindref="compound">Window</ref><sp/>&amp;<sp/>)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="16" refid="class_blocky_vulkan_1_1_window_1a87195df9b3d0616dbc9b42b042b94c29" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_blocky_vulkan_1_1_window" kindref="compound">Window</ref><sp/>&amp;<ref refid="class_blocky_vulkan_1_1_window_1a87195df9b3d0616dbc9b42b042b94c29" kindref="member">operator = </ref>(<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_window" kindref="compound">Window</ref><sp/>&amp;<sp/>)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18" refid="class_blocky_vulkan_1_1_window_1a9ff4c2b5e9d07acc9eb5454ffcdb4ff5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_window_1a9ff4c2b5e9d07acc9eb5454ffcdb4ff5" kindref="member">ShouldClose</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>glfwWindowShouldClose(<sp/>window<sp/>);</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="21" refid="class_blocky_vulkan_1_1_window_1aad516780cfcfdf75091ac30465d28072" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkExtent2D<sp/><ref refid="class_blocky_vulkan_1_1_window_1aad516780cfcfdf75091ac30465d28072" kindref="member">getExtend</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>{<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint32_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(width),<sp/></highlight><highlight class="keyword">static_cast&lt;</highlight><highlight class="normal">uint32_t</highlight><highlight class="keyword">&gt;</highlight><highlight class="normal">(height)<sp/>};</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="24" refid="class_blocky_vulkan_1_1_window_1a212571d9aceb5c39a5c3351f49693d8a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_window_1a212571d9aceb5c39a5c3351f49693d8a" kindref="member">WasWindowResized</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>frameBufferResized;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27" refid="class_blocky_vulkan_1_1_window_1a0f31e90160d16c1ed8e86ab99276432e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_window_1a0f31e90160d16c1ed8e86ab99276432e" kindref="member">ResetFlag_WindowResized</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>frameBufferResized<sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_window_1a96d585feaed2d71904c337611dc935d6" kindref="member">CreateWindowSurface</ref>(<sp/>VkInstance<sp/>instance,<sp/>VkSurfaceKHR<sp/>*surface<sp/>);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>FrameBufferResizeCallback(<sp/>GLFWwindow<sp/>*window,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height<sp/>);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>InitWindow();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>width;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>height;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>frameBufferResized;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/>std::string<sp/>name;</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/>GLFWwindow<sp/>*window;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp"/>
+  </compounddef>
+</doxygen>

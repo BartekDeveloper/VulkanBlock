@@ -1,0 +1,74 @@
+\doxysection{Blocky\+Vulkan\+::Device Class Reference}
+\hypertarget{class_blocky_vulkan_1_1_device}{}\label{class_blocky_vulkan_1_1_device}\index{BlockyVulkan::Device@{BlockyVulkan::Device}}
+
+
+{\ttfamily \#include $<$device.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_blocky_vulkan_1_1_device_a855af26281a51ebe1946e66fb1ed181a}{Device}} (\mbox{\hyperlink{class_blocky_vulkan_1_1_window}{Window}} \&window)
+\item 
+\mbox{\hyperlink{class_blocky_vulkan_1_1_device_af4d1bbf15ca45ebc0df540f447701c35}{\texorpdfstring{$\sim$}{\string~}\+Device}} ()
+\item 
+\mbox{\hyperlink{class_blocky_vulkan_1_1_device_a50713128568f269bcdbf595e0852dd67}{Device}} (const \mbox{\hyperlink{class_blocky_vulkan_1_1_device}{Device}} \&)=delete
+\item 
+void \mbox{\hyperlink{class_blocky_vulkan_1_1_device_a6151eb20159fc8cf528a40f788634d5d}{operator=}} (const \mbox{\hyperlink{class_blocky_vulkan_1_1_device}{Device}} \&)=delete
+\item 
+\mbox{\hyperlink{class_blocky_vulkan_1_1_device_a7e807401ded0492da7a9242bebceaf72}{Device}} (\mbox{\hyperlink{class_blocky_vulkan_1_1_device}{Device}} \&\&)=delete
+\item 
+\mbox{\hyperlink{class_blocky_vulkan_1_1_device}{Device}} \& \mbox{\hyperlink{class_blocky_vulkan_1_1_device_a190e484949079a7bc1b89e233eb24836}{operator=}} (\mbox{\hyperlink{class_blocky_vulkan_1_1_device}{Device}} \&\&)=delete
+\item 
+Vk\+Command\+Pool \mbox{\hyperlink{class_blocky_vulkan_1_1_device_a406e7e7a3c33c969cfe9b1d8165270f5}{get\+Command\+Pool}} ()
+\item 
+Vk\+Device \mbox{\hyperlink{class_blocky_vulkan_1_1_device_abd0f1af74c6907d4354112e1291db9aa}{device}} ()
+\item 
+Vk\+Surface\+KHR \mbox{\hyperlink{class_blocky_vulkan_1_1_device_a5f068bfa59fef43e83ea22f64390f3cd}{surface}} ()
+\item 
+Vk\+Queue \mbox{\hyperlink{class_blocky_vulkan_1_1_device_a4a40e0cccdd4c1b3dd840fe8e2a1b9c9}{graphics\+Queue}} ()
+\item 
+Vk\+Queue \mbox{\hyperlink{class_blocky_vulkan_1_1_device_a522545cf12e6a3e11522c60d751d6833}{present\+Queue}} ()
+\item 
+\mbox{\hyperlink{struct_blocky_vulkan_1_1_swap_chain_support_details}{Swap\+Chain\+Support\+Details}} \mbox{\hyperlink{class_blocky_vulkan_1_1_device_a3157d2aea16af098ce0cd890188d5b38}{get\+Swap\+Chain\+Support}} ()
+\item 
+uint32\+\_\+t \mbox{\hyperlink{class_blocky_vulkan_1_1_device_ad617fcdea6a8baf996e01daf07e2ea81}{find\+Memory\+Type}} (uint32\+\_\+t type\+Filter, Vk\+Memory\+Property\+Flags \mbox{\hyperlink{class_blocky_vulkan_1_1_device_aa21b177cd0be90aec7ecb0179fd7e734}{properties}})
+\item 
+\mbox{\hyperlink{struct_blocky_vulkan_1_1_queue_family_indices}{Queue\+Family\+Indices}} \mbox{\hyperlink{class_blocky_vulkan_1_1_device_ad3ddfd3647179abd6d940be294e790c8}{find\+Physical\+Queue\+Families}} ()
+\item 
+Vk\+Format \mbox{\hyperlink{class_blocky_vulkan_1_1_device_a4d650743baa310cfab8703488586d27c}{find\+Supported\+Format}} (const std\+::vector$<$ Vk\+Format $>$ \&candidates, Vk\+Image\+Tiling tiling, Vk\+Format\+Feature\+Flags features)
+\item 
+void \mbox{\hyperlink{class_blocky_vulkan_1_1_device_a4de673bdd57fa7f666ed13785178ef64}{create\+Buffer}} (Vk\+Device\+Size size, Vk\+Buffer\+Usage\+Flags usage, Vk\+Memory\+Property\+Flags \mbox{\hyperlink{class_blocky_vulkan_1_1_device_aa21b177cd0be90aec7ecb0179fd7e734}{properties}}, Vk\+Buffer \&buffer, Vk\+Device\+Memory \&buffer\+Memory)
+\item 
+Vk\+Command\+Buffer \mbox{\hyperlink{class_blocky_vulkan_1_1_device_a8baa78622c491d96d97538c45e838853}{begin\+Single\+Time\+Commands}} ()
+\item 
+void \mbox{\hyperlink{class_blocky_vulkan_1_1_device_a31bf87be17d10e28137b9245afbe2db5}{end\+Single\+Time\+Commands}} (Vk\+Command\+Buffer command\+Buffer)
+\item 
+void \mbox{\hyperlink{class_blocky_vulkan_1_1_device_a82e77bebd10b053b0e6aebf5eda4ccd5}{copy\+Buffer}} (Vk\+Buffer src\+Buffer, Vk\+Buffer dst\+Buffer, Vk\+Device\+Size size)
+\item 
+void \mbox{\hyperlink{class_blocky_vulkan_1_1_device_ae1628156841c3c8d2ff49b85cec4efc6}{copy\+Buffer\+To\+Image}} (Vk\+Buffer buffer, Vk\+Image image, uint32\+\_\+t width, uint32\+\_\+t height, uint32\+\_\+t layer\+Count)
+\item 
+void \mbox{\hyperlink{class_blocky_vulkan_1_1_device_aacb612b684d04f19342f6537d207fb15}{create\+Image\+With\+Info}} (const Vk\+Image\+Create\+Info \&image\+Info, Vk\+Memory\+Property\+Flags \mbox{\hyperlink{class_blocky_vulkan_1_1_device_aa21b177cd0be90aec7ecb0179fd7e734}{properties}}, Vk\+Image \&image, Vk\+Device\+Memory \&image\+Memory)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+const bool \mbox{\hyperlink{class_blocky_vulkan_1_1_device_a6cb8cbe6257df6c3a3a5a1bfbd67d1e6}{enable\+Validation\+Layers}} = true
+\item 
+Vk\+Physical\+Device\+Properties \mbox{\hyperlink{class_blocky_vulkan_1_1_device_aa21b177cd0be90aec7ecb0179fd7e734}{properties}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_blocky_vulkan_1_1_device_a855af26281a51ebe1946e66fb1ed181a}\index{BlockyVulkan::Device@{BlockyVulkan::Device}!Device@{Device}}
+\index{Device@{Device}!BlockyVulkan::Device@{BlockyVulkan::Device}}
+\doxysubsubsection{\texorpdfstring{Device()}{Device()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_device_a855af26281a51ebe1946e66fb1ed181a} 
+Blocky\+Vulkan\+::\+Device\+::\+Device (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_blocky_vulkan_1_1_window}{Window}} \&}]{window}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_blocky_vulkan_1_1_device_af4d1bbf15ca45ebc0df540f447701c35}\index{BlockyVulkan::Device@{BlockyVulkan::Device}!````~Device@{\texorpdfstring{$\sim$}{\string~}Device}}
+\index{````~Device@{\texorpdfstring{$\sim$}{\string~}Device}!BlockyVulkan::Device@{BlockyVulkan::Device}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}Device()}{\string~Device()}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_device_af4d1bbf15ca45ebc0df540f447701c35} 
+Blocky\+Vulkan\+::\+Device\+::\texorpdfstring{$\sim$}{\string~}\+Device (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:

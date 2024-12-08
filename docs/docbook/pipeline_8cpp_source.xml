@@ -1,0 +1,237 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_pipeline_8cpp_source" xml:lang="en-US">
+<title>pipeline.cpp</title>
+<indexterm><primary>src/pipeline/pipeline.cpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered"><anchor xml:id="_pipeline_8cpp_source_1l00001"/>00001 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_pipeline_8hpp">pipeline.hpp</link>&quot;</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00002"/>00002 
+<anchor xml:id="_pipeline_8cpp_source_1l00003"/>00003 <emphasis role="preprocessor">#include&#32;&lt;cassert&gt;</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00004"/>00004 <emphasis role="preprocessor">#include&#32;&lt;fstream&gt;</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00005"/>00005 <emphasis role="preprocessor">#include&#32;&lt;iosfwd&gt;</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00006"/>00006 <emphasis role="preprocessor">#include&#32;&lt;iostream&gt;</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00007"/>00007 <emphasis role="preprocessor">#include&#32;&lt;stdexcept&gt;</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00008"/>00008 
+<anchor xml:id="_pipeline_8cpp_source_1l00009"/>00009 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_model_8hpp">../model/model.hpp</link>&quot;</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00010"/>00010 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_device_8hpp">../device/device.hpp</link>&quot;</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00011"/>00011 
+<anchor xml:id="_pipeline_8cpp_source_1l00012"/>00012 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespace_blocky_vulkan">BlockyVulkan</link>&#32;{
+<anchor xml:id="_pipeline_8cpp_source_1l00013"/><link linkend="_class_blocky_vulkan_1_1_pipeline_1a70c74fc3f16b6407d062f1b284e0dff0">00013</link> <link linkend="_class_blocky_vulkan_1_1_pipeline_1addb66f814dfdcf5ab9e8c1c394e95abb">Pipeline::Pipeline</link>(&#32;<link linkend="_class_blocky_vulkan_1_1_device">BlockyVulkan::Device</link>&#32;&amp;device,
+<anchor xml:id="_pipeline_8cpp_source_1l00014"/>00014 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&#32;&amp;vertFilePath,
+<anchor xml:id="_pipeline_8cpp_source_1l00015"/>00015 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&#32;&amp;fragFilePath,
+<anchor xml:id="_pipeline_8cpp_source_1l00016"/>00016 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info">PipelineConfigInfo</link>&#32;configInfo&#32;)
+<anchor xml:id="_pipeline_8cpp_source_1l00017"/>00017 &#32;&#32;&#32;&#32;:&#32;<link linkend="_class_blocky_vulkan_1_1_device">Device</link>(&#32;device&#32;)&#32;{
+<anchor xml:id="_pipeline_8cpp_source_1l00018"/>00018 &#32;&#32;&#32;&#32;CreateGraphicsPipeline(&#32;vertFilePath,&#32;fragFilePath,&#32;configInfo&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00019"/>00019 }
+<anchor xml:id="_pipeline_8cpp_source_1l00020"/>00020 
+<anchor xml:id="_pipeline_8cpp_source_1l00021"/><link linkend="_class_blocky_vulkan_1_1_pipeline_1a6bd38169705e7b71be2ce6300e8c3cab">00021</link> <link linkend="_class_blocky_vulkan_1_1_pipeline_1a6bd38169705e7b71be2ce6300e8c3cab">Pipeline::~Pipeline</link>()&#32;{
+<anchor xml:id="_pipeline_8cpp_source_1l00022"/>00022 &#32;&#32;&#32;&#32;vkDestroyShaderModule(&#32;<link linkend="_class_blocky_vulkan_1_1_device">Device</link>.<link linkend="_class_blocky_vulkan_1_1_device_1abd0f1af74c6907d4354112e1291db9aa">device</link>(),&#32;vertShaderModule,&#32;<emphasis role="keyword">nullptr</emphasis>&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00023"/>00023 &#32;&#32;&#32;&#32;vkDestroyShaderModule(&#32;<link linkend="_class_blocky_vulkan_1_1_device">Device</link>.<link linkend="_class_blocky_vulkan_1_1_device_1abd0f1af74c6907d4354112e1291db9aa">device</link>(),&#32;fragShaderModule,&#32;<emphasis role="keyword">nullptr</emphasis>&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00024"/>00024 &#32;&#32;&#32;&#32;vkDestroyPipeline(&#32;<link linkend="_class_blocky_vulkan_1_1_device">Device</link>.<link linkend="_class_blocky_vulkan_1_1_device_1abd0f1af74c6907d4354112e1291db9aa">device</link>(),&#32;graphicsPipeline,&#32;<emphasis role="keyword">nullptr</emphasis>&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00025"/>00025 }
+<anchor xml:id="_pipeline_8cpp_source_1l00026"/>00026 
+<anchor xml:id="_pipeline_8cpp_source_1l00027"/>00027 std::vector&lt;char&gt;&#32;Pipeline::ReadFile(&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&#32;&amp;filePath&#32;)&#32;{
+<anchor xml:id="_pipeline_8cpp_source_1l00028"/>00028 &#32;&#32;&#32;&#32;std::ifstream&#32;file{&#32;filePath,&#32;std::ios::ate&#32;|&#32;std::ios::binary&#32;};
+<anchor xml:id="_pipeline_8cpp_source_1l00029"/>00029 
+<anchor xml:id="_pipeline_8cpp_source_1l00030"/>00030 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(&#32;!file.is_open()&#32;)&#32;{
+<anchor xml:id="_pipeline_8cpp_source_1l00031"/>00031 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;std::runtime_error(&#32;<emphasis role="stringliteral">&quot;Failed&#32;to&#32;open&#32;file:&#32;&quot;</emphasis>&#32;+&#32;filePath&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00032"/>00032 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_pipeline_8cpp_source_1l00033"/>00033 
+<anchor xml:id="_pipeline_8cpp_source_1l00034"/>00034 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;fileSize&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis><emphasis role="keywordtype">size_t</emphasis><emphasis role="keyword">&gt;</emphasis>(&#32;file.tellg()&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00035"/>00035 &#32;&#32;&#32;&#32;std::vector&lt;char&gt;&#32;buffer(&#32;fileSize&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00036"/>00036 
+<anchor xml:id="_pipeline_8cpp_source_1l00037"/>00037 &#32;&#32;&#32;&#32;file.seekg(&#32;0&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00038"/>00038 &#32;&#32;&#32;&#32;file.read(&#32;buffer.data(),&#32;fileSize&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00039"/>00039 
+<anchor xml:id="_pipeline_8cpp_source_1l00040"/>00040 &#32;&#32;&#32;&#32;file.close();
+<anchor xml:id="_pipeline_8cpp_source_1l00041"/>00041 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;buffer;
+<anchor xml:id="_pipeline_8cpp_source_1l00042"/>00042 }
+<anchor xml:id="_pipeline_8cpp_source_1l00043"/>00043 
+<anchor xml:id="_pipeline_8cpp_source_1l00044"/>00044 <emphasis role="keywordtype">void</emphasis>&#32;Pipeline::CreateGraphicsPipeline(&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&#32;&amp;vertFilePath,
+<anchor xml:id="_pipeline_8cpp_source_1l00045"/>00045 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&#32;&amp;fragFilePath,
+<anchor xml:id="_pipeline_8cpp_source_1l00046"/>00046 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;PipelineConfigInfo&#32;&amp;configInfo&#32;)&#32;{
+<anchor xml:id="_pipeline_8cpp_source_1l00047"/>00047 &#32;&#32;&#32;&#32;assert(&#32;configInfo.pipelineLayout&#32;!=&#32;VK_NULL_HANDLE&#32;&amp;&amp;
+<anchor xml:id="_pipeline_8cpp_source_1l00048"/>00048 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Cannot&#32;create&#32;graphics&#32;pipeline:&#32;No&#32;pipelineLayout&#32;provided!&#32;(at&#32;&quot;</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00049"/>00049 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;configInfo)&quot;</emphasis>&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00050"/>00050 &#32;&#32;&#32;&#32;assert(&#32;configInfo.renderPass&#32;!=&#32;VK_NULL_HANDLE&#32;&amp;&amp;
+<anchor xml:id="_pipeline_8cpp_source_1l00051"/>00051 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;Cannot&#32;create&#32;graphics&#32;pipeline:&#32;No&#32;renderPass&#32;provided!&#32;(at&#32;&quot;</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00052"/>00052 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="stringliteral">&quot;configInfo)&quot;</emphasis>&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00053"/>00053 
+<anchor xml:id="_pipeline_8cpp_source_1l00054"/>00054 &#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;vertCode&#32;=&#32;ReadFile(&#32;vertFilePath&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00055"/>00055 &#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;fragCode&#32;=&#32;ReadFile(&#32;fragFilePath&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00056"/>00056 
+<anchor xml:id="_pipeline_8cpp_source_1l00057"/>00057 &#32;&#32;&#32;&#32;std::cout&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Vert&#32;Shader&#32;Code&#32;Size:&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;vertCode.size()&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;\n&quot;</emphasis>;
+<anchor xml:id="_pipeline_8cpp_source_1l00058"/>00058 &#32;&#32;&#32;&#32;std::cout&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;Frag&#32;Shader&#32;Code&#32;Size:&#32;&quot;</emphasis>&#32;&lt;&lt;&#32;fragCode.size()&#32;&lt;&lt;&#32;<emphasis role="stringliteral">&quot;\n&quot;</emphasis>;
+<anchor xml:id="_pipeline_8cpp_source_1l00059"/>00059 
+<anchor xml:id="_pipeline_8cpp_source_1l00060"/>00060 &#32;&#32;&#32;&#32;CreateShaderModule(&#32;vertCode,&#32;&amp;vertShaderModule&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00061"/>00061 &#32;&#32;&#32;&#32;CreateShaderModule(&#32;fragCode,&#32;&amp;fragShaderModule&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00062"/>00062 
+<anchor xml:id="_pipeline_8cpp_source_1l00063"/>00063 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Setting&#32;up&#32;shader&#32;stages</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00064"/>00064 &#32;&#32;&#32;&#32;VkPipelineShaderStageCreateInfo&#32;shaderStages[&#32;2&#32;];
+<anchor xml:id="_pipeline_8cpp_source_1l00065"/>00065 
+<anchor xml:id="_pipeline_8cpp_source_1l00066"/>00066 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Vertex&#32;shader&#32;stage</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00067"/>00067 &#32;&#32;&#32;&#32;shaderStages[&#32;0&#32;].sType&#32;=&#32;VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
+<anchor xml:id="_pipeline_8cpp_source_1l00068"/>00068 &#32;&#32;&#32;&#32;shaderStages[&#32;0&#32;].stage&#32;=&#32;VK_SHADER_STAGE_VERTEX_BIT;
+<anchor xml:id="_pipeline_8cpp_source_1l00069"/>00069 &#32;&#32;&#32;&#32;shaderStages[&#32;0&#32;].module&#32;=&#32;vertShaderModule;
+<anchor xml:id="_pipeline_8cpp_source_1l00070"/>00070 &#32;&#32;&#32;&#32;shaderStages[&#32;0&#32;].pName&#32;=&#32;<emphasis role="stringliteral">&quot;main&quot;</emphasis>;
+<anchor xml:id="_pipeline_8cpp_source_1l00071"/>00071 &#32;&#32;&#32;&#32;shaderStages[&#32;0&#32;].flags&#32;=&#32;0;
+<anchor xml:id="_pipeline_8cpp_source_1l00072"/>00072 &#32;&#32;&#32;&#32;shaderStages[&#32;0&#32;].pNext&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_pipeline_8cpp_source_1l00073"/>00073 &#32;&#32;&#32;&#32;shaderStages[&#32;0&#32;].pSpecializationInfo&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_pipeline_8cpp_source_1l00074"/>00074 
+<anchor xml:id="_pipeline_8cpp_source_1l00075"/>00075 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Fragment&#32;shader&#32;stage</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00076"/>00076 &#32;&#32;&#32;&#32;shaderStages[&#32;1&#32;].sType&#32;=&#32;VK_STRUCTURE_TYPE_PIPELINE_SHADER_STAGE_CREATE_INFO;
+<anchor xml:id="_pipeline_8cpp_source_1l00077"/>00077 &#32;&#32;&#32;&#32;shaderStages[&#32;1&#32;].stage&#32;=&#32;VK_SHADER_STAGE_FRAGMENT_BIT;
+<anchor xml:id="_pipeline_8cpp_source_1l00078"/>00078 &#32;&#32;&#32;&#32;shaderStages[&#32;1&#32;].module&#32;=&#32;fragShaderModule;
+<anchor xml:id="_pipeline_8cpp_source_1l00079"/>00079 &#32;&#32;&#32;&#32;shaderStages[&#32;1&#32;].pName&#32;=&#32;<emphasis role="stringliteral">&quot;main&quot;</emphasis>;
+<anchor xml:id="_pipeline_8cpp_source_1l00080"/>00080 &#32;&#32;&#32;&#32;shaderStages[&#32;1&#32;].flags&#32;=&#32;0;
+<anchor xml:id="_pipeline_8cpp_source_1l00081"/>00081 &#32;&#32;&#32;&#32;shaderStages[&#32;1&#32;].pNext&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_pipeline_8cpp_source_1l00082"/>00082 &#32;&#32;&#32;&#32;shaderStages[&#32;1&#32;].pSpecializationInfo&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_pipeline_8cpp_source_1l00083"/>00083 
+<anchor xml:id="_pipeline_8cpp_source_1l00084"/>00084 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;From&#32;model&#32;descriptions</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00085"/>00085 &#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;BindingDescriptions&#32;=&#32;<link linkend="_struct_blocky_vulkan_1_1_model_1_1_vertex_1a97a92a1265877fff2f287b07d0ac9db4">Model::Vertex::GetBindingDescriptions</link>();
+<anchor xml:id="_pipeline_8cpp_source_1l00086"/>00086 &#32;&#32;&#32;&#32;<emphasis role="keyword">auto</emphasis>&#32;AttributeDescriptions&#32;=&#32;<link linkend="_struct_blocky_vulkan_1_1_model_1_1_vertex_1afb7939bc1d098cd9d72f99a95a14ed72">Model::Vertex::GetAttributeDescriptions</link>();
+<anchor xml:id="_pipeline_8cpp_source_1l00087"/>00087 
+<anchor xml:id="_pipeline_8cpp_source_1l00088"/>00088 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Input&#32;info&#32;(Vertex)</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00089"/>00089 &#32;&#32;&#32;&#32;VkPipelineVertexInputStateCreateInfo&#32;vertexInputInfo{};
+<anchor xml:id="_pipeline_8cpp_source_1l00090"/>00090 &#32;&#32;&#32;&#32;vertexInputInfo.sType&#32;=
+<anchor xml:id="_pipeline_8cpp_source_1l00091"/>00091 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;VK_STRUCTURE_TYPE_PIPELINE_VERTEX_INPUT_STATE_CREATE_INFO;
+<anchor xml:id="_pipeline_8cpp_source_1l00092"/>00092 &#32;&#32;&#32;&#32;vertexInputInfo.vertexAttributeDescriptionCount&#32;=
+<anchor xml:id="_pipeline_8cpp_source_1l00093"/>00093 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint32_t<emphasis role="keyword">&gt;</emphasis>(&#32;AttributeDescriptions.size()&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00094"/>00094 &#32;&#32;&#32;&#32;vertexInputInfo.vertexBindingDescriptionCount&#32;=
+<anchor xml:id="_pipeline_8cpp_source_1l00095"/>00095 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint32_t<emphasis role="keyword">&gt;</emphasis>(&#32;BindingDescriptions.size()&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00096"/>00096 &#32;&#32;&#32;&#32;vertexInputInfo.pVertexAttributeDescriptions&#32;=&#32;AttributeDescriptions.data();
+<anchor xml:id="_pipeline_8cpp_source_1l00097"/>00097 &#32;&#32;&#32;&#32;vertexInputInfo.pVertexBindingDescriptions&#32;=&#32;BindingDescriptions.data();
+<anchor xml:id="_pipeline_8cpp_source_1l00098"/>00098 
+<anchor xml:id="_pipeline_8cpp_source_1l00099"/>00099 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Pipeline&#32;info</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00100"/>00100 &#32;&#32;&#32;&#32;VkGraphicsPipelineCreateInfo&#32;pipelineInfo{};
+<anchor xml:id="_pipeline_8cpp_source_1l00101"/>00101 &#32;&#32;&#32;&#32;pipelineInfo.sType&#32;=&#32;VK_STRUCTURE_TYPE_GRAPHICS_PIPELINE_CREATE_INFO;
+<anchor xml:id="_pipeline_8cpp_source_1l00102"/>00102 &#32;&#32;&#32;&#32;pipelineInfo.stageCount&#32;=&#32;2;
+<anchor xml:id="_pipeline_8cpp_source_1l00103"/>00103 &#32;&#32;&#32;&#32;pipelineInfo.pStages&#32;=&#32;shaderStages;
+<anchor xml:id="_pipeline_8cpp_source_1l00104"/>00104 &#32;&#32;&#32;&#32;pipelineInfo.pVertexInputState&#32;=&#32;&amp;vertexInputInfo;
+<anchor xml:id="_pipeline_8cpp_source_1l00105"/>00105 &#32;&#32;&#32;&#32;pipelineInfo.pInputAssemblyState&#32;=&#32;&amp;configInfo.inputAssemblyInfo;
+<anchor xml:id="_pipeline_8cpp_source_1l00106"/>00106 &#32;&#32;&#32;&#32;pipelineInfo.pViewportState&#32;=&#32;&amp;configInfo.viewportInfo;
+<anchor xml:id="_pipeline_8cpp_source_1l00107"/>00107 &#32;&#32;&#32;&#32;pipelineInfo.pRasterizationState&#32;=&#32;&amp;configInfo.rasterizationInfo;
+<anchor xml:id="_pipeline_8cpp_source_1l00108"/>00108 &#32;&#32;&#32;&#32;pipelineInfo.pMultisampleState&#32;=&#32;&amp;configInfo.multisampleInfo;
+<anchor xml:id="_pipeline_8cpp_source_1l00109"/>00109 &#32;&#32;&#32;&#32;pipelineInfo.pColorBlendState&#32;=&#32;&amp;configInfo.colorBlendInfo;
+<anchor xml:id="_pipeline_8cpp_source_1l00110"/>00110 &#32;&#32;&#32;&#32;pipelineInfo.pDepthStencilState&#32;=&#32;&amp;configInfo.depthStencilInfo;
+<anchor xml:id="_pipeline_8cpp_source_1l00111"/>00111 &#32;&#32;&#32;&#32;pipelineInfo.pDynamicState&#32;=&#32;&amp;configInfo.dynamicStateInfo;
+<anchor xml:id="_pipeline_8cpp_source_1l00112"/>00112 
+<anchor xml:id="_pipeline_8cpp_source_1l00113"/>00113 &#32;&#32;&#32;&#32;pipelineInfo.layout&#32;=&#32;configInfo.pipelineLayout;
+<anchor xml:id="_pipeline_8cpp_source_1l00114"/>00114 &#32;&#32;&#32;&#32;pipelineInfo.renderPass&#32;=&#32;configInfo.renderPass;
+<anchor xml:id="_pipeline_8cpp_source_1l00115"/>00115 &#32;&#32;&#32;&#32;pipelineInfo.subpass&#32;=&#32;configInfo.subpass;
+<anchor xml:id="_pipeline_8cpp_source_1l00116"/>00116 
+<anchor xml:id="_pipeline_8cpp_source_1l00117"/>00117 &#32;&#32;&#32;&#32;pipelineInfo.basePipelineIndex&#32;=&#32;-1;
+<anchor xml:id="_pipeline_8cpp_source_1l00118"/>00118 &#32;&#32;&#32;&#32;pipelineInfo.basePipelineHandle&#32;=&#32;VK_NULL_HANDLE;
+<anchor xml:id="_pipeline_8cpp_source_1l00119"/>00119 
+<anchor xml:id="_pipeline_8cpp_source_1l00120"/>00120 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(&#32;vkCreateGraphicsPipelines(&#32;Device.<link linkend="_class_blocky_vulkan_1_1_device_1abd0f1af74c6907d4354112e1291db9aa">device</link>(),&#32;VK_NULL_HANDLE,&#32;1,
+<anchor xml:id="_pipeline_8cpp_source_1l00121"/>00121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&amp;pipelineInfo,&#32;<emphasis role="keyword">nullptr</emphasis>,
+<anchor xml:id="_pipeline_8cpp_source_1l00122"/>00122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&amp;graphicsPipeline&#32;)&#32;!=&#32;VK_SUCCESS&#32;)&#32;{
+<anchor xml:id="_pipeline_8cpp_source_1l00123"/>00123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;std::runtime_error(&#32;<emphasis role="stringliteral">&quot;Failed&#32;to&#32;create&#32;graphics&#32;pipeline!&quot;</emphasis>&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00124"/>00124 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_pipeline_8cpp_source_1l00125"/>00125 }
+<anchor xml:id="_pipeline_8cpp_source_1l00126"/>00126 
+<anchor xml:id="_pipeline_8cpp_source_1l00127"/>00127 <emphasis role="keywordtype">void</emphasis>&#32;Pipeline::CreateShaderModule(&#32;<emphasis role="keyword">const</emphasis>&#32;std::vector&lt;char&gt;&#32;&amp;code,
+<anchor xml:id="_pipeline_8cpp_source_1l00128"/>00128 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;VkShaderModule&#32;*shaderModule&#32;)&#32;{
+<anchor xml:id="_pipeline_8cpp_source_1l00129"/>00129 &#32;&#32;&#32;&#32;VkShaderModuleCreateInfo&#32;createInfo{};
+<anchor xml:id="_pipeline_8cpp_source_1l00130"/>00130 
+<anchor xml:id="_pipeline_8cpp_source_1l00131"/>00131 &#32;&#32;&#32;&#32;createInfo.sType&#32;=&#32;VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO;
+<anchor xml:id="_pipeline_8cpp_source_1l00132"/>00132 &#32;&#32;&#32;&#32;createInfo.codeSize&#32;=&#32;code.size();
+<anchor xml:id="_pipeline_8cpp_source_1l00133"/>00133 &#32;&#32;&#32;&#32;createInfo.pCode&#32;=&#32;<emphasis role="keyword">reinterpret_cast&lt;</emphasis><emphasis role="keyword">const&#32;</emphasis>uint32_t&#32;*<emphasis role="keyword">&gt;</emphasis>(&#32;code.data()&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00134"/>00134 
+<anchor xml:id="_pipeline_8cpp_source_1l00135"/>00135 &#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>(&#32;vkCreateShaderModule(&#32;Device.<link linkend="_class_blocky_vulkan_1_1_device_1abd0f1af74c6907d4354112e1291db9aa">device</link>(),&#32;&amp;createInfo,&#32;<emphasis role="keyword">nullptr</emphasis>,
+<anchor xml:id="_pipeline_8cpp_source_1l00136"/>00136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;shaderModule&#32;)&#32;!=&#32;VK_SUCCESS&#32;)&#32;{
+<anchor xml:id="_pipeline_8cpp_source_1l00137"/>00137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">throw</emphasis>&#32;std::runtime_error(&#32;<emphasis role="stringliteral">&quot;Failed&#32;to&#32;create&#32;shader&#32;module!&quot;</emphasis>&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00138"/>00138 &#32;&#32;&#32;&#32;}
+<anchor xml:id="_pipeline_8cpp_source_1l00139"/>00139 }
+<anchor xml:id="_pipeline_8cpp_source_1l00140"/>00140 
+<anchor xml:id="_pipeline_8cpp_source_1l00141"/><link linkend="_class_blocky_vulkan_1_1_pipeline_1a790267c38cf3e3a95cde697d4c88be51">00141</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_blocky_vulkan_1_1_pipeline_1a790267c38cf3e3a95cde697d4c88be51">Pipeline::Bind</link>(&#32;VkCommandBuffer&#32;commandBuffer&#32;)&#32;{
+<anchor xml:id="_pipeline_8cpp_source_1l00142"/>00142 &#32;&#32;&#32;&#32;vkCmdBindPipeline(&#32;commandBuffer,&#32;VK_PIPELINE_BIND_POINT_GRAPHICS,
+<anchor xml:id="_pipeline_8cpp_source_1l00143"/>00143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;graphicsPipeline&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00144"/>00144 }
+<anchor xml:id="_pipeline_8cpp_source_1l00145"/>00145 
+<anchor xml:id="_pipeline_8cpp_source_1l00146"/><link linkend="_class_blocky_vulkan_1_1_pipeline_1a921ac3065459aee5818a300bb87e8eed">00146</link> <emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_blocky_vulkan_1_1_pipeline_1a921ac3065459aee5818a300bb87e8eed">Pipeline::DefaultPipelineConfigInfo</link>(&#32;<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info">PipelineConfigInfo</link>&#32;&amp;configInfo&#32;)&#32;{
+<anchor xml:id="_pipeline_8cpp_source_1l00147"/>00147 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Input&#32;assembly</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00148"/>00148 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1af79d02ca54f050415f818df3ff5140a6">inputAssemblyInfo</link>.sType&#32;=
+<anchor xml:id="_pipeline_8cpp_source_1l00149"/>00149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;VK_STRUCTURE_TYPE_PIPELINE_INPUT_ASSEMBLY_STATE_CREATE_INFO;
+<anchor xml:id="_pipeline_8cpp_source_1l00150"/>00150 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1af79d02ca54f050415f818df3ff5140a6">inputAssemblyInfo</link>.topology&#32;=&#32;VK_PRIMITIVE_TOPOLOGY_TRIANGLE_LIST;
+<anchor xml:id="_pipeline_8cpp_source_1l00151"/>00151 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1af79d02ca54f050415f818df3ff5140a6">inputAssemblyInfo</link>.primitiveRestartEnable&#32;=&#32;VK_FALSE;
+<anchor xml:id="_pipeline_8cpp_source_1l00152"/>00152 
+<anchor xml:id="_pipeline_8cpp_source_1l00153"/>00153 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Viewport</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00154"/>00154 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1abf9d4590b94afc9da9222a8b86805a4c">viewportInfo</link>.sType&#32;=&#32;VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO;
+<anchor xml:id="_pipeline_8cpp_source_1l00155"/>00155 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1abf9d4590b94afc9da9222a8b86805a4c">viewportInfo</link>.viewportCount&#32;=&#32;1;
+<anchor xml:id="_pipeline_8cpp_source_1l00156"/>00156 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1abf9d4590b94afc9da9222a8b86805a4c">viewportInfo</link>.pViewports&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_pipeline_8cpp_source_1l00157"/>00157 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1abf9d4590b94afc9da9222a8b86805a4c">viewportInfo</link>.scissorCount&#32;=&#32;1;
+<anchor xml:id="_pipeline_8cpp_source_1l00158"/>00158 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1abf9d4590b94afc9da9222a8b86805a4c">viewportInfo</link>.pScissors&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;
+<anchor xml:id="_pipeline_8cpp_source_1l00159"/>00159 
+<anchor xml:id="_pipeline_8cpp_source_1l00160"/>00160 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Rasterization</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00161"/>00161 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a49e68fcfec16e572277de541a84c0086">rasterizationInfo</link>.sType&#32;=
+<anchor xml:id="_pipeline_8cpp_source_1l00162"/>00162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;VK_STRUCTURE_TYPE_PIPELINE_RASTERIZATION_STATE_CREATE_INFO;
+<anchor xml:id="_pipeline_8cpp_source_1l00163"/>00163 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a49e68fcfec16e572277de541a84c0086">rasterizationInfo</link>.depthClampEnable&#32;=&#32;VK_FALSE;
+<anchor xml:id="_pipeline_8cpp_source_1l00164"/>00164 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a49e68fcfec16e572277de541a84c0086">rasterizationInfo</link>.rasterizerDiscardEnable&#32;=&#32;VK_FALSE;
+<anchor xml:id="_pipeline_8cpp_source_1l00165"/>00165 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a49e68fcfec16e572277de541a84c0086">rasterizationInfo</link>.polygonMode&#32;=&#32;VK_POLYGON_MODE_FILL;
+<anchor xml:id="_pipeline_8cpp_source_1l00166"/>00166 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a49e68fcfec16e572277de541a84c0086">rasterizationInfo</link>.lineWidth&#32;=&#32;1.f;
+<anchor xml:id="_pipeline_8cpp_source_1l00167"/>00167 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a49e68fcfec16e572277de541a84c0086">rasterizationInfo</link>.cullMode&#32;=&#32;VK_CULL_MODE_NONE;
+<anchor xml:id="_pipeline_8cpp_source_1l00168"/>00168 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a49e68fcfec16e572277de541a84c0086">rasterizationInfo</link>.frontFace&#32;=&#32;VK_FRONT_FACE_CLOCKWISE;
+<anchor xml:id="_pipeline_8cpp_source_1l00169"/>00169 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a49e68fcfec16e572277de541a84c0086">rasterizationInfo</link>.depthBiasEnable&#32;=&#32;VK_FALSE;
+<anchor xml:id="_pipeline_8cpp_source_1l00170"/>00170 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a49e68fcfec16e572277de541a84c0086">rasterizationInfo</link>.depthBiasConstantFactor&#32;=&#32;.0f;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00171"/>00171 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a49e68fcfec16e572277de541a84c0086">rasterizationInfo</link>.depthBiasClamp&#32;=&#32;.0f;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00172"/>00172 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a49e68fcfec16e572277de541a84c0086">rasterizationInfo</link>.depthBiasSlopeFactor&#32;=&#32;.0f;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00173"/>00173 
+<anchor xml:id="_pipeline_8cpp_source_1l00174"/>00174 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Multisampling</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00175"/>00175 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1af2749bee4dc10bb630639892e5839c70">multisampleInfo</link>.sType&#32;=
+<anchor xml:id="_pipeline_8cpp_source_1l00176"/>00176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;VK_STRUCTURE_TYPE_PIPELINE_MULTISAMPLE_STATE_CREATE_INFO;
+<anchor xml:id="_pipeline_8cpp_source_1l00177"/>00177 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1af2749bee4dc10bb630639892e5839c70">multisampleInfo</link>.sampleShadingEnable&#32;=&#32;VK_FALSE;
+<anchor xml:id="_pipeline_8cpp_source_1l00178"/>00178 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1af2749bee4dc10bb630639892e5839c70">multisampleInfo</link>.rasterizationSamples&#32;=&#32;VK_SAMPLE_COUNT_1_BIT;
+<anchor xml:id="_pipeline_8cpp_source_1l00179"/>00179 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1af2749bee4dc10bb630639892e5839c70">multisampleInfo</link>.minSampleShading&#32;=&#32;1.f;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00180"/>00180 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1af2749bee4dc10bb630639892e5839c70">multisampleInfo</link>.pSampleMask&#32;=&#32;<emphasis role="keyword">nullptr</emphasis>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00181"/>00181 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1af2749bee4dc10bb630639892e5839c70">multisampleInfo</link>.alphaToCoverageEnable&#32;=&#32;VK_FALSE;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00182"/>00182 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1af2749bee4dc10bb630639892e5839c70">multisampleInfo</link>.alphaToOneEnable&#32;=&#32;VK_FALSE;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00183"/>00183 
+<anchor xml:id="_pipeline_8cpp_source_1l00184"/>00184 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Color&#32;blending</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00185"/>00185 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ace48c96bcff001251bd0ab9a6c28ee06">colorBlendAttachment</link>.colorWriteMask&#32;=
+<anchor xml:id="_pipeline_8cpp_source_1l00186"/>00186 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;VK_COLOR_COMPONENT_R_BIT&#32;|&#32;VK_COLOR_COMPONENT_G_BIT&#32;|
+<anchor xml:id="_pipeline_8cpp_source_1l00187"/>00187 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;VK_COLOR_COMPONENT_B_BIT&#32;|&#32;VK_COLOR_COMPONENT_A_BIT;
+<anchor xml:id="_pipeline_8cpp_source_1l00188"/>00188 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ace48c96bcff001251bd0ab9a6c28ee06">colorBlendAttachment</link>.blendEnable&#32;=&#32;VK_FALSE;
+<anchor xml:id="_pipeline_8cpp_source_1l00189"/>00189 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ace48c96bcff001251bd0ab9a6c28ee06">colorBlendAttachment</link>.srcColorBlendFactor&#32;=
+<anchor xml:id="_pipeline_8cpp_source_1l00190"/>00190 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;VK_BLEND_FACTOR_ONE;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00191"/>00191 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ace48c96bcff001251bd0ab9a6c28ee06">colorBlendAttachment</link>.dstColorBlendFactor&#32;=
+<anchor xml:id="_pipeline_8cpp_source_1l00192"/>00192 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;VK_BLEND_FACTOR_ZERO;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00193"/>00193 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ace48c96bcff001251bd0ab9a6c28ee06">colorBlendAttachment</link>.colorBlendOp&#32;=&#32;VK_BLEND_OP_ADD;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00194"/>00194 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ace48c96bcff001251bd0ab9a6c28ee06">colorBlendAttachment</link>.srcAlphaBlendFactor&#32;=
+<anchor xml:id="_pipeline_8cpp_source_1l00195"/>00195 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;VK_BLEND_FACTOR_ONE;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00196"/>00196 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ace48c96bcff001251bd0ab9a6c28ee06">colorBlendAttachment</link>.dstAlphaBlendFactor&#32;=
+<anchor xml:id="_pipeline_8cpp_source_1l00197"/>00197 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;VK_BLEND_FACTOR_ZERO;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00198"/>00198 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ace48c96bcff001251bd0ab9a6c28ee06">colorBlendAttachment</link>.alphaBlendOp&#32;=&#32;VK_BLEND_OP_ADD;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00199"/>00199 
+<anchor xml:id="_pipeline_8cpp_source_1l00200"/>00200 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a2dcfd03ff283e7ef7ba256c2cd2a7010">colorBlendInfo</link>.sType&#32;=
+<anchor xml:id="_pipeline_8cpp_source_1l00201"/>00201 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;VK_STRUCTURE_TYPE_PIPELINE_COLOR_BLEND_STATE_CREATE_INFO;
+<anchor xml:id="_pipeline_8cpp_source_1l00202"/>00202 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a2dcfd03ff283e7ef7ba256c2cd2a7010">colorBlendInfo</link>.logicOpEnable&#32;=&#32;VK_FALSE;
+<anchor xml:id="_pipeline_8cpp_source_1l00203"/>00203 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a2dcfd03ff283e7ef7ba256c2cd2a7010">colorBlendInfo</link>.logicOp&#32;=&#32;VK_LOGIC_OP_COPY;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00204"/>00204 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a2dcfd03ff283e7ef7ba256c2cd2a7010">colorBlendInfo</link>.attachmentCount&#32;=&#32;1;
+<anchor xml:id="_pipeline_8cpp_source_1l00205"/>00205 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a2dcfd03ff283e7ef7ba256c2cd2a7010">colorBlendInfo</link>.pAttachments&#32;=&#32;&amp;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ace48c96bcff001251bd0ab9a6c28ee06">colorBlendAttachment</link>;
+<anchor xml:id="_pipeline_8cpp_source_1l00206"/>00206 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a2dcfd03ff283e7ef7ba256c2cd2a7010">colorBlendInfo</link>.blendConstants[&#32;0&#32;]&#32;=&#32;.0f;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00207"/>00207 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a2dcfd03ff283e7ef7ba256c2cd2a7010">colorBlendInfo</link>.blendConstants[&#32;1&#32;]&#32;=&#32;.0f;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00208"/>00208 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a2dcfd03ff283e7ef7ba256c2cd2a7010">colorBlendInfo</link>.blendConstants[&#32;2&#32;]&#32;=&#32;.0f;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00209"/>00209 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a2dcfd03ff283e7ef7ba256c2cd2a7010">colorBlendInfo</link>.blendConstants[&#32;3&#32;]&#32;=&#32;.0f;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00210"/>00210 
+<anchor xml:id="_pipeline_8cpp_source_1l00211"/>00211 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Depth&#32;testing</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00212"/>00212 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ae5ebd9012649adcbe2fdb35b896a3e87">depthStencilInfo</link>.sType&#32;=
+<anchor xml:id="_pipeline_8cpp_source_1l00213"/>00213 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;VK_STRUCTURE_TYPE_PIPELINE_DEPTH_STENCIL_STATE_CREATE_INFO;
+<anchor xml:id="_pipeline_8cpp_source_1l00214"/>00214 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ae5ebd9012649adcbe2fdb35b896a3e87">depthStencilInfo</link>.depthTestEnable&#32;=&#32;VK_TRUE;
+<anchor xml:id="_pipeline_8cpp_source_1l00215"/>00215 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ae5ebd9012649adcbe2fdb35b896a3e87">depthStencilInfo</link>.depthWriteEnable&#32;=&#32;VK_TRUE;
+<anchor xml:id="_pipeline_8cpp_source_1l00216"/>00216 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ae5ebd9012649adcbe2fdb35b896a3e87">depthStencilInfo</link>.depthCompareOp&#32;=&#32;VK_COMPARE_OP_LESS;
+<anchor xml:id="_pipeline_8cpp_source_1l00217"/>00217 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ae5ebd9012649adcbe2fdb35b896a3e87">depthStencilInfo</link>.depthBoundsTestEnable&#32;=&#32;VK_FALSE;
+<anchor xml:id="_pipeline_8cpp_source_1l00218"/>00218 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ae5ebd9012649adcbe2fdb35b896a3e87">depthStencilInfo</link>.minDepthBounds&#32;=&#32;.0f;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00219"/>00219 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ae5ebd9012649adcbe2fdb35b896a3e87">depthStencilInfo</link>.maxDepthBounds&#32;=&#32;1.f;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00220"/>00220 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ae5ebd9012649adcbe2fdb35b896a3e87">depthStencilInfo</link>.stencilTestEnable&#32;=&#32;VK_FALSE;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00221"/>00221 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ae5ebd9012649adcbe2fdb35b896a3e87">depthStencilInfo</link>.front&#32;=&#32;{};&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00222"/>00222 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ae5ebd9012649adcbe2fdb35b896a3e87">depthStencilInfo</link>.back&#32;=&#32;{};&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Optional</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00223"/>00223 
+<anchor xml:id="_pipeline_8cpp_source_1l00224"/>00224 &#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Dynamic&#32;state</emphasis>
+<anchor xml:id="_pipeline_8cpp_source_1l00225"/>00225 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ac754f6d94c8df9b55641efabec67c5f6">dynamicStateEnables</link>&#32;=&#32;{&#32;VK_DYNAMIC_STATE_VIEWPORT,&#32;VK_DYNAMIC_STATE_SCISSOR&#32;};
+<anchor xml:id="_pipeline_8cpp_source_1l00226"/>00226 
+<anchor xml:id="_pipeline_8cpp_source_1l00227"/>00227 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a698beed88b6819a26b0e4650ed8d0210">dynamicStateInfo</link>.sType&#32;=&#32;VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO;
+<anchor xml:id="_pipeline_8cpp_source_1l00228"/>00228 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a698beed88b6819a26b0e4650ed8d0210">dynamicStateInfo</link>.pDynamicStates&#32;=&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ac754f6d94c8df9b55641efabec67c5f6">dynamicStateEnables</link>.data();
+<anchor xml:id="_pipeline_8cpp_source_1l00229"/>00229 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a698beed88b6819a26b0e4650ed8d0210">dynamicStateInfo</link>.dynamicStateCount&#32;=&#32;<emphasis role="keyword">static_cast&lt;</emphasis>uint32_t<emphasis role="keyword">&gt;</emphasis>(&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1ac754f6d94c8df9b55641efabec67c5f6">dynamicStateEnables</link>.size()&#32;);
+<anchor xml:id="_pipeline_8cpp_source_1l00230"/>00230 &#32;&#32;&#32;&#32;configInfo.<link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info_1a698beed88b6819a26b0e4650ed8d0210">dynamicStateInfo</link>.flags&#32;=&#32;0;
+<anchor xml:id="_pipeline_8cpp_source_1l00231"/>00231 }
+<anchor xml:id="_pipeline_8cpp_source_1l00232"/>00232 }
+</programlisting></section>

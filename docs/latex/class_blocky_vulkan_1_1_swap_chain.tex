@@ -1,0 +1,179 @@
+\doxysection{Blocky\+Vulkan\+::Swap\+Chain Class Reference}
+\hypertarget{class_blocky_vulkan_1_1_swap_chain}{}\label{class_blocky_vulkan_1_1_swap_chain}\index{BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}}
+
+
+{\ttfamily \#include $<$swap\+\_\+chain.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain_a28ffd9fc853641200b7d22a82d4b6678}{Swap\+Chain}} (\mbox{\hyperlink{class_blocky_vulkan_1_1_device}{Device}} \&device\+Ref, Vk\+Extent2D window\+Extent)
+\item 
+\mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain_a446c8a493a9baa381af05d98f5b40d89}{Swap\+Chain}} (\mbox{\hyperlink{class_blocky_vulkan_1_1_device}{Device}} \&device\+Ref, Vk\+Extent2D window\+Extent, std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain}{Swap\+Chain}} $>$ previous)
+\item 
+\mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain_a15d6d8b52a7997bdd27be2d22a35c9a5}{\texorpdfstring{$\sim$}{\string~}\+Swap\+Chain}} ()
+\item 
+\mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain_acdd09c6dc0557d6b8889d360bfe169b6}{Swap\+Chain}} (const \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain}{Swap\+Chain}} \&)=delete
+\item 
+\mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain}{Swap\+Chain}} \& \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain_a432f19b5581e7a6b21863ccab37b4b64}{operator=}} (const \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain}{Swap\+Chain}} \&)=delete
+\item 
+Vk\+Framebuffer \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain_af2d854fd02a8a6afc18e9e9f331402e1}{get\+Frame\+Buffer}} (int index)
+\item 
+Vk\+Render\+Pass \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain_a067c98a8ea8b9573afa58ec31b61070b}{get\+Render\+Pass}} ()
+\item 
+Vk\+Image\+View \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain_a6d60b10858f53aa36103cb8ffdce5a89}{get\+Image\+View}} (int index)
+\item 
+size\+\_\+t \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain_a65bf2dc77700ab941caec9ab15d82afa}{image\+Count}} ()
+\item 
+Vk\+Format \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain_a5bdf6b58fbb9b4ece8d2836e44c7bda2}{get\+Swap\+Chain\+Image\+Format}} ()
+\item 
+Vk\+Extent2D \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain_adc6458afc40ffae71d6ebe6b23f1d829}{get\+Swap\+Chain\+Extent}} ()
+\item 
+uint32\+\_\+t \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain_a7734e42d1b5b2e7de41256950ffdd760}{width}} ()
+\item 
+uint32\+\_\+t \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain_ad564ff4a410422918416004cbfb29e07}{height}} ()
+\item 
+float \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain_aadd7e49801d654de56c68d9bec6aacfb}{extent\+Aspect\+Ratio}} ()
+\item 
+Vk\+Format \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain_a032370066d55a3da18dfcb8ff25bd634}{find\+Depth\+Format}} ()
+\item 
+Vk\+Result \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain_a649d6c6cca871c742e5b7fa90f0cb50e}{acquire\+Next\+Image}} (uint32\+\_\+t \texorpdfstring{$\ast$}{*}image\+Index)
+\item 
+Vk\+Result \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain_a78bbedddd61a8befbe772baf46f2bc9b}{submit\+Command\+Buffers}} (const Vk\+Command\+Buffer \texorpdfstring{$\ast$}{*}buffers, uint32\+\_\+t \texorpdfstring{$\ast$}{*}image\+Index)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr int \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain_a82288aecf69bcdcc0e2c0d6e525709f9}{MAX\+\_\+\+FRAMES\+\_\+\+IN\+\_\+\+FLIGHT}} = 2
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_blocky_vulkan_1_1_swap_chain_a28ffd9fc853641200b7d22a82d4b6678}\index{BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}!SwapChain@{SwapChain}}
+\index{SwapChain@{SwapChain}!BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}}
+\doxysubsubsection{\texorpdfstring{SwapChain()}{SwapChain()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_swap_chain_a28ffd9fc853641200b7d22a82d4b6678} 
+Blocky\+Vulkan\+::\+Swap\+Chain\+::\+Swap\+Chain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_blocky_vulkan_1_1_device}{Device}} \&}]{device\+Ref}{, }\item[{Vk\+Extent2D}]{window\+Extent}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_blocky_vulkan_1_1_swap_chain_a446c8a493a9baa381af05d98f5b40d89}\index{BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}!SwapChain@{SwapChain}}
+\index{SwapChain@{SwapChain}!BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}}
+\doxysubsubsection{\texorpdfstring{SwapChain()}{SwapChain()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_swap_chain_a446c8a493a9baa381af05d98f5b40d89} 
+Blocky\+Vulkan\+::\+Swap\+Chain\+::\+Swap\+Chain (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_blocky_vulkan_1_1_device}{Device}} \&}]{device\+Ref}{, }\item[{Vk\+Extent2D}]{window\+Extent}{, }\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain}{Swap\+Chain}} $>$}]{previous}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_blocky_vulkan_1_1_swap_chain_a15d6d8b52a7997bdd27be2d22a35c9a5}\index{BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}!````~SwapChain@{\texorpdfstring{$\sim$}{\string~}SwapChain}}
+\index{````~SwapChain@{\texorpdfstring{$\sim$}{\string~}SwapChain}!BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}SwapChain()}{\string~SwapChain()}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_swap_chain_a15d6d8b52a7997bdd27be2d22a35c9a5} 
+Blocky\+Vulkan\+::\+Swap\+Chain\+::\texorpdfstring{$\sim$}{\string~}\+Swap\+Chain (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 0
+\Hypertarget{class_blocky_vulkan_1_1_swap_chain_acdd09c6dc0557d6b8889d360bfe169b6}\index{BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}!SwapChain@{SwapChain}}
+\index{SwapChain@{SwapChain}!BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}}
+\doxysubsubsection{\texorpdfstring{SwapChain()}{SwapChain()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_swap_chain_acdd09c6dc0557d6b8889d360bfe169b6} 
+Blocky\+Vulkan\+::\+Swap\+Chain\+::\+Swap\+Chain (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain}{Swap\+Chain}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_blocky_vulkan_1_1_swap_chain_a649d6c6cca871c742e5b7fa90f0cb50e}\index{BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}!acquireNextImage@{acquireNextImage}}
+\index{acquireNextImage@{acquireNextImage}!BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}}
+\doxysubsubsection{\texorpdfstring{acquireNextImage()}{acquireNextImage()}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_swap_chain_a649d6c6cca871c742e5b7fa90f0cb50e} 
+Vk\+Result Blocky\+Vulkan\+::\+Swap\+Chain\+::acquire\+Next\+Image (\begin{DoxyParamCaption}\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{image\+Index}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 1
+\Hypertarget{class_blocky_vulkan_1_1_swap_chain_aadd7e49801d654de56c68d9bec6aacfb}\index{BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}!extentAspectRatio@{extentAspectRatio}}
+\index{extentAspectRatio@{extentAspectRatio}!BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}}
+\doxysubsubsection{\texorpdfstring{extentAspectRatio()}{extentAspectRatio()}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_swap_chain_aadd7e49801d654de56c68d9bec6aacfb} 
+float Blocky\+Vulkan\+::\+Swap\+Chain\+::extent\+Aspect\+Ratio (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_blocky_vulkan_1_1_swap_chain_a032370066d55a3da18dfcb8ff25bd634}\index{BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}!findDepthFormat@{findDepthFormat}}
+\index{findDepthFormat@{findDepthFormat}!BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}}
+\doxysubsubsection{\texorpdfstring{findDepthFormat()}{findDepthFormat()}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_swap_chain_a032370066d55a3da18dfcb8ff25bd634} 
+Vk\+Format Blocky\+Vulkan\+::\+Swap\+Chain\+::find\+Depth\+Format (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 2
+\Hypertarget{class_blocky_vulkan_1_1_swap_chain_af2d854fd02a8a6afc18e9e9f331402e1}\index{BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}!getFrameBuffer@{getFrameBuffer}}
+\index{getFrameBuffer@{getFrameBuffer}!BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}}
+\doxysubsubsection{\texorpdfstring{getFrameBuffer()}{getFrameBuffer()}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_swap_chain_af2d854fd02a8a6afc18e9e9f331402e1} 
+Vk\+Framebuffer Blocky\+Vulkan\+::\+Swap\+Chain\+::get\+Frame\+Buffer (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_blocky_vulkan_1_1_swap_chain_a6d60b10858f53aa36103cb8ffdce5a89}\index{BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}!getImageView@{getImageView}}
+\index{getImageView@{getImageView}!BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}}
+\doxysubsubsection{\texorpdfstring{getImageView()}{getImageView()}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_swap_chain_a6d60b10858f53aa36103cb8ffdce5a89} 
+Vk\+Image\+View Blocky\+Vulkan\+::\+Swap\+Chain\+::get\+Image\+View (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_blocky_vulkan_1_1_swap_chain_a067c98a8ea8b9573afa58ec31b61070b}\index{BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}!getRenderPass@{getRenderPass}}
+\index{getRenderPass@{getRenderPass}!BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}}
+\doxysubsubsection{\texorpdfstring{getRenderPass()}{getRenderPass()}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_swap_chain_a067c98a8ea8b9573afa58ec31b61070b} 
+Vk\+Render\+Pass Blocky\+Vulkan\+::\+Swap\+Chain\+::get\+Render\+Pass (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_blocky_vulkan_1_1_swap_chain_adc6458afc40ffae71d6ebe6b23f1d829}\index{BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}!getSwapChainExtent@{getSwapChainExtent}}
+\index{getSwapChainExtent@{getSwapChainExtent}!BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}}
+\doxysubsubsection{\texorpdfstring{getSwapChainExtent()}{getSwapChainExtent()}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_swap_chain_adc6458afc40ffae71d6ebe6b23f1d829} 
+Vk\+Extent2D Blocky\+Vulkan\+::\+Swap\+Chain\+::get\+Swap\+Chain\+Extent (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_blocky_vulkan_1_1_swap_chain_a5bdf6b58fbb9b4ece8d2836e44c7bda2}\index{BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}!getSwapChainImageFormat@{getSwapChainImageFormat}}
+\index{getSwapChainImageFormat@{getSwapChainImageFormat}!BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}}
+\doxysubsubsection{\texorpdfstring{getSwapChainImageFormat()}{getSwapChainImageFormat()}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_swap_chain_a5bdf6b58fbb9b4ece8d2836e44c7bda2} 
+Vk\+Format Blocky\+Vulkan\+::\+Swap\+Chain\+::get\+Swap\+Chain\+Image\+Format (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_blocky_vulkan_1_1_swap_chain_ad564ff4a410422918416004cbfb29e07}\index{BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}!height@{height}}
+\index{height@{height}!BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}}
+\doxysubsubsection{\texorpdfstring{height()}{height()}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_swap_chain_ad564ff4a410422918416004cbfb29e07} 
+uint32\+\_\+t Blocky\+Vulkan\+::\+Swap\+Chain\+::height (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_blocky_vulkan_1_1_swap_chain_a65bf2dc77700ab941caec9ab15d82afa}\index{BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}!imageCount@{imageCount}}
+\index{imageCount@{imageCount}!BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}}
+\doxysubsubsection{\texorpdfstring{imageCount()}{imageCount()}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_swap_chain_a65bf2dc77700ab941caec9ab15d82afa} 
+size\+\_\+t Blocky\+Vulkan\+::\+Swap\+Chain\+::image\+Count (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_blocky_vulkan_1_1_swap_chain_a432f19b5581e7a6b21863ccab37b4b64}\index{BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}!operator=@{operator=}}
+\index{operator=@{operator=}!BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_swap_chain_a432f19b5581e7a6b21863ccab37b4b64} 
+\mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain}{Swap\+Chain}} \& Blocky\+Vulkan\+::\+Swap\+Chain\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_blocky_vulkan_1_1_swap_chain}{Swap\+Chain}} \&}]{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\Hypertarget{class_blocky_vulkan_1_1_swap_chain_a78bbedddd61a8befbe772baf46f2bc9b}\index{BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}!submitCommandBuffers@{submitCommandBuffers}}
+\index{submitCommandBuffers@{submitCommandBuffers}!BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}}
+\doxysubsubsection{\texorpdfstring{submitCommandBuffers()}{submitCommandBuffers()}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_swap_chain_a78bbedddd61a8befbe772baf46f2bc9b} 
+Vk\+Result Blocky\+Vulkan\+::\+Swap\+Chain\+::submit\+Command\+Buffers (\begin{DoxyParamCaption}\item[{const Vk\+Command\+Buffer \texorpdfstring{$\ast$}{*}}]{buffers}{, }\item[{uint32\+\_\+t \texorpdfstring{$\ast$}{*}}]{image\+Index}{}\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 3
+\Hypertarget{class_blocky_vulkan_1_1_swap_chain_a7734e42d1b5b2e7de41256950ffdd760}\index{BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}!width@{width}}
+\index{width@{width}!BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}}
+\doxysubsubsection{\texorpdfstring{width()}{width()}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_swap_chain_a7734e42d1b5b2e7de41256950ffdd760} 
+uint32\+\_\+t Blocky\+Vulkan\+::\+Swap\+Chain\+::width (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_blocky_vulkan_1_1_swap_chain_a82288aecf69bcdcc0e2c0d6e525709f9}\index{BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}!MAX\_FRAMES\_IN\_FLIGHT@{MAX\_FRAMES\_IN\_FLIGHT}}
+\index{MAX\_FRAMES\_IN\_FLIGHT@{MAX\_FRAMES\_IN\_FLIGHT}!BlockyVulkan::SwapChain@{BlockyVulkan::SwapChain}}
+\doxysubsubsection{\texorpdfstring{MAX\_FRAMES\_IN\_FLIGHT}{MAX\_FRAMES\_IN\_FLIGHT}}
+{\footnotesize\ttfamily \label{class_blocky_vulkan_1_1_swap_chain_a82288aecf69bcdcc0e2c0d6e525709f9} 
+int Blocky\+Vulkan\+::\+Swap\+Chain\+::\+MAX\+\_\+\+FRAMES\+\_\+\+IN\+\_\+\+FLIGHT = 2\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [constexpr]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{swap__chain_8hpp}{swap\+\_\+chain.\+hpp}}\item 
+\mbox{\hyperlink{swap__chain_8cpp}{swap\+\_\+chain.\+cpp}}\end{DoxyCompactItemize}

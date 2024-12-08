@@ -1,0 +1,61 @@
+.TH "BlockyVulkan::Pipeline" 3 "Sun Dec 8 2024 18:35:01" "Version 0.1" "VulkanBlock" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BlockyVulkan::Pipeline
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <pipeline\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBPipeline\fP (\fBDevice\fP &device, const std::string &vertFilePath, const std::string &fragFilePath, const \fBPipelineConfigInfo\fP configInfo)"
+.br
+.ti -1c
+.RI "\fB~Pipeline\fP ()"
+.br
+.ti -1c
+.RI "\fBPipeline\fP (const \fBPipeline\fP &)=delete"
+.br
+.ti -1c
+.RI "\fBPipeline\fP & \fBoperator=\fP (const \fBPipeline\fP &)=delete"
+.br
+.ti -1c
+.RI "\fBPipeline\fP ()=default"
+.br
+.ti -1c
+.RI "void \fBBind\fP (VkCommandBuffer commandBuffer)"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBDefaultPipelineConfigInfo\fP (\fBPipelineConfigInfo\fP &configInfo)"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "BlockyVulkan::Pipeline::Pipeline (\fBBlockyVulkan::Device\fP & device, const std::string & vertFilePath, const std::string & fragFilePath, const \fBPipelineConfigInfo\fP configInfo)"
+
+.SS "BlockyVulkan::Pipeline::~Pipeline ()"
+
+.SS "BlockyVulkan::Pipeline::Pipeline (const \fBPipeline\fP & )\fR [delete]\fP"
+
+.SS "BlockyVulkan::Pipeline::Pipeline ()\fR [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void BlockyVulkan::Pipeline::Bind (VkCommandBuffer commandBuffer)"
+
+.SS "void BlockyVulkan::Pipeline::DefaultPipelineConfigInfo (\fBPipelineConfigInfo\fP & configInfo)\fR [static]\fP"
+
+.SS "\fBPipeline\fP & BlockyVulkan::Pipeline::operator= (const \fBPipeline\fP & )\fR [delete]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VulkanBlock from the source code\&.

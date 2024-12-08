@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_8be7fd92a0e45da25f846adbf16f93dd" kind="dir">
+    <compoundname>test_1</compoundname>
+    <innerfile refid="first__test_8cpp">first_test.cpp</innerfile>
+    <innerfile refid="first__test_8hpp">first_test.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="X:/Pro/GameDev/VulkanBlock/src/test_1/"/>
+  </compounddef>
+</doxygen>

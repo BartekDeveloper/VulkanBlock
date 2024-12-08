@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_device_8cpp" xml:lang="en-US">
+<title>src/device/device.cpp File Reference</title>
+<indexterm><primary>src/device/device.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;device.hpp&quot;<?linebreak?>#include &lt;cstring&gt;<?linebreak?>#include &lt;iostream&gt;<?linebreak?>#include &lt;set&gt;<?linebreak?>#include &lt;unordered_set&gt;<?linebreak?></programlisting>Include dependency graph for device.cpp:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="device_8cpp__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_blocky_vulkan">BlockyVulkan</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>VkResult <link linkend="_namespace_blocky_vulkan_1a9d56f27ff0564350bf95525132a7cf4f">BlockyVulkan::CreateDebugUtilsMessengerEXT</link> (VkInstance instance, const VkDebugUtilsMessengerCreateInfoEXT *pCreateInfo, const VkAllocationCallbacks *pAllocator, VkDebugUtilsMessengerEXT *pDebugMessenger)</para>
+</listitem>
+            <listitem><para>void <link linkend="_namespace_blocky_vulkan_1aa99a2fcfffc744977e17b0af23cfeafb">BlockyVulkan::DestroyDebugUtilsMessengerEXT</link> (VkInstance instance, VkDebugUtilsMessengerEXT debugMessenger, const VkAllocationCallbacks *pAllocator)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

@@ -1,0 +1,261 @@
+\doxysection{first\+\_\+test.\+cpp}
+\label{first__test_8cpp_source}\index{src/test\_1/first\_test.cpp@{src/test\_1/first\_test.cpp}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}first\_test.hpp"{}}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#define\ GLM\_FORCE\_RADIANS\ \ }\textcolor{comment}{//\ forcing\ radians\ instead\ of\ degrees\ (no\ matter\ your}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ os\ settings)}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#define\ GLM\_FORCE\_DEPTH\_ZERO\_TO\_ONE\ \ }\textcolor{comment}{//\ forcing\ depth\ to\ be\ from\ 0\ to\ 1}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{comment}{//\ std}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <array>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{namespace\ }BlockyVulkan\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \textcolor{keyword}{struct\ }SimplePushConstantData\ \{}
+\DoxyCodeLine{00016\ \ \ \ \ glm::mat2\ transform\{1.f\};\ \ \textcolor{comment}{//\ Initializes\ main\ diagonal,\ not\ every\ entry}}
+\DoxyCodeLine{00017\ \ \ \ \ glm::vec2\ offset;}
+\DoxyCodeLine{00018\ \ \ \ \ \textcolor{keyword}{alignas}(16)\ glm::vec3\ color;}
+\DoxyCodeLine{00019\ \};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ FirstTest::FirstTest()\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ LoadGameObjects();}
+\DoxyCodeLine{00023\ \ \ \ \ CreatePipelineLayout();}
+\DoxyCodeLine{00024\ \ \ \ \ RecreateSwapChain();}
+\DoxyCodeLine{00025\ \ \ \ \ CreateCommandBuffers();}
+\DoxyCodeLine{00026\ \}}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ FirstTest::\string~FirstTest()\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ vkDestroyPipelineLayout(device.device(),\ pipelineLayout,\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00030\ \}}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \textcolor{keywordtype}{void}\ FirstTest::Run()\ \{}
+\DoxyCodeLine{00033\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Limit\ max\ push\ constant\ size:\ "{}}}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ <<\ device.properties.limits.maxPushConstantsSize\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordflow}{while}\ (!window.ShouldClose())\ \{}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ glfwPollEvents();}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ DrawFrame();}
+\DoxyCodeLine{00039\ \ \ \ \ \}}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00041\ \ \ \ \ vkDeviceWaitIdle(device.device());}
+\DoxyCodeLine{00042\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ FirstTest::Sierpinski(std::vector<Model::Vertex>\ \&vertices,\ \textcolor{keywordtype}{int}\ depth,}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec2\ left,\ glm::vec2\ right,\ glm::vec2\ top)\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keywordflow}{if}\ (depth\ <=\ 0)\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ vertices.push\_back(\{top\});}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ vertices.push\_back(\{right\});}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ vertices.push\_back(\{left\});}
+\DoxyCodeLine{00050\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ leftTop\ =\ 0.5f\ *\ (left\ +\ top);}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ rightTop\ =\ 0.5f\ *\ (right\ +\ top);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ leftRight\ =\ 0.5f\ *\ (left\ +\ right);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ Sierpinski(vertices,\ depth\ -\/\ 1,\ left,\ leftRight,\ leftTop);}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ Sierpinski(vertices,\ depth\ -\/\ 1,\ leftRight,\ right,\ rightTop);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ Sierpinski(vertices,\ depth\ -\/\ 1,\ leftTop,\ rightTop,\ top);}
+\DoxyCodeLine{00057\ \ \ \ \ \}}
+\DoxyCodeLine{00058\ \}}
+\DoxyCodeLine{00059\ \textcolor{keywordtype}{void}\ FirstTest::LoadGameObjects()\ \{}
+\DoxyCodeLine{00060\ \ \ \ \ \textcolor{comment}{//\ Sierpinski(\ vertices,\ 2,\ \{\ -\/1.f,\ -\/1.f\ \},\ \{\ 1.f,\ -\/1.f\ \},\ \{\ .0f,\ 1.f\ \}}}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{comment}{//\ );}}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ std::vector<Model::Vertex>\ verticies\{\{\{-\/.75f,\ -\/.75f\},\ \{1.f,\ .0f,\ .0f\}\},}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \{\{.75f,\ -\/.75f\},\ \{.0f,\ .0f,\ 1.f\}\},}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \{\{-\/.0f,\ .75f\},\ \{.0f,\ 1.f,\ .0f\}\}\};}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keyword}{auto}\ model\ =\ std::make\_shared<Model>(device,\ verticies);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{keyword}{auto}\ triangle\ =\ GameObject::createGameObject();}
+\DoxyCodeLine{00070\ \ \ \ \ triangle.model\ =\ model;}
+\DoxyCodeLine{00071\ \ \ \ \ triangle.color\ =\ \{.2f,\ .1f,\ .8f\};}
+\DoxyCodeLine{00072\ \ \ \ \ triangle.transform2D.translation.x\ =\ .2f;}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00074\ \ \ \ \ gameObjects.push\_back(std::move(triangle));}
+\DoxyCodeLine{00075\ \}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \textcolor{keywordtype}{void}\ FirstTest::CreatePipelineLayout()\ \{}
+\DoxyCodeLine{00078\ \ \ \ \ \textcolor{comment}{//\ Creating\ push\ constants}}
+\DoxyCodeLine{00079\ \ \ \ \ VkPushConstantRange\ pushConstRange\{\};}
+\DoxyCodeLine{00080\ \ \ \ \ pushConstRange.stageFlags\ =}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ VK\_SHADER\_STAGE\_VERTEX\_BIT\ |\ VK\_SHADER\_STAGE\_FRAGMENT\_BIT;}
+\DoxyCodeLine{00082\ \ \ \ \ pushConstRange.offset\ =\ 0;}
+\DoxyCodeLine{00083\ \ \ \ \ pushConstRange.size\ =\ \textcolor{keyword}{sizeof}(SimplePushConstantData);}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{comment}{//\ Setting\ up\ Layout\ info}}
+\DoxyCodeLine{00086\ \ \ \ \ VkPipelineLayoutCreateInfo\ pipelineLayoutInfo\{\};}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ pipelineLayoutInfo.sType\ =\ VK\_STRUCTURE\_TYPE\_PIPELINE\_LAYOUT\_CREATE\_INFO;}
+\DoxyCodeLine{00089\ \ \ \ \ pipelineLayoutInfo.setLayoutCount\ =\ 0;}
+\DoxyCodeLine{00090\ \ \ \ \ pipelineLayoutInfo.pSetLayouts\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00091\ \ \ \ \ pipelineLayoutInfo.pushConstantRangeCount\ =\ 1;}
+\DoxyCodeLine{00092\ \ \ \ \ pipelineLayoutInfo.pPushConstantRanges\ =\ \&pushConstRange;}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{if}\ (vkCreatePipelineLayout(device.device(),\ \&pipelineLayoutInfo,\ \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&pipelineLayout)\ !=\ VK\_SUCCESS)\ \{}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Failed\ to\ create\ pipeline\ layout!"{}});}
+\DoxyCodeLine{00097\ \ \ \ \ \}}
+\DoxyCodeLine{00098\ \}}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00100\ \textcolor{keywordtype}{void}\ FirstTest::CreatePipeline()\ \{}
+\DoxyCodeLine{00101\ \ \ \ \ assert(swapChain\ !=\ \textcolor{keyword}{nullptr}\ \&\&\ \textcolor{stringliteral}{"{}Cannot\ create\ pipeline\ before\ swap\ chain!"{}});}
+\DoxyCodeLine{00102\ \ \ \ \ assert(pipelineLayout\ !=\ \textcolor{keyword}{nullptr}\ \&\&}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Cannot\ create\ pipeline\ before\ pipeline\ layout!"{}});}
+\DoxyCodeLine{00104\ }
+\DoxyCodeLine{00105\ \ \ \ \ PipelineConfigInfo\ pipelineConfig\{\};}
+\DoxyCodeLine{00106\ \ \ \ \ Pipeline::DefaultPipelineConfigInfo(pipelineConfig);}
+\DoxyCodeLine{00107\ \ \ \ \ pipelineConfig.renderPass\ =\ swapChain-\/>getRenderPass();}
+\DoxyCodeLine{00108\ \ \ \ \ pipelineConfig.pipelineLayout\ =\ pipelineLayout;}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ pipeline\ =}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ std::make\_unique<Pipeline>(device,\ \textcolor{stringliteral}{"{}shaders/simple.vert.spv"{}},}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}shaders/simple.frag.spv"{}},\ pipelineConfig);}
+\DoxyCodeLine{00113\ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \textcolor{keywordtype}{void}\ FirstTest::RecreateSwapChain()\ \{}
+\DoxyCodeLine{00116\ \ \ \ \ \textcolor{keyword}{auto}\ extent\ =\ window.getExtend();}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{keywordflow}{while}\ (extent.width\ ==\ 0\ ||\ extent.height\ ==\ 0)\ \{}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ extent\ =\ window.getExtend();}
+\DoxyCodeLine{00119\ \ \ \ \ \ \ \ \ glfwWaitEvents();}
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \ \ \ \ vkDeviceWaitIdle(device.device());}
+\DoxyCodeLine{00123\ }
+\DoxyCodeLine{00124\ \ \ \ \ \textcolor{keywordflow}{if}\ (swapChain\ ==\ \textcolor{keyword}{nullptr})\ \{}
+\DoxyCodeLine{00125\ \ \ \ \ \ \ \ \ swapChain\ =\ std::make\_unique<SwapChain>(device,\ extent);}
+\DoxyCodeLine{00126\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{00127\ \ \ \ \ \ \ \ \ swapChain\ =}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ std::make\_unique<SwapChain>(device,\ extent,\ std::move(swapChain));}
+\DoxyCodeLine{00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (swapChain-\/>imageCount()\ !=\ commandBuffers.size())\ \{}
+\DoxyCodeLine{00130\ \ \ \ \ \ \ \ \ \ \ \ \ FreeCommandBuffers();}
+\DoxyCodeLine{00131\ \ \ \ \ \ \ \ \ \ \ \ \ CreateCommandBuffers();}
+\DoxyCodeLine{00132\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00133\ \ \ \ \ \}}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ CreatePipeline();}
+\DoxyCodeLine{00136\ \}}
+\DoxyCodeLine{00137\ }
+\DoxyCodeLine{00138\ \textcolor{keywordtype}{void}\ FirstTest::CreateCommandBuffers()\ \{}
+\DoxyCodeLine{00139\ \ \ \ \ commandBuffers.resize(swapChain-\/>imageCount());}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \ \ \ \ VkCommandBufferAllocateInfo\ allocInfo\{\};}
+\DoxyCodeLine{00142\ \ \ \ \ allocInfo.sType\ =\ VK\_STRUCTURE\_TYPE\_COMMAND\_BUFFER\_ALLOCATE\_INFO;}
+\DoxyCodeLine{00143\ \ \ \ \ allocInfo.level\ =\ VK\_COMMAND\_BUFFER\_LEVEL\_PRIMARY;}
+\DoxyCodeLine{00144\ \ \ \ \ allocInfo.commandPool\ =\ device.getCommandPool();}
+\DoxyCodeLine{00145\ \ \ \ \ allocInfo.commandBufferCount\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(commandBuffers.size());}
+\DoxyCodeLine{00146\ }
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{keywordflow}{if}\ (vkAllocateCommandBuffers(device.device(),\ \&allocInfo,}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ commandBuffers.data())\ !=\ VK\_SUCCESS)\ \{}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Failed\ to\ allocate\ command\ buffers"{}});}
+\DoxyCodeLine{00150\ \ \ \ \ \}}
+\DoxyCodeLine{00151\ \}}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \textcolor{keywordtype}{void}\ FirstTest::FreeCommandBuffers()\ \{}
+\DoxyCodeLine{00154\ \ \ \ \ vkFreeCommandBuffers(device.device(),\ device.getCommandPool(),}
+\DoxyCodeLine{00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(commandBuffers.size()),}
+\DoxyCodeLine{00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ commandBuffers.data());}
+\DoxyCodeLine{00157\ \ \ \ \ commandBuffers.clear();}
+\DoxyCodeLine{00158\ \}}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \textcolor{keywordtype}{void}\ FirstTest::RecordCommandBuffer(\textcolor{keywordtype}{int}\ imageIndex)\ \{}
+\DoxyCodeLine{00161\ \ \ \ \ VkCommandBufferBeginInfo\ beginInfo\{\};}
+\DoxyCodeLine{00162\ \ \ \ \ beginInfo.sType\ =\ VK\_STRUCTURE\_TYPE\_COMMAND\_BUFFER\_BEGIN\_INFO;}
+\DoxyCodeLine{00163\ }
+\DoxyCodeLine{00164\ \ \ \ \ \textcolor{keywordflow}{if}\ (vkBeginCommandBuffer(commandBuffers[imageIndex],\ \&beginInfo)\ !=}
+\DoxyCodeLine{00165\ \ \ \ \ \ \ \ \ \ \ \ \ VK\_SUCCESS)\ \{}
+\DoxyCodeLine{00166\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Failed\ to\ begin\ recording\ command\ buffer!"{}});}
+\DoxyCodeLine{00167\ \ \ \ \ \}}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \textcolor{keywordtype}{void}\ FirstTest::RenderGameObjects(\ VkCommandBuffer\ commandBuffer\ )\ \{}
+\DoxyCodeLine{00170\ }
+\DoxyCodeLine{00171\ \ \ \ \ \}}
+\DoxyCodeLine{00172\ }
+\DoxyCodeLine{00173\ \ \ \ \ VkRenderPassBeginInfo\ renderPassInfo\{\};}
+\DoxyCodeLine{00174\ \ \ \ \ renderPassInfo.sType\ =\ VK\_STRUCTURE\_TYPE\_RENDER\_PASS\_BEGIN\_INFO;}
+\DoxyCodeLine{00175\ \ \ \ \ renderPassInfo.renderPass\ =\ swapChain-\/>getRenderPass();}
+\DoxyCodeLine{00176\ \ \ \ \ renderPassInfo.framebuffer\ =\ swapChain-\/>getFrameBuffer(imageIndex);}
+\DoxyCodeLine{00177\ }
+\DoxyCodeLine{00178\ \ \ \ \ renderPassInfo.renderArea.offset\ =\ \{0,\ 0\};}
+\DoxyCodeLine{00179\ \ \ \ \ renderPassInfo.renderArea.extent\ =\ swapChain-\/>getSwapChainExtent();}
+\DoxyCodeLine{00180\ }
+\DoxyCodeLine{00181\ \ \ \ \ std::array<VkClearValue,\ 2>\ clearValues\{\};}
+\DoxyCodeLine{00182\ \ \ \ \ clearValues[0].color\ =\ \{.1f,\ .1f,\ .1f,\ 1.f\};}
+\DoxyCodeLine{00183\ \ \ \ \ clearValues[1].depthStencil\ =\ \{1.f,\ 0\};}
+\DoxyCodeLine{00184\ }
+\DoxyCodeLine{00185\ \ \ \ \ renderPassInfo.clearValueCount\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(clearValues.size());}
+\DoxyCodeLine{00186\ \ \ \ \ renderPassInfo.pClearValues\ =\ clearValues.data();}
+\DoxyCodeLine{00187\ }
+\DoxyCodeLine{00188\ \ \ \ \ vkCmdBeginRenderPass(commandBuffers[imageIndex],\ \&renderPassInfo,}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VK\_SUBPASS\_CONTENTS\_INLINE);}
+\DoxyCodeLine{00190\ }
+\DoxyCodeLine{00191\ \ \ \ \ \textcolor{comment}{//\ Creating\ viewport\ and\ scissor\ variables\ and\ configuring\ them}}
+\DoxyCodeLine{00192\ \ \ \ \ VkViewport\ viewport\{\};}
+\DoxyCodeLine{00193\ \ \ \ \ viewport.x\ =\ .0f;}
+\DoxyCodeLine{00194\ \ \ \ \ viewport.y\ =\ .0f;}
+\DoxyCodeLine{00195\ \ \ \ \ viewport.width\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(swapChain-\/>getSwapChainExtent().width);}
+\DoxyCodeLine{00196\ \ \ \ \ viewport.height\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{float}\textcolor{keyword}{>}(swapChain-\/>getSwapChainExtent().height);}
+\DoxyCodeLine{00197\ \ \ \ \ viewport.minDepth\ =\ .0f;}
+\DoxyCodeLine{00198\ \ \ \ \ viewport.maxDepth\ =\ 1.f;}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ VkRect2D\ scissor(\{0,\ 0\},\ swapChain-\/>getSwapChainExtent());}
+\DoxyCodeLine{00201\ }
+\DoxyCodeLine{00202\ \ \ \ \ \textcolor{comment}{//\ Setting\ up\ viewport\ and\ scissor\ so\ they\ are\ used}}
+\DoxyCodeLine{00203\ \ \ \ \ vkCmdSetViewport(commandBuffers[imageIndex],\ 0,\ 1,\ \&viewport);}
+\DoxyCodeLine{00204\ \ \ \ \ vkCmdSetScissor(commandBuffers[imageIndex],\ 0,\ 1,\ \&scissor);}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ pipeline-\/>Bind(commandBuffers[imageIndex]);}
+\DoxyCodeLine{00207\ \ \ \ \ model-\/>Bind(commandBuffers[imageIndex]);}
+\DoxyCodeLine{00208\ }
+\DoxyCodeLine{00209\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 8;\ j++)\ \{}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ SimplePushConstantData\ push\{\};}
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ push.offset\ =\ \{.0f,\ -\/.4f\ +\ 0.1f\ *\ j\};}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ push.color\ =\ \{.0f,\ .0f,\ .2f\ +\ 0.1f\ *\ j\};}
+\DoxyCodeLine{00213\ }
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ vkCmdPushConstants(}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ commandBuffers[imageIndex],\ pipelineLayout,}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ VK\_SHADER\_STAGE\_VERTEX\_BIT\ |\ VK\_SHADER\_STAGE\_FRAGMENT\_BIT,\ 0,}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{sizeof}(SimplePushConstantData),\ \&push);}
+\DoxyCodeLine{00218\ }
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ model-\/>Draw(commandBuffers[imageIndex]);}
+\DoxyCodeLine{00220\ \ \ \ \ \}}
+\DoxyCodeLine{00221\ }
+\DoxyCodeLine{00222\ \ \ \ \ vkCmdEndRenderPass(commandBuffers[imageIndex]);}
+\DoxyCodeLine{00223\ \ \ \ \ \textcolor{keywordflow}{if}\ (vkEndCommandBuffer(commandBuffers[imageIndex])\ !=\ VK\_SUCCESS)\ \{}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Failed\ to\ record\ command\ buffer!"{}});}
+\DoxyCodeLine{00225\ \ \ \ \ \}}
+\DoxyCodeLine{00226\ \}}
+\DoxyCodeLine{00227\ }
+\DoxyCodeLine{00228\ \textcolor{keywordtype}{void}\ FirstTest::DrawFrame()\ \{}
+\DoxyCodeLine{00229\ \ \ \ \ uint32\_t\ imageIdx;}
+\DoxyCodeLine{00230\ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ swapChain-\/>acquireNextImage(\&imageIdx);}
+\DoxyCodeLine{00231\ }
+\DoxyCodeLine{00232\ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ ==\ VK\_ERROR\_OUT\_OF\_DATE\_KHR)\ \{}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ RecreateSwapChain();}
+\DoxyCodeLine{00234\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00235\ \ \ \ \ \}}
+\DoxyCodeLine{00236\ }
+\DoxyCodeLine{00237\ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ !=\ VK\_SUCCESS\ \&\&\ result\ !=\ VK\_SUBOPTIMAL\_KHR)\ \{}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Failed\ to\ aquire\ next\ swapchain\ image!"{}});}
+\DoxyCodeLine{00239\ \ \ \ \ \}}
+\DoxyCodeLine{00240\ }
+\DoxyCodeLine{00241\ \ \ \ \ RecordCommandBuffer(imageIdx);}
+\DoxyCodeLine{00242\ \ \ \ \ result\ =}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ swapChain-\/>submitCommandBuffers(\&commandBuffers[imageIdx],\ \&imageIdx);}
+\DoxyCodeLine{00244\ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ ==\ VK\_ERROR\_OUT\_OF\_DATE\_KHR\ ||\ result\ ==\ VK\_SUBOPTIMAL\_KHR\ ||}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ window.WasWindowResized())\ \{}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ window.ResetFlag\_WindowResized();}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ RecreateSwapChain();}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{00249\ \ \ \ \ \}}
+\DoxyCodeLine{00250\ \ \ \ \ \textcolor{keywordflow}{if}\ (result\ !=\ VK\_SUCCESS)\ \{}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Failed\ to\ present\ swap\ chain\ image!"{}});}
+\DoxyCodeLine{00252\ \ \ \ \ \}}
+\DoxyCodeLine{00253\ \}}
+\DoxyCodeLine{00254\ }
+\DoxyCodeLine{00255\ \}\ \ \textcolor{comment}{//\ namespace\ BlockyVulkan}}
+
+\end{DoxyCode}

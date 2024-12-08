@@ -1,0 +1,59 @@
+.TH "BlockyVulkan::Model" 3 "Sun Dec 8 2024 18:35:01" "Version 0.1" "VulkanBlock" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BlockyVulkan::Model
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <model\&.hpp>\fP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBVertex\fP"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBModel\fP (\fBDevice\fP &device, const std::vector< \fBVertex\fP > &verticies)"
+.br
+.ti -1c
+.RI "\fB~Model\fP ()"
+.br
+.ti -1c
+.RI "\fBModel\fP (const \fBModel\fP &)=delete"
+.br
+.ti -1c
+.RI "\fBModel\fP & \fBoperator=\fP (const \fBModel\fP &)=delete"
+.br
+.ti -1c
+.RI "void \fBBind\fP (VkCommandBuffer commandBuffer)"
+.br
+.ti -1c
+.RI "void \fBDraw\fP (VkCommandBuffer commandBuffer)"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "BlockyVulkan::Model::Model (\fBDevice\fP & device, const std::vector< \fBVertex\fP > & verticies)"
+
+.SS "BlockyVulkan::Model::~Model ()"
+
+.SS "BlockyVulkan::Model::Model (const \fBModel\fP & )\fR [delete]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void BlockyVulkan::Model::Bind (VkCommandBuffer commandBuffer)"
+
+.SS "void BlockyVulkan::Model::Draw (VkCommandBuffer commandBuffer)"
+
+.SS "\fBModel\fP & BlockyVulkan::Model::operator= (const \fBModel\fP & )\fR [delete]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VulkanBlock from the source code\&.

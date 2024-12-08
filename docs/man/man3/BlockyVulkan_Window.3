@@ -1,0 +1,67 @@
+.TH "BlockyVulkan::Window" 3 "Sun Dec 8 2024 18:35:01" "Version 0.1" "VulkanBlock" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BlockyVulkan::Window
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <window\&.hpp>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBWindow\fP (int w, int h, std::string name)"
+.br
+.ti -1c
+.RI "\fB~Window\fP ()"
+.br
+.ti -1c
+.RI "\fBWindow\fP (const \fBWindow\fP &)=delete"
+.br
+.ti -1c
+.RI "\fBWindow\fP & \fBoperator=\fP (const \fBWindow\fP &)=delete"
+.br
+.ti -1c
+.RI "bool \fBShouldClose\fP ()"
+.br
+.ti -1c
+.RI "VkExtent2D \fBgetExtend\fP ()"
+.br
+.ti -1c
+.RI "bool \fBWasWindowResized\fP ()"
+.br
+.ti -1c
+.RI "void \fBResetFlag_WindowResized\fP ()"
+.br
+.ti -1c
+.RI "void \fBCreateWindowSurface\fP (VkInstance instance, VkSurfaceKHR *surface)"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "BlockyVulkan::Window::Window (int w, int h, std::string name)"
+
+.SS "BlockyVulkan::Window::~Window ()"
+
+.SS "BlockyVulkan::Window::Window (const \fBWindow\fP & )\fR [delete]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void BlockyVulkan::Window::CreateWindowSurface (VkInstance instance, VkSurfaceKHR * surface)"
+
+.SS "VkExtent2D BlockyVulkan::Window::getExtend ()\fR [inline]\fP"
+
+.SS "\fBWindow\fP & BlockyVulkan::Window::operator= (const \fBWindow\fP & )\fR [delete]\fP"
+
+.SS "void BlockyVulkan::Window::ResetFlag_WindowResized ()\fR [inline]\fP"
+
+.SS "bool BlockyVulkan::Window::ShouldClose ()\fR [inline]\fP"
+
+.SS "bool BlockyVulkan::Window::WasWindowResized ()\fR [inline]\fP"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VulkanBlock from the source code\&.

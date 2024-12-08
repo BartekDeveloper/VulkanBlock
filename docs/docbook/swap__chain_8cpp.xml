@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_swap__chain_8cpp" xml:lang="en-US">
+<title>src/swapchain/swap_chain.cpp File Reference</title>
+<indexterm><primary>src/swapchain/swap_chain.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;swap_chain.hpp&quot;<?linebreak?>#include &lt;array&gt;<?linebreak?>#include &lt;cstdlib&gt;<?linebreak?>#include &lt;cstring&gt;<?linebreak?>#include &lt;iostream&gt;<?linebreak?>#include &lt;limits&gt;<?linebreak?>#include &lt;set&gt;<?linebreak?>#include &lt;stdexcept&gt;<?linebreak?></programlisting>Include dependency graph for swap_chain.cpp:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="swap__chain_8cpp__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_blocky_vulkan">BlockyVulkan</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

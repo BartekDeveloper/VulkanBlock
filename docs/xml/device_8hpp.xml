@@ -1,0 +1,273 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="device_8hpp" kind="file" language="C++">
+    <compoundname>device.hpp</compoundname>
+    <includes local="no">vulkan/vulkan.h</includes>
+    <includes refid="window_8hpp" local="yes">../window/window.hpp</includes>
+    <includes local="no">string</includes>
+    <includes local="no">vector</includes>
+    <includedby refid="device_8cpp" local="yes">device.cpp</includedby>
+    <includedby refid="first__test_8hpp" local="yes">first_test.hpp</includedby>
+    <includedby refid="model_8hpp" local="yes">model.hpp</includedby>
+    <includedby refid="pipeline_8cpp" local="yes">pipeline.cpp</includedby>
+    <includedby refid="pipeline_8hpp" local="yes">pipeline.hpp</includedby>
+    <includedby refid="swap__chain_8hpp" local="yes">swap_chain.hpp</includedby>
+    <incdepgraph>
+      <node id="4">
+        <label>GLFW/glfw3.h</label>
+      </node>
+      <node id="1">
+        <label>device.hpp</label>
+        <link refid="device_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>../window/window.hpp</label>
+        <link refid="window_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>string</label>
+      </node>
+      <node id="6">
+        <label>vector</label>
+      </node>
+      <node id="2">
+        <label>vulkan/vulkan.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="5">
+        <label>main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="2">
+        <label>device.cpp</label>
+        <link refid="device_8cpp"/>
+      </node>
+      <node id="1">
+        <label>device.hpp</label>
+        <link refid="device_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>game_object.hpp</label>
+        <link refid="game__object_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>model.cpp</label>
+        <link refid="model_8cpp"/>
+      </node>
+      <node id="6">
+        <label>model.hpp</label>
+        <link refid="model_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>pipeline.cpp</label>
+        <link refid="pipeline_8cpp"/>
+      </node>
+      <node id="10">
+        <label>pipeline.hpp</label>
+        <link refid="pipeline_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>swap_chain.cpp</label>
+        <link refid="swap__chain_8cpp"/>
+      </node>
+      <node id="11">
+        <label>swap_chain.hpp</label>
+        <link refid="swap__chain_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>first_test.cpp</label>
+        <link refid="first__test_8cpp"/>
+      </node>
+      <node id="3">
+        <label>first_test.hpp</label>
+        <link refid="first__test_8hpp"/>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_blocky_vulkan_1_1_swap_chain_support_details" prot="public">BlockyVulkan::SwapChainSupportDetails</innerclass>
+    <innerclass refid="struct_blocky_vulkan_1_1_queue_family_indices" prot="public">BlockyVulkan::QueueFamilyIndices</innerclass>
+    <innerclass refid="class_blocky_vulkan_1_1_device" prot="public">BlockyVulkan::Device</innerclass>
+    <innernamespace refid="namespace_blocky_vulkan">BlockyVulkan</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vulkan/vulkan.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="window_8hpp" kindref="compound">../window/window.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vulkan/vulkan.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>std<sp/>lib<sp/>headers</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;string&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_blocky_vulkan" kindref="compound">BlockyVulkan</ref><sp/>{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="struct_blocky_vulkan_1_1_swap_chain_support_details" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_blocky_vulkan_1_1_swap_chain_support_details" kindref="compound">SwapChainSupportDetails</ref><sp/>{</highlight></codeline>
+<codeline lineno="14" refid="struct_blocky_vulkan_1_1_swap_chain_support_details_1aa1a932872e671b491887ab593174050e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkSurfaceCapabilitiesKHR<sp/><ref refid="struct_blocky_vulkan_1_1_swap_chain_support_details_1aa1a932872e671b491887ab593174050e" kindref="member">capabilities</ref>;</highlight></codeline>
+<codeline lineno="15" refid="struct_blocky_vulkan_1_1_swap_chain_support_details_1a77a80a3f974c0f4a2c18fad136c610c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;VkSurfaceFormatKHR&gt;<sp/><ref refid="struct_blocky_vulkan_1_1_swap_chain_support_details_1a77a80a3f974c0f4a2c18fad136c610c8" kindref="member">formats</ref>;</highlight></codeline>
+<codeline lineno="16" refid="struct_blocky_vulkan_1_1_swap_chain_support_details_1a1e924955c92c4cab575a0c99e451b738" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;VkPresentModeKHR&gt;<sp/><ref refid="struct_blocky_vulkan_1_1_swap_chain_support_details_1a1e924955c92c4cab575a0c99e451b738" kindref="member">presentModes</ref>;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="struct_blocky_vulkan_1_1_queue_family_indices" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_blocky_vulkan_1_1_queue_family_indices" kindref="compound">QueueFamilyIndices</ref><sp/>{</highlight></codeline>
+<codeline lineno="20" refid="struct_blocky_vulkan_1_1_queue_family_indices_1ad996d82f217e66c2e71f7d2801f8cea8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_blocky_vulkan_1_1_queue_family_indices_1ad996d82f217e66c2e71f7d2801f8cea8" kindref="member">graphicsFamily</ref>;</highlight></codeline>
+<codeline lineno="21" refid="struct_blocky_vulkan_1_1_queue_family_indices_1a72cb4002bc4ee8cb4ad32fc2b270de7a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="struct_blocky_vulkan_1_1_queue_family_indices_1a72cb4002bc4ee8cb4ad32fc2b270de7a" kindref="member">presentFamily</ref>;</highlight></codeline>
+<codeline lineno="22" refid="struct_blocky_vulkan_1_1_queue_family_indices_1ad4e47c84fb624fa1c970acaa0a65a696" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_blocky_vulkan_1_1_queue_family_indices_1ad4e47c84fb624fa1c970acaa0a65a696" kindref="member">graphicsFamilyHasValue</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="23" refid="struct_blocky_vulkan_1_1_queue_family_indices_1a2f3bfaefad9e8338ed09a44187c0b5ef" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_blocky_vulkan_1_1_queue_family_indices_1a2f3bfaefad9e8338ed09a44187c0b5ef" kindref="member">presentFamilyHasValue</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24" refid="struct_blocky_vulkan_1_1_queue_family_indices_1abeeef83fb1917526d8d713085744b6b9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="struct_blocky_vulkan_1_1_queue_family_indices_1abeeef83fb1917526d8d713085744b6b9" kindref="member">isComplete</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="struct_blocky_vulkan_1_1_queue_family_indices_1ad4e47c84fb624fa1c970acaa0a65a696" kindref="member">graphicsFamilyHasValue</ref><sp/>&amp;&amp;<sp/><ref refid="struct_blocky_vulkan_1_1_queue_family_indices_1a2f3bfaefad9e8338ed09a44187c0b5ef" kindref="member">presentFamilyHasValue</ref>;</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29" refid="class_blocky_vulkan_1_1_device" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_blocky_vulkan_1_1_device" kindref="compound">Device</ref><sp/>{</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight><highlight class="preprocessor">#ifdef<sp/>NDEBUG</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_device_1a6cb8cbe6257df6c3a3a5a1bfbd67d1e6" kindref="member">enableValidationLayers</ref><sp/>=<sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight><highlight class="preprocessor">#else</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="class_blocky_vulkan_1_1_device_1a6cb8cbe6257df6c3a3a5a1bfbd67d1e6" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_device_1a6cb8cbe6257df6c3a3a5a1bfbd67d1e6" kindref="member">enableValidationLayers</ref><sp/>=<sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_blocky_vulkan_1_1_device_1a855af26281a51ebe1946e66fb1ed181a" kindref="member">Device</ref>(<ref refid="class_blocky_vulkan_1_1_window" kindref="compound">Window</ref><sp/>&amp;window);</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_blocky_vulkan_1_1_device_1af4d1bbf15ca45ebc0df540f447701c35" kindref="member">~Device</ref>();</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Not<sp/>copyable<sp/>or<sp/>movable</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41" refid="class_blocky_vulkan_1_1_device_1a50713128568f269bcdbf595e0852dd67" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_blocky_vulkan_1_1_device_1a50713128568f269bcdbf595e0852dd67" kindref="member">Device</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_device" kindref="compound">Device</ref><sp/>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="42" refid="class_blocky_vulkan_1_1_device_1a6151eb20159fc8cf528a40f788634d5d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_device_1a6151eb20159fc8cf528a40f788634d5d" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_device" kindref="compound">Device</ref><sp/>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="43" refid="class_blocky_vulkan_1_1_device_1a7e807401ded0492da7a9242bebceaf72" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_blocky_vulkan_1_1_device_1a7e807401ded0492da7a9242bebceaf72" kindref="member">Device</ref>(<ref refid="class_blocky_vulkan_1_1_device" kindref="compound">Device</ref><sp/>&amp;&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="44" refid="class_blocky_vulkan_1_1_device_1a190e484949079a7bc1b89e233eb24836" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_blocky_vulkan_1_1_device" kindref="compound">Device</ref><sp/>&amp;<ref refid="class_blocky_vulkan_1_1_device_1a190e484949079a7bc1b89e233eb24836" kindref="member">operator=</ref>(<ref refid="class_blocky_vulkan_1_1_device" kindref="compound">Device</ref><sp/>&amp;&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="class_blocky_vulkan_1_1_device_1a406e7e7a3c33c969cfe9b1d8165270f5" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkCommandPool<sp/><ref refid="class_blocky_vulkan_1_1_device_1a406e7e7a3c33c969cfe9b1d8165270f5" kindref="member">getCommandPool</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>commandPool;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49" refid="class_blocky_vulkan_1_1_device_1abd0f1af74c6907d4354112e1291db9aa" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkDevice<sp/><ref refid="class_blocky_vulkan_1_1_device_1abd0f1af74c6907d4354112e1291db9aa" kindref="member">device</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>device_;</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="52" refid="class_blocky_vulkan_1_1_device_1a5f068bfa59fef43e83ea22f64390f3cd" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkSurfaceKHR<sp/><ref refid="class_blocky_vulkan_1_1_device_1a5f068bfa59fef43e83ea22f64390f3cd" kindref="member">surface</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>surface_;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="55" refid="class_blocky_vulkan_1_1_device_1a4a40e0cccdd4c1b3dd840fe8e2a1b9c9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkQueue<sp/><ref refid="class_blocky_vulkan_1_1_device_1a4a40e0cccdd4c1b3dd840fe8e2a1b9c9" kindref="member">graphicsQueue</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>graphicsQueue_;</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="58" refid="class_blocky_vulkan_1_1_device_1a522545cf12e6a3e11522c60d751d6833" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkQueue<sp/><ref refid="class_blocky_vulkan_1_1_device_1a522545cf12e6a3e11522c60d751d6833" kindref="member">presentQueue</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>presentQueue_;</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="61"><highlight class="normal"></highlight></codeline>
+<codeline lineno="62" refid="class_blocky_vulkan_1_1_device_1a3157d2aea16af098ce0cd890188d5b38" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_blocky_vulkan_1_1_swap_chain_support_details" kindref="compound">SwapChainSupportDetails</ref><sp/><ref refid="class_blocky_vulkan_1_1_device_1a3157d2aea16af098ce0cd890188d5b38" kindref="member">getSwapChainSupport</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>querySwapChainSupport(physicalDevice);</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/>uint32_t<sp/><ref refid="class_blocky_vulkan_1_1_device_1ad617fcdea6a8baf996e01daf07e2ea81" kindref="member">findMemoryType</ref>(uint32_t<sp/>typeFilter,<sp/>VkMemoryPropertyFlags<sp/><ref refid="class_blocky_vulkan_1_1_device_1aa21b177cd0be90aec7ecb0179fd7e734" kindref="member">properties</ref>);</highlight></codeline>
+<codeline lineno="66" refid="class_blocky_vulkan_1_1_device_1ad3ddfd3647179abd6d940be294e790c8" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_blocky_vulkan_1_1_queue_family_indices" kindref="compound">QueueFamilyIndices</ref><sp/><ref refid="class_blocky_vulkan_1_1_device_1ad3ddfd3647179abd6d940be294e790c8" kindref="member">findPhysicalQueueFamilies</ref>()<sp/>{</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>findQueueFamilies(physicalDevice);</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/>VkFormat<sp/><ref refid="class_blocky_vulkan_1_1_device_1a4d650743baa310cfab8703488586d27c" kindref="member">findSupportedFormat</ref>(</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;VkFormat&gt;<sp/>&amp;candidates,<sp/>VkImageTiling<sp/>tiling,<sp/>VkFormatFeatureFlags<sp/>features);</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"></highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>Buffer<sp/>Helper<sp/>Functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_device_1a4de673bdd57fa7f666ed13785178ef64" kindref="member">createBuffer</ref>(</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VkDeviceSize<sp/>size,</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VkBufferUsageFlags<sp/>usage,</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VkMemoryPropertyFlags<sp/><ref refid="class_blocky_vulkan_1_1_device_1aa21b177cd0be90aec7ecb0179fd7e734" kindref="member">properties</ref>,</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VkBuffer<sp/>&amp;buffer,</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VkDeviceMemory<sp/>&amp;bufferMemory);</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>VkCommandBuffer<sp/><ref refid="class_blocky_vulkan_1_1_device_1a8baa78622c491d96d97538c45e838853" kindref="member">beginSingleTimeCommands</ref>();</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_device_1a31bf87be17d10e28137b9245afbe2db5" kindref="member">endSingleTimeCommands</ref>(VkCommandBuffer<sp/>commandBuffer);</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_device_1a82e77bebd10b053b0e6aebf5eda4ccd5" kindref="member">copyBuffer</ref>(VkBuffer<sp/>srcBuffer,<sp/>VkBuffer<sp/>dstBuffer,<sp/>VkDeviceSize<sp/>size);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_device_1ae1628156841c3c8d2ff49b85cec4efc6" kindref="member">copyBufferToImage</ref>(</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VkBuffer<sp/>buffer,<sp/>VkImage<sp/>image,<sp/>uint32_t<sp/>width,<sp/>uint32_t<sp/>height,<sp/>uint32_t<sp/>layerCount);</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_device_1aacb612b684d04f19342f6537d207fb15" kindref="member">createImageWithInfo</ref>(</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>VkImageCreateInfo<sp/>&amp;imageInfo,</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VkMemoryPropertyFlags<sp/><ref refid="class_blocky_vulkan_1_1_device_1aa21b177cd0be90aec7ecb0179fd7e734" kindref="member">properties</ref>,</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VkImage<sp/>&amp;image,</highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>VkDeviceMemory<sp/>&amp;imageMemory);</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91" refid="class_blocky_vulkan_1_1_device_1aa21b177cd0be90aec7ecb0179fd7e734" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/>VkPhysicalDeviceProperties<sp/><ref refid="class_blocky_vulkan_1_1_device_1aa21b177cd0be90aec7ecb0179fd7e734" kindref="member">properties</ref>;</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>createInstance();</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>setupDebugMessenger();</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>createSurface();</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>pickPhysicalDevice();</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>createLogicalDevice();</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>createCommandPool();</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"></highlight></codeline>
+<codeline lineno="101"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>helper<sp/>functions</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>isDeviceSuitable(VkPhysicalDevice<sp/><ref refid="class_blocky_vulkan_1_1_device_1abd0f1af74c6907d4354112e1291db9aa" kindref="member">device</ref>);</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;const<sp/>char<sp/>*&gt;<sp/>getRequiredExtensions();</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>checkValidationLayerSupport();</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_blocky_vulkan_1_1_queue_family_indices" kindref="compound">QueueFamilyIndices</ref><sp/>findQueueFamilies(VkPhysicalDevice<sp/><ref refid="class_blocky_vulkan_1_1_device_1abd0f1af74c6907d4354112e1291db9aa" kindref="member">device</ref>);</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>populateDebugMessengerCreateInfo(VkDebugUtilsMessengerCreateInfoEXT<sp/>&amp;createInfo);</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>hasGflwRequiredInstanceExtensions();</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>checkDeviceExtensionSupport(VkPhysicalDevice<sp/><ref refid="class_blocky_vulkan_1_1_device_1abd0f1af74c6907d4354112e1291db9aa" kindref="member">device</ref>);</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_blocky_vulkan_1_1_swap_chain_support_details" kindref="compound">SwapChainSupportDetails</ref><sp/>querySwapChainSupport(VkPhysicalDevice<sp/><ref refid="class_blocky_vulkan_1_1_device_1abd0f1af74c6907d4354112e1291db9aa" kindref="member">device</ref>);</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/>VkInstance<sp/>instance;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>VkDebugUtilsMessengerEXT<sp/>debugMessenger;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>VkPhysicalDevice<sp/>physicalDevice<sp/>=<sp/>VK_NULL_HANDLE;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_blocky_vulkan_1_1_window" kindref="compound">Window</ref><sp/>&amp;window;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/>VkCommandPool<sp/>commandPool;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/>VkDevice<sp/>device_;</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>VkSurfaceKHR<sp/>surface_;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>VkQueue<sp/>graphicsQueue_;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>VkQueue<sp/>presentQueue_;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"></highlight></codeline>
+<codeline lineno="122"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;const<sp/>char<sp/>*&gt;<sp/>validationLayers<sp/>=<sp/>{</highlight><highlight class="stringliteral">&quot;VK_LAYER_KHRONOS_validation&quot;</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="123"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>std::vector&lt;const<sp/>char<sp/>*&gt;<sp/>deviceExtensions<sp/>=<sp/>{VK_KHR_SWAPCHAIN_EXTENSION_NAME};</highlight></codeline>
+<codeline lineno="124"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"></highlight></codeline>
+<codeline lineno="126"><highlight class="normal">}<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>BlockyVulkan</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="X:/Pro/GameDev/VulkanBlock/src/device/device.hpp"/>
+  </compounddef>
+</doxygen>

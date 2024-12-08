@@ -1,0 +1,300 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="class_blocky_vulkan_1_1_window" kind="class" language="C++" prot="public">
+    <compoundname>BlockyVulkan::Window</compoundname>
+    <includes refid="window_8hpp" local="no">window.hpp</includes>
+    <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_blocky_vulkan_1_1_window_1a0213518bba4201843b49a328f4ec6964" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BlockyVulkan::Window::width</definition>
+        <argsstring></argsstring>
+        <name>width</name>
+        <qualifiedname>BlockyVulkan::Window::width</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" line="37" column="9" bodyfile="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" bodystart="37" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_blocky_vulkan_1_1_window_1a81ab54da7222abe1ca8d4434c29231fa" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int BlockyVulkan::Window::height</definition>
+        <argsstring></argsstring>
+        <name>height</name>
+        <qualifiedname>BlockyVulkan::Window::height</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" line="38" column="9" bodyfile="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_blocky_vulkan_1_1_window_1a6ec5c8cfecc0c4cefc6807326ddcec84" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool BlockyVulkan::Window::frameBufferResized</definition>
+        <argsstring></argsstring>
+        <name>frameBufferResized</name>
+        <qualifiedname>BlockyVulkan::Window::frameBufferResized</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" line="39" column="10" bodyfile="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_blocky_vulkan_1_1_window_1ae34e447f92bb8289f1ae0c633782549a" prot="private" static="no" mutable="no">
+        <type>std::string</type>
+        <definition>std::string BlockyVulkan::Window::name</definition>
+        <argsstring></argsstring>
+        <name>name</name>
+        <qualifiedname>BlockyVulkan::Window::name</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" line="41" column="17" bodyfile="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_blocky_vulkan_1_1_window_1a58a7afb1a0c4e9ff07a512dcca57d4bc" prot="private" static="no" mutable="no">
+        <type>GLFWwindow *</type>
+        <definition>GLFWwindow* BlockyVulkan::Window::window</definition>
+        <argsstring></argsstring>
+        <name>window</name>
+        <qualifiedname>BlockyVulkan::Window::window</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" line="42" column="16" bodyfile="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" bodystart="42" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_blocky_vulkan_1_1_window_1a8e9aec6037e2788564d22151d08c7baf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BlockyVulkan::Window::Window</definition>
+        <argsstring>(int w, int h, std::string name)</argsstring>
+        <name>Window</name>
+        <qualifiedname>BlockyVulkan::Window::Window</qualifiedname>
+        <param>
+          <type>int</type>
+          <declname>w</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>h</declname>
+        </param>
+        <param>
+          <type>std::string</type>
+          <declname>name</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" line="12" column="5" bodyfile="X:/Pro/GameDev/VulkanBlock/src/window/window.cpp" bodystart="5" bodyend="8"/>
+      </memberdef>
+      <memberdef kind="function" id="class_blocky_vulkan_1_1_window_1a2cee7976fcb8feddc70c346ac300e940" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BlockyVulkan::Window::~Window</definition>
+        <argsstring>()</argsstring>
+        <name>~Window</name>
+        <qualifiedname>BlockyVulkan::Window::~Window</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" line="13" column="5" bodyfile="X:/Pro/GameDev/VulkanBlock/src/window/window.cpp" bodystart="10" bodyend="13"/>
+      </memberdef>
+      <memberdef kind="function" id="class_blocky_vulkan_1_1_window_1a6e7eb3b0adfb60564df5db025a10f309" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BlockyVulkan::Window::Window</definition>
+        <argsstring>(const Window &amp;)=delete</argsstring>
+        <name>Window</name>
+        <qualifiedname>BlockyVulkan::Window::Window</qualifiedname>
+        <param>
+          <type>const <ref refid="class_blocky_vulkan_1_1_window" kindref="compound">Window</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" line="15" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="class_blocky_vulkan_1_1_window_1a87195df9b3d0616dbc9b42b042b94c29" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="class_blocky_vulkan_1_1_window" kindref="compound">Window</ref> &amp;</type>
+        <definition>Window &amp; BlockyVulkan::Window::operator=</definition>
+        <argsstring>(const Window &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BlockyVulkan::Window::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="class_blocky_vulkan_1_1_window" kindref="compound">Window</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" line="16" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_blocky_vulkan_1_1_window_1a9ff4c2b5e9d07acc9eb5454ffcdb4ff5" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BlockyVulkan::Window::ShouldClose</definition>
+        <argsstring>()</argsstring>
+        <name>ShouldClose</name>
+        <qualifiedname>BlockyVulkan::Window::ShouldClose</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" line="18" column="10" bodyfile="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" bodystart="18" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_blocky_vulkan_1_1_window_1aad516780cfcfdf75091ac30465d28072" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>VkExtent2D</type>
+        <definition>VkExtent2D BlockyVulkan::Window::getExtend</definition>
+        <argsstring>()</argsstring>
+        <name>getExtend</name>
+        <qualifiedname>BlockyVulkan::Window::getExtend</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" line="21" column="16" bodyfile="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" bodystart="21" bodyend="23"/>
+      </memberdef>
+      <memberdef kind="function" id="class_blocky_vulkan_1_1_window_1a212571d9aceb5c39a5c3351f49693d8a" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool BlockyVulkan::Window::WasWindowResized</definition>
+        <argsstring>()</argsstring>
+        <name>WasWindowResized</name>
+        <qualifiedname>BlockyVulkan::Window::WasWindowResized</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" line="24" column="10" bodyfile="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" bodystart="24" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_blocky_vulkan_1_1_window_1a0f31e90160d16c1ed8e86ab99276432e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void BlockyVulkan::Window::ResetFlag_WindowResized</definition>
+        <argsstring>()</argsstring>
+        <name>ResetFlag_WindowResized</name>
+        <qualifiedname>BlockyVulkan::Window::ResetFlag_WindowResized</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" line="27" column="10" bodyfile="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" bodystart="27" bodyend="29"/>
+      </memberdef>
+      <memberdef kind="function" id="class_blocky_vulkan_1_1_window_1a96d585feaed2d71904c337611dc935d6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BlockyVulkan::Window::CreateWindowSurface</definition>
+        <argsstring>(VkInstance instance, VkSurfaceKHR *surface)</argsstring>
+        <name>CreateWindowSurface</name>
+        <qualifiedname>BlockyVulkan::Window::CreateWindowSurface</qualifiedname>
+        <param>
+          <type>VkInstance</type>
+          <declname>instance</declname>
+        </param>
+        <param>
+          <type>VkSurfaceKHR *</type>
+          <declname>surface</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" line="31" column="10" bodyfile="X:/Pro/GameDev/VulkanBlock/src/window/window.cpp" bodystart="25" bodyend="29"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_blocky_vulkan_1_1_window_1ae96828bf9d2fd9c6d55287e827146c91" prot="private" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BlockyVulkan::Window::FrameBufferResizeCallback</definition>
+        <argsstring>(GLFWwindow *window, int width, int height)</argsstring>
+        <name>FrameBufferResizeCallback</name>
+        <qualifiedname>BlockyVulkan::Window::FrameBufferResizeCallback</qualifiedname>
+        <param>
+          <type>GLFWwindow *</type>
+          <declname>window</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>width</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>height</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" line="34" column="17" bodyfile="X:/Pro/GameDev/VulkanBlock/src/window/window.cpp" bodystart="31" bodyend="36"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_blocky_vulkan_1_1_window_1af3f514bd1fa05c6e3115faf0cdbeea5c" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void BlockyVulkan::Window::InitWindow</definition>
+        <argsstring>()</argsstring>
+        <name>InitWindow</name>
+        <qualifiedname>BlockyVulkan::Window::InitWindow</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" line="35" column="10" bodyfile="X:/Pro/GameDev/VulkanBlock/src/window/window.cpp" bodystart="15" bodyend="23"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" line="10" column="1" bodyfile="X:/Pro/GameDev/VulkanBlock/src/window/window.hpp" bodystart="10" bodyend="43"/>
+    <listofallmembers>
+      <member refid="class_blocky_vulkan_1_1_window_1a96d585feaed2d71904c337611dc935d6" prot="public" virt="non-virtual"><scope>BlockyVulkan::Window</scope><name>CreateWindowSurface</name></member>
+      <member refid="class_blocky_vulkan_1_1_window_1ae96828bf9d2fd9c6d55287e827146c91" prot="private" virt="non-virtual"><scope>BlockyVulkan::Window</scope><name>FrameBufferResizeCallback</name></member>
+      <member refid="class_blocky_vulkan_1_1_window_1a6ec5c8cfecc0c4cefc6807326ddcec84" prot="private" virt="non-virtual"><scope>BlockyVulkan::Window</scope><name>frameBufferResized</name></member>
+      <member refid="class_blocky_vulkan_1_1_window_1aad516780cfcfdf75091ac30465d28072" prot="public" virt="non-virtual"><scope>BlockyVulkan::Window</scope><name>getExtend</name></member>
+      <member refid="class_blocky_vulkan_1_1_window_1a81ab54da7222abe1ca8d4434c29231fa" prot="private" virt="non-virtual"><scope>BlockyVulkan::Window</scope><name>height</name></member>
+      <member refid="class_blocky_vulkan_1_1_window_1af3f514bd1fa05c6e3115faf0cdbeea5c" prot="private" virt="non-virtual"><scope>BlockyVulkan::Window</scope><name>InitWindow</name></member>
+      <member refid="class_blocky_vulkan_1_1_window_1ae34e447f92bb8289f1ae0c633782549a" prot="private" virt="non-virtual"><scope>BlockyVulkan::Window</scope><name>name</name></member>
+      <member refid="class_blocky_vulkan_1_1_window_1a87195df9b3d0616dbc9b42b042b94c29" prot="public" virt="non-virtual"><scope>BlockyVulkan::Window</scope><name>operator=</name></member>
+      <member refid="class_blocky_vulkan_1_1_window_1a0f31e90160d16c1ed8e86ab99276432e" prot="public" virt="non-virtual"><scope>BlockyVulkan::Window</scope><name>ResetFlag_WindowResized</name></member>
+      <member refid="class_blocky_vulkan_1_1_window_1a9ff4c2b5e9d07acc9eb5454ffcdb4ff5" prot="public" virt="non-virtual"><scope>BlockyVulkan::Window</scope><name>ShouldClose</name></member>
+      <member refid="class_blocky_vulkan_1_1_window_1a212571d9aceb5c39a5c3351f49693d8a" prot="public" virt="non-virtual"><scope>BlockyVulkan::Window</scope><name>WasWindowResized</name></member>
+      <member refid="class_blocky_vulkan_1_1_window_1a0213518bba4201843b49a328f4ec6964" prot="private" virt="non-virtual"><scope>BlockyVulkan::Window</scope><name>width</name></member>
+      <member refid="class_blocky_vulkan_1_1_window_1a8e9aec6037e2788564d22151d08c7baf" prot="public" virt="non-virtual"><scope>BlockyVulkan::Window</scope><name>Window</name></member>
+      <member refid="class_blocky_vulkan_1_1_window_1a6e7eb3b0adfb60564df5db025a10f309" prot="public" virt="non-virtual"><scope>BlockyVulkan::Window</scope><name>Window</name></member>
+      <member refid="class_blocky_vulkan_1_1_window_1a58a7afb1a0c4e9ff07a512dcca57d4bc" prot="private" virt="non-virtual"><scope>BlockyVulkan::Window</scope><name>window</name></member>
+      <member refid="class_blocky_vulkan_1_1_window_1a2cee7976fcb8feddc70c346ac300e940" prot="public" virt="non-virtual"><scope>BlockyVulkan::Window</scope><name>~Window</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

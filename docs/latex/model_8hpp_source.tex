@@ -1,0 +1,49 @@
+\doxysection{model.\+hpp}
+\hypertarget{model_8hpp_source}{}\label{model_8hpp_source}\index{model.hpp@{model.hpp}}
+\mbox{\hyperlink{model_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{device_8hpp}{../device/device.hpp}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vulkan/vulkan.h>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ GLM\_FORCE\_RADIANS\ }\textcolor{comment}{//\ forcing\ radians\ instead\ of\ degrees\ (no\ matter\ your\ os\ settings)}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ GLM\_FORCE\_DEPTH\_ZERO\_TO\_ONE\ }\textcolor{comment}{//\ forcing\ depth\ to\ be\ from\ 0\ to\ 1}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_blocky_vulkan}{BlockyVulkan}}\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_blocky_vulkan_1_1_model}{Model}}\ \{}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_blocky_vulkan_1_1_model_1_1_vertex}{Vertex}}\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ glm::vec2\ \mbox{\hyperlink{struct_blocky_vulkan_1_1_model_1_1_vertex_a4ebaf6fe341d4c2e52df4e2cb95cc4d9}{position}};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ glm::vec3\ \mbox{\hyperlink{struct_blocky_vulkan_1_1_model_1_1_vertex_a2cfb97fb9722bc638db592a1bc61cf7b}{color}};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<VkVertexInputBindingDescription>\ \mbox{\hyperlink{struct_blocky_vulkan_1_1_model_1_1_vertex_a97a92a1265877fff2f287b07d0ac9db4}{GetBindingDescriptions}}();}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<VkVertexInputAttributeDescription>\ \mbox{\hyperlink{struct_blocky_vulkan_1_1_model_1_1_vertex_afb7939bc1d098cd9d72f99a95a14ed72}{GetAttributeDescriptions}}();}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00024\ \ \ \ \ \};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{class_blocky_vulkan_1_1_model_a3160d503440410109ba049e8501fc1b1}{Model}}(\mbox{\hyperlink{class_blocky_vulkan_1_1_device}{Device}}\ \&device,\ \textcolor{keyword}{const}\ std::vector<Vertex>\ \&verticies\ );}
+\DoxyCodeLine{00027\ \ \ \ \ \mbox{\hyperlink{class_blocky_vulkan_1_1_model_a130ba2bea277851e74b0603e6edf2135}{\string~Model}}();}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{class_blocky_vulkan_1_1_model_ab07f0b65355ee225b7e827b030840752}{Model}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_blocky_vulkan_1_1_model}{Model}}\ \&\ )\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_blocky_vulkan_1_1_model}{Model}}\ \&\mbox{\hyperlink{class_blocky_vulkan_1_1_model_a938c9508055ee973569a678f0e7b3243}{operator\ =\ }}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_blocky_vulkan_1_1_model}{Model}}\ \&\ )\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_blocky_vulkan_1_1_model_ab268beca056e5766fc4fe330baaea064}{Bind}}(\ VkCommandBuffer\ commandBuffer\ );}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_blocky_vulkan_1_1_model_a4535c857dd2caa03f6cca44778ec7712}{Draw}}(\ VkCommandBuffer\ commandBuffer\ );}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{keywordtype}{void}\ CreateVertexBuffers(\textcolor{keyword}{const}\ std::vector<Vertex>\ \&verticies);}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_blocky_vulkan_1_1_device}{Device}}\ \&device;}
+\DoxyCodeLine{00039\ \ \ \ \ VkBuffer\ vertexBuffer;}
+\DoxyCodeLine{00040\ \ \ \ \ VkDeviceMemory\ vertexBufferMemory;}
+\DoxyCodeLine{00041\ \ \ \ \ uint32\_t\ vertexCount;}
+\DoxyCodeLine{00042\ \};}
+\DoxyCodeLine{00043\ \}}
+
+\end{DoxyCode}

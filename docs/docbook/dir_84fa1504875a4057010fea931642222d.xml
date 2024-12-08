@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dir_84fa1504875a4057010fea931642222d" xml:lang="en-US">
+<title>src/game_object Directory Reference</title>
+<indexterm><primary>src/game_object Directory Reference</primary></indexterm>
+Directory dependency graph for game_object:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="dir_84fa1504875a4057010fea931642222d_dep.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Files    </title>
+        <itemizedlist>
+            <listitem><para>file <link linkend="_game__object_8cpp">game_object.cpp</link></para>
+</listitem>
+            <listitem><para>file <link linkend="_game__object_8hpp">game_object.hpp</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

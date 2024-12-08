@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="dir_84fa1504875a4057010fea931642222d" kind="dir">
+    <compoundname>game_object</compoundname>
+    <innerfile refid="game__object_8cpp">game_object.cpp</innerfile>
+    <innerfile refid="game__object_8hpp">game_object.hpp</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="X:/Pro/GameDev/VulkanBlock/src/game_object/"/>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,658 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML><HEAD></HEAD><BODY>
+<OBJECT type="text/site properties">
+<param name="FrameName" value="right">
+</OBJECT>
+<UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a649d6c6cca871c742e5b7fa90f0cb50e"><param name="Name" value="acquireNextImage(uint32_t *imageIndex)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a8baa78622c491d96d97538c45e838853"><param name="Name" value="beginSingleTimeCommands()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html#ab268beca056e5766fc4fe330baaea064"><param name="Name" value="Bind(VkCommandBuffer commandBuffer)"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html#ab268beca056e5766fc4fe330baaea064"><param name="Name" value="BlockyVulkan::Model"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html#a790267c38cf3e3a95cde697d4c88be51"><param name="Name" value="Bind(VkCommandBuffer commandBuffer)"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html#a790267c38cf3e3a95cde697d4c88be51"><param name="Name" value="BlockyVulkan::Pipeline"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_blocky_vulkan.html"><param name="Name" value="BlockyVulkan"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a8baa78622c491d96d97538c45e838853"><param name="Name" value="beginSingleTimeCommands()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a82e77bebd10b053b0e6aebf5eda4ccd5"><param name="Name" value="copyBuffer(VkBuffer srcBuffer, VkBuffer dstBuffer, VkDeviceSize size)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#ae1628156841c3c8d2ff49b85cec4efc6"><param name="Name" value="copyBufferToImage(VkBuffer buffer, VkImage image, uint32_t width, uint32_t height, uint32_t layerCount)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a4de673bdd57fa7f666ed13785178ef64"><param name="Name" value="createBuffer(VkDeviceSize size, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, VkBuffer &amp;buffer, VkDeviceMemory &amp;bufferMemory)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#aacb612b684d04f19342f6537d207fb15"><param name="Name" value="createImageWithInfo(const VkImageCreateInfo &amp;imageInfo, VkMemoryPropertyFlags properties, VkImage &amp;image, VkDeviceMemory &amp;imageMemory)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#abd0f1af74c6907d4354112e1291db9aa"><param name="Name" value="device()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a50713128568f269bcdbf595e0852dd67"><param name="Name" value="Device(const Device &amp;)=delete"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a7e807401ded0492da7a9242bebceaf72"><param name="Name" value="Device(Device &amp;&amp;)=delete"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a855af26281a51ebe1946e66fb1ed181a"><param name="Name" value="Device(Window &amp;window)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a6cb8cbe6257df6c3a3a5a1bfbd67d1e6"><param name="Name" value="enableValidationLayers"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a31bf87be17d10e28137b9245afbe2db5"><param name="Name" value="endSingleTimeCommands(VkCommandBuffer commandBuffer)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#ad617fcdea6a8baf996e01daf07e2ea81"><param name="Name" value="findMemoryType(uint32_t typeFilter, VkMemoryPropertyFlags properties)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#ad3ddfd3647179abd6d940be294e790c8"><param name="Name" value="findPhysicalQueueFamilies()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a4d650743baa310cfab8703488586d27c"><param name="Name" value="findSupportedFormat(const std::vector&lt; VkFormat &gt; &amp;candidates, VkImageTiling tiling, VkFormatFeatureFlags features)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a406e7e7a3c33c969cfe9b1d8165270f5"><param name="Name" value="getCommandPool()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a3157d2aea16af098ce0cd890188d5b38"><param name="Name" value="getSwapChainSupport()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a4a40e0cccdd4c1b3dd840fe8e2a1b9c9"><param name="Name" value="graphicsQueue()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a6151eb20159fc8cf528a40f788634d5d"><param name="Name" value="operator=(const Device &amp;)=delete"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a190e484949079a7bc1b89e233eb24836"><param name="Name" value="operator=(Device &amp;&amp;)=delete"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a522545cf12e6a3e11522c60d751d6833"><param name="Name" value="presentQueue()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#aa21b177cd0be90aec7ecb0179fd7e734"><param name="Name" value="properties"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a5f068bfa59fef43e83ea22f64390f3cd"><param name="Name" value="surface()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html"><param name="Name" value="BlockyVulkan::Device"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#af4d1bbf15ca45ebc0df540f447701c35"><param name="Name" value="~Device()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html"><param name="Name" value="BlockyVulkan::FirstTest"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html"><param name="Name" value="BlockyVulkan::FirstTest"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html#aae748a33a479466a837baaa37df9c39f"><param name="Name" value="FirstTest()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html"><param name="Name" value="BlockyVulkan::FirstTest"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html#ad39f53e8a673178131bd33cef109d98f"><param name="Name" value="FirstTest(const FirstTest &amp;)=delete"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html"><param name="Name" value="BlockyVulkan::FirstTest"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html#aa881baa92f22b00b4435ba014a4ac40c"><param name="Name" value="HEIGHT"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html"><param name="Name" value="BlockyVulkan::FirstTest"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html#a502edb60a80b8f233e2a606dc5a1bfc9"><param name="Name" value="operator=(const FirstTest &amp;)=delete"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html"><param name="Name" value="BlockyVulkan::FirstTest"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html#a905363df2403c92de3da3fb24fa9673b"><param name="Name" value="Run()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html"><param name="Name" value="BlockyVulkan::FirstTest"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html#aae5365a9bbdf34c8d8b5ac1993bcebca"><param name="Name" value="Sierpinski(std::vector&lt; Model::Vertex &gt; &amp;vertices, int depth, glm::vec2 left, glm::vec2 right, glm::vec2 top)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html"><param name="Name" value="BlockyVulkan::FirstTest"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html#a93b93e723eacdc4e26d7999f74e69b12"><param name="Name" value="WIDTH"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html"><param name="Name" value="BlockyVulkan::FirstTest"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html#a21d40444d4659ff4b68046682665c84e"><param name="Name" value="~FirstTest()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html"><param name="Name" value="BlockyVulkan::GameObject"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html"><param name="Name" value="BlockyVulkan::GameObject"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#ac420658a47b19a666a8c20ef8c6e5953"><param name="Name" value="color"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html"><param name="Name" value="BlockyVulkan::GameObject"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#a0cf4c0d3e2627d56d7385c4d98e7735a"><param name="Name" value="createGameObject()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html"><param name="Name" value="BlockyVulkan::GameObject"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#af7d60a002f79a1b5d8d51d0264db2bb4"><param name="Name" value="GameObject(const GameObject &amp;)=delete"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html"><param name="Name" value="BlockyVulkan::GameObject"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#a3ae0b3a37c5d4506e5f86107699cf6cf"><param name="Name" value="GameObject(GameObject &amp;&amp;)=default"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html"><param name="Name" value="BlockyVulkan::GameObject"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#a033bebd4ff0c3f8b319a9ea205e8378d"><param name="Name" value="GetId()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html"><param name="Name" value="BlockyVulkan::GameObject"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#a5f35795b309b75a6307bc2b71d902ef2"><param name="Name" value="id_t"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html"><param name="Name" value="BlockyVulkan::GameObject"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#a0e2537cdc1451bd103d085fe2f7ae8ec"><param name="Name" value="model"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html"><param name="Name" value="BlockyVulkan::GameObject"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#a55f79f0f069a6973bb3941bed867d648"><param name="Name" value="operator=(const GameObject &amp;)=delete"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html"><param name="Name" value="BlockyVulkan::GameObject"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#a2fb0731028d32dfdfd05522bbf55b0cd"><param name="Name" value="operator=(GameObject &amp;&amp;)=default"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html"><param name="Name" value="BlockyVulkan::GameObject"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#a034f46f8f39f6bd03a89ea9749380fd5"><param name="Name" value="transform2D"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html"><param name="Name" value="BlockyVulkan::Model"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_model_1_1_vertex.html"><param name="Name" value="BlockyVulkan::Model::Vertex"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_model_1_1_vertex.html"><param name="Name" value="BlockyVulkan::Model::Vertex"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_model_1_1_vertex.html#a2cfb97fb9722bc638db592a1bc61cf7b"><param name="Name" value="color"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_model_1_1_vertex.html"><param name="Name" value="BlockyVulkan::Model::Vertex"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_model_1_1_vertex.html#afb7939bc1d098cd9d72f99a95a14ed72"><param name="Name" value="GetAttributeDescriptions()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_model_1_1_vertex.html"><param name="Name" value="BlockyVulkan::Model::Vertex"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_model_1_1_vertex.html#a97a92a1265877fff2f287b07d0ac9db4"><param name="Name" value="GetBindingDescriptions()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_model_1_1_vertex.html"><param name="Name" value="BlockyVulkan::Model::Vertex"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_model_1_1_vertex.html#a4ebaf6fe341d4c2e52df4e2cb95cc4d9"><param name="Name" value="position"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html"><param name="Name" value="BlockyVulkan::Model"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html#ab268beca056e5766fc4fe330baaea064"><param name="Name" value="Bind(VkCommandBuffer commandBuffer)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html"><param name="Name" value="BlockyVulkan::Model"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html#a4535c857dd2caa03f6cca44778ec7712"><param name="Name" value="Draw(VkCommandBuffer commandBuffer)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html"><param name="Name" value="BlockyVulkan::Model"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html#ab07f0b65355ee225b7e827b030840752"><param name="Name" value="Model(const Model &amp;)=delete"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html"><param name="Name" value="BlockyVulkan::Model"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html#a3160d503440410109ba049e8501fc1b1"><param name="Name" value="Model(Device &amp;device, const std::vector&lt; Vertex &gt; &amp;verticies)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html"><param name="Name" value="BlockyVulkan::Model"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html#a938c9508055ee973569a678f0e7b3243"><param name="Name" value="operator=(const Model &amp;)=delete"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html"><param name="Name" value="BlockyVulkan::Model"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html#a130ba2bea277851e74b0603e6edf2135"><param name="Name" value="~Model()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html"><param name="Name" value="BlockyVulkan::Pipeline"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html"><param name="Name" value="BlockyVulkan::Pipeline"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html#a790267c38cf3e3a95cde697d4c88be51"><param name="Name" value="Bind(VkCommandBuffer commandBuffer)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html"><param name="Name" value="BlockyVulkan::Pipeline"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html#a921ac3065459aee5818a300bb87e8eed"><param name="Name" value="DefaultPipelineConfigInfo(PipelineConfigInfo &amp;configInfo)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html"><param name="Name" value="BlockyVulkan::Pipeline"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html#ad6f9140fd5c52c470922b6416c160b03"><param name="Name" value="operator=(const Pipeline &amp;)=delete"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html"><param name="Name" value="BlockyVulkan::Pipeline"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html#addb66f814dfdcf5ab9e8c1c394e95abb"><param name="Name" value="Pipeline()=default"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html"><param name="Name" value="BlockyVulkan::Pipeline"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html#a3cdd84b75f6effbfe5d4745e4c003309"><param name="Name" value="Pipeline(const Pipeline &amp;)=delete"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html"><param name="Name" value="BlockyVulkan::Pipeline"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html#a70c74fc3f16b6407d062f1b284e0dff0"><param name="Name" value="Pipeline(Device &amp;device, const std::string &amp;vertFilePath, const std::string &amp;fragFilePath, const PipelineConfigInfo configInfo)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html"><param name="Name" value="BlockyVulkan::Pipeline"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html#a6bd38169705e7b71be2ce6300e8c3cab"><param name="Name" value="~Pipeline()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html"><param name="Name" value="BlockyVulkan::PipelineConfigInfo"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html"><param name="Name" value="BlockyVulkan::PipelineConfigInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#ace48c96bcff001251bd0ab9a6c28ee06"><param name="Name" value="colorBlendAttachment"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html"><param name="Name" value="BlockyVulkan::PipelineConfigInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#a2dcfd03ff283e7ef7ba256c2cd2a7010"><param name="Name" value="colorBlendInfo"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html"><param name="Name" value="BlockyVulkan::PipelineConfigInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#ae5ebd9012649adcbe2fdb35b896a3e87"><param name="Name" value="depthStencilInfo"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html"><param name="Name" value="BlockyVulkan::PipelineConfigInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#ac754f6d94c8df9b55641efabec67c5f6"><param name="Name" value="dynamicStateEnables"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html"><param name="Name" value="BlockyVulkan::PipelineConfigInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#a698beed88b6819a26b0e4650ed8d0210"><param name="Name" value="dynamicStateInfo"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html"><param name="Name" value="BlockyVulkan::PipelineConfigInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#af79d02ca54f050415f818df3ff5140a6"><param name="Name" value="inputAssemblyInfo"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html"><param name="Name" value="BlockyVulkan::PipelineConfigInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#af2749bee4dc10bb630639892e5839c70"><param name="Name" value="multisampleInfo"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html"><param name="Name" value="BlockyVulkan::PipelineConfigInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#aeac9c6298a89cabb0f3a46537b705b2e"><param name="Name" value="operator=(const PipelineConfigInfo &amp;)=delete"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html"><param name="Name" value="BlockyVulkan::PipelineConfigInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#a60b8d16412bc257ee75ea324a8dd654a"><param name="Name" value="PipelineConfigInfo()=default"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html"><param name="Name" value="BlockyVulkan::PipelineConfigInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#acfca5f8d78fcb895055b09d8819d9030"><param name="Name" value="pipelineLayout"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html"><param name="Name" value="BlockyVulkan::PipelineConfigInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#a49e68fcfec16e572277de541a84c0086"><param name="Name" value="rasterizationInfo"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html"><param name="Name" value="BlockyVulkan::PipelineConfigInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#a9dc36f73322973991b76c50e1699b221"><param name="Name" value="renderPass"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html"><param name="Name" value="BlockyVulkan::PipelineConfigInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#ac218e5086d951b33f2f056e54bcdfc2d"><param name="Name" value="subpass"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html"><param name="Name" value="BlockyVulkan::PipelineConfigInfo"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#abf9d4590b94afc9da9222a8b86805a4c"><param name="Name" value="viewportInfo"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_queue_family_indices.html"><param name="Name" value="BlockyVulkan::QueueFamilyIndices"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_queue_family_indices.html"><param name="Name" value="BlockyVulkan::QueueFamilyIndices"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_queue_family_indices.html#ad996d82f217e66c2e71f7d2801f8cea8"><param name="Name" value="graphicsFamily"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_queue_family_indices.html"><param name="Name" value="BlockyVulkan::QueueFamilyIndices"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_queue_family_indices.html#ad4e47c84fb624fa1c970acaa0a65a696"><param name="Name" value="graphicsFamilyHasValue"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_queue_family_indices.html"><param name="Name" value="BlockyVulkan::QueueFamilyIndices"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_queue_family_indices.html#abeeef83fb1917526d8d713085744b6b9"><param name="Name" value="isComplete()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_queue_family_indices.html"><param name="Name" value="BlockyVulkan::QueueFamilyIndices"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_queue_family_indices.html#a72cb4002bc4ee8cb4ad32fc2b270de7a"><param name="Name" value="presentFamily"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_queue_family_indices.html"><param name="Name" value="BlockyVulkan::QueueFamilyIndices"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_queue_family_indices.html#a2f3bfaefad9e8338ed09a44187c0b5ef"><param name="Name" value="presentFamilyHasValue"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_simple_push_constant_data.html"><param name="Name" value="BlockyVulkan::SimplePushConstantData"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_simple_push_constant_data.html"><param name="Name" value="BlockyVulkan::SimplePushConstantData"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_simple_push_constant_data.html#a91c723d61a718577d34b4a3fea3590dd"><param name="Name" value="color"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_simple_push_constant_data.html"><param name="Name" value="BlockyVulkan::SimplePushConstantData"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_simple_push_constant_data.html#a0387a7feb49b1a549584efcd10127dae"><param name="Name" value="offset"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_simple_push_constant_data.html"><param name="Name" value="BlockyVulkan::SimplePushConstantData"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_simple_push_constant_data.html#accbcacd7987cc4fc6a0439fbde1cd468"><param name="Name" value="transform"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html"><param name="Name" value="BlockyVulkan::SwapChain"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html"><param name="Name" value="BlockyVulkan::SwapChain"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a649d6c6cca871c742e5b7fa90f0cb50e"><param name="Name" value="acquireNextImage(uint32_t *imageIndex)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html"><param name="Name" value="BlockyVulkan::SwapChain"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#aadd7e49801d654de56c68d9bec6aacfb"><param name="Name" value="extentAspectRatio()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html"><param name="Name" value="BlockyVulkan::SwapChain"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a032370066d55a3da18dfcb8ff25bd634"><param name="Name" value="findDepthFormat()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html"><param name="Name" value="BlockyVulkan::SwapChain"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#af2d854fd02a8a6afc18e9e9f331402e1"><param name="Name" value="getFrameBuffer(int index)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html"><param name="Name" value="BlockyVulkan::SwapChain"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a6d60b10858f53aa36103cb8ffdce5a89"><param name="Name" value="getImageView(int index)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html"><param name="Name" value="BlockyVulkan::SwapChain"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a067c98a8ea8b9573afa58ec31b61070b"><param name="Name" value="getRenderPass()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html"><param name="Name" value="BlockyVulkan::SwapChain"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#adc6458afc40ffae71d6ebe6b23f1d829"><param name="Name" value="getSwapChainExtent()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html"><param name="Name" value="BlockyVulkan::SwapChain"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a5bdf6b58fbb9b4ece8d2836e44c7bda2"><param name="Name" value="getSwapChainImageFormat()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html"><param name="Name" value="BlockyVulkan::SwapChain"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#ad564ff4a410422918416004cbfb29e07"><param name="Name" value="height()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html"><param name="Name" value="BlockyVulkan::SwapChain"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a65bf2dc77700ab941caec9ab15d82afa"><param name="Name" value="imageCount()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html"><param name="Name" value="BlockyVulkan::SwapChain"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a82288aecf69bcdcc0e2c0d6e525709f9"><param name="Name" value="MAX_FRAMES_IN_FLIGHT"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html"><param name="Name" value="BlockyVulkan::SwapChain"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a432f19b5581e7a6b21863ccab37b4b64"><param name="Name" value="operator=(const SwapChain &amp;)=delete"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html"><param name="Name" value="BlockyVulkan::SwapChain"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a78bbedddd61a8befbe772baf46f2bc9b"><param name="Name" value="submitCommandBuffers(const VkCommandBuffer *buffers, uint32_t *imageIndex)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html"><param name="Name" value="BlockyVulkan::SwapChain"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#acdd09c6dc0557d6b8889d360bfe169b6"><param name="Name" value="SwapChain(const SwapChain &amp;)=delete"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html"><param name="Name" value="BlockyVulkan::SwapChain"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a28ffd9fc853641200b7d22a82d4b6678"><param name="Name" value="SwapChain(Device &amp;deviceRef, VkExtent2D windowExtent)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html"><param name="Name" value="BlockyVulkan::SwapChain"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a446c8a493a9baa381af05d98f5b40d89"><param name="Name" value="SwapChain(Device &amp;deviceRef, VkExtent2D windowExtent, std::shared_ptr&lt; SwapChain &gt; previous)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html"><param name="Name" value="BlockyVulkan::SwapChain"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a7734e42d1b5b2e7de41256950ffdd760"><param name="Name" value="width()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html"><param name="Name" value="BlockyVulkan::SwapChain"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a15d6d8b52a7997bdd27be2d22a35c9a5"><param name="Name" value="~SwapChain()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_swap_chain_support_details.html"><param name="Name" value="BlockyVulkan::SwapChainSupportDetails"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_swap_chain_support_details.html"><param name="Name" value="BlockyVulkan::SwapChainSupportDetails"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_swap_chain_support_details.html#aa1a932872e671b491887ab593174050e"><param name="Name" value="capabilities"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_swap_chain_support_details.html"><param name="Name" value="BlockyVulkan::SwapChainSupportDetails"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_swap_chain_support_details.html#a77a80a3f974c0f4a2c18fad136c610c8"><param name="Name" value="formats"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_swap_chain_support_details.html"><param name="Name" value="BlockyVulkan::SwapChainSupportDetails"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_swap_chain_support_details.html#a1e924955c92c4cab575a0c99e451b738"><param name="Name" value="presentModes"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_transform2_d___component.html"><param name="Name" value="BlockyVulkan::Transform2D_Component"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_transform2_d___component.html"><param name="Name" value="BlockyVulkan::Transform2D_Component"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_transform2_d___component.html#a3ab89de3300479569ee5ae092f9e0a1a"><param name="Name" value="mat2()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_transform2_d___component.html"><param name="Name" value="BlockyVulkan::Transform2D_Component"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_transform2_d___component.html#a61dd87d229118f0af6632a023dfbdfa0"><param name="Name" value="translation"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html"><param name="Name" value="BlockyVulkan::Window"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html"><param name="Name" value="BlockyVulkan::Window"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html#a96d585feaed2d71904c337611dc935d6"><param name="Name" value="CreateWindowSurface(VkInstance instance, VkSurfaceKHR *surface)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html"><param name="Name" value="BlockyVulkan::Window"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html#aad516780cfcfdf75091ac30465d28072"><param name="Name" value="getExtend()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html"><param name="Name" value="BlockyVulkan::Window"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html#a87195df9b3d0616dbc9b42b042b94c29"><param name="Name" value="operator=(const Window &amp;)=delete"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html"><param name="Name" value="BlockyVulkan::Window"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html#a0f31e90160d16c1ed8e86ab99276432e"><param name="Name" value="ResetFlag_WindowResized()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html"><param name="Name" value="BlockyVulkan::Window"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html#a9ff4c2b5e9d07acc9eb5454ffcdb4ff5"><param name="Name" value="ShouldClose()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html"><param name="Name" value="BlockyVulkan::Window"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html#a212571d9aceb5c39a5c3351f49693d8a"><param name="Name" value="WasWindowResized()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html"><param name="Name" value="BlockyVulkan::Window"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html#a6e7eb3b0adfb60564df5db025a10f309"><param name="Name" value="Window(const Window &amp;)=delete"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html"><param name="Name" value="BlockyVulkan::Window"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html#a8e9aec6037e2788564d22151d08c7baf"><param name="Name" value="Window(int w, int h, std::string name)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html"><param name="Name" value="BlockyVulkan::Window"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html#a2cee7976fcb8feddc70c346ac300e940"><param name="Name" value="~Window()"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_blocky_vulkan.html"><param name="Name" value="BlockyVulkan"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_blocky_vulkan.html#a9d56f27ff0564350bf95525132a7cf4f"><param name="Name" value="CreateDebugUtilsMessengerEXT(VkInstance instance, const VkDebugUtilsMessengerCreateInfoEXT *pCreateInfo, const VkAllocationCallbacks *pAllocator, VkDebugUtilsMessengerEXT *pDebugMessenger)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_blocky_vulkan.html"><param name="Name" value="BlockyVulkan"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_blocky_vulkan.html#aa99a2fcfffc744977e17b0af23cfeafb"><param name="Name" value="DestroyDebugUtilsMessengerEXT(VkInstance instance, VkDebugUtilsMessengerEXT debugMessenger, const VkAllocationCallbacks *pAllocator)"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_swap_chain_support_details.html#aa1a932872e671b491887ab593174050e"><param name="Name" value="capabilities"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#ac420658a47b19a666a8c20ef8c6e5953"><param name="Name" value="color"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#ac420658a47b19a666a8c20ef8c6e5953"><param name="Name" value="BlockyVulkan::GameObject"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_model_1_1_vertex.html#a2cfb97fb9722bc638db592a1bc61cf7b"><param name="Name" value="color"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_model_1_1_vertex.html#a2cfb97fb9722bc638db592a1bc61cf7b"><param name="Name" value="BlockyVulkan::Model::Vertex"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_simple_push_constant_data.html#a91c723d61a718577d34b4a3fea3590dd"><param name="Name" value="color"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_simple_push_constant_data.html#a91c723d61a718577d34b4a3fea3590dd"><param name="Name" value="BlockyVulkan::SimplePushConstantData"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#ace48c96bcff001251bd0ab9a6c28ee06"><param name="Name" value="colorBlendAttachment"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#a2dcfd03ff283e7ef7ba256c2cd2a7010"><param name="Name" value="colorBlendInfo"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a82e77bebd10b053b0e6aebf5eda4ccd5"><param name="Name" value="copyBuffer(VkBuffer srcBuffer, VkBuffer dstBuffer, VkDeviceSize size)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#ae1628156841c3c8d2ff49b85cec4efc6"><param name="Name" value="copyBufferToImage(VkBuffer buffer, VkImage image, uint32_t width, uint32_t height, uint32_t layerCount)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a4de673bdd57fa7f666ed13785178ef64"><param name="Name" value="createBuffer(VkDeviceSize size, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, VkBuffer &amp;buffer, VkDeviceMemory &amp;bufferMemory)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_blocky_vulkan.html#a9d56f27ff0564350bf95525132a7cf4f"><param name="Name" value="CreateDebugUtilsMessengerEXT(VkInstance instance, const VkDebugUtilsMessengerCreateInfoEXT *pCreateInfo, const VkAllocationCallbacks *pAllocator, VkDebugUtilsMessengerEXT *pDebugMessenger)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#a0cf4c0d3e2627d56d7385c4d98e7735a"><param name="Name" value="createGameObject()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#aacb612b684d04f19342f6537d207fb15"><param name="Name" value="createImageWithInfo(const VkImageCreateInfo &amp;imageInfo, VkMemoryPropertyFlags properties, VkImage &amp;image, VkDeviceMemory &amp;imageMemory)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html#a96d585feaed2d71904c337611dc935d6"><param name="Name" value="CreateWindowSurface(VkInstance instance, VkSurfaceKHR *surface)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html#a921ac3065459aee5818a300bb87e8eed"><param name="Name" value="DefaultPipelineConfigInfo(PipelineConfigInfo &amp;configInfo)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#ae5ebd9012649adcbe2fdb35b896a3e87"><param name="Name" value="depthStencilInfo"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="namespace_blocky_vulkan.html#aa99a2fcfffc744977e17b0af23cfeafb"><param name="Name" value="DestroyDebugUtilsMessengerEXT(VkInstance instance, VkDebugUtilsMessengerEXT debugMessenger, const VkAllocationCallbacks *pAllocator)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#abd0f1af74c6907d4354112e1291db9aa"><param name="Name" value="device()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a50713128568f269bcdbf595e0852dd67"><param name="Name" value="Device(const Device &amp;)=delete"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a7e807401ded0492da7a9242bebceaf72"><param name="Name" value="Device(Device &amp;&amp;)=delete"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a855af26281a51ebe1946e66fb1ed181a"><param name="Name" value="Device(Window &amp;window)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html#a4535c857dd2caa03f6cca44778ec7712"><param name="Name" value="Draw(VkCommandBuffer commandBuffer)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#ac754f6d94c8df9b55641efabec67c5f6"><param name="Name" value="dynamicStateEnables"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#a698beed88b6819a26b0e4650ed8d0210"><param name="Name" value="dynamicStateInfo"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a6cb8cbe6257df6c3a3a5a1bfbd67d1e6"><param name="Name" value="enableValidationLayers"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a31bf87be17d10e28137b9245afbe2db5"><param name="Name" value="endSingleTimeCommands(VkCommandBuffer commandBuffer)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#aadd7e49801d654de56c68d9bec6aacfb"><param name="Name" value="extentAspectRatio()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a032370066d55a3da18dfcb8ff25bd634"><param name="Name" value="findDepthFormat()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#ad617fcdea6a8baf996e01daf07e2ea81"><param name="Name" value="findMemoryType(uint32_t typeFilter, VkMemoryPropertyFlags properties)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#ad3ddfd3647179abd6d940be294e790c8"><param name="Name" value="findPhysicalQueueFamilies()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a4d650743baa310cfab8703488586d27c"><param name="Name" value="findSupportedFormat(const std::vector&lt; VkFormat &gt; &amp;candidates, VkImageTiling tiling, VkFormatFeatureFlags features)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="first__test_8cpp.html"><param name="Name" value="first_test.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="first__test_8cpp.html#aa53e0967978ad7a8792f6961156ec968"><param name="Name" value="GLM_FORCE_DEPTH_ZERO_TO_ONE"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="first__test_8cpp.html"><param name="Name" value="first_test.cpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="first__test_8cpp.html#a816ab7d5c2ce1f0a01216042837beb93"><param name="Name" value="GLM_FORCE_RADIANS"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html#aae748a33a479466a837baaa37df9c39f"><param name="Name" value="FirstTest()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html#ad39f53e8a673178131bd33cef109d98f"><param name="Name" value="FirstTest(const FirstTest &amp;)=delete"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_swap_chain_support_details.html#a77a80a3f974c0f4a2c18fad136c610c8"><param name="Name" value="formats"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="game__object_8hpp.html"><param name="Name" value="game_object.hpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="game__object_8hpp.html#aa53e0967978ad7a8792f6961156ec968"><param name="Name" value="GLM_FORCE_DEPTH_ZERO_TO_ONE"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="game__object_8hpp.html"><param name="Name" value="game_object.hpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="game__object_8hpp.html#a816ab7d5c2ce1f0a01216042837beb93"><param name="Name" value="GLM_FORCE_RADIANS"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#af7d60a002f79a1b5d8d51d0264db2bb4"><param name="Name" value="GameObject(const GameObject &amp;)=delete"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#a3ae0b3a37c5d4506e5f86107699cf6cf"><param name="Name" value="GameObject(GameObject &amp;&amp;)=default"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_model_1_1_vertex.html#afb7939bc1d098cd9d72f99a95a14ed72"><param name="Name" value="GetAttributeDescriptions()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_model_1_1_vertex.html#a97a92a1265877fff2f287b07d0ac9db4"><param name="Name" value="GetBindingDescriptions()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a406e7e7a3c33c969cfe9b1d8165270f5"><param name="Name" value="getCommandPool()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html#aad516780cfcfdf75091ac30465d28072"><param name="Name" value="getExtend()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#af2d854fd02a8a6afc18e9e9f331402e1"><param name="Name" value="getFrameBuffer(int index)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#a033bebd4ff0c3f8b319a9ea205e8378d"><param name="Name" value="GetId()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a6d60b10858f53aa36103cb8ffdce5a89"><param name="Name" value="getImageView(int index)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a067c98a8ea8b9573afa58ec31b61070b"><param name="Name" value="getRenderPass()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#adc6458afc40ffae71d6ebe6b23f1d829"><param name="Name" value="getSwapChainExtent()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a5bdf6b58fbb9b4ece8d2836e44c7bda2"><param name="Name" value="getSwapChainImageFormat()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a3157d2aea16af098ce0cd890188d5b38"><param name="Name" value="getSwapChainSupport()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="first__test_8cpp.html#aa53e0967978ad7a8792f6961156ec968"><param name="Name" value="GLM_FORCE_DEPTH_ZERO_TO_ONE"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="first__test_8cpp.html#aa53e0967978ad7a8792f6961156ec968"><param name="Name" value="first_test.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="game__object_8hpp.html#aa53e0967978ad7a8792f6961156ec968"><param name="Name" value="GLM_FORCE_DEPTH_ZERO_TO_ONE"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="game__object_8hpp.html#aa53e0967978ad7a8792f6961156ec968"><param name="Name" value="game_object.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="model_8hpp.html#aa53e0967978ad7a8792f6961156ec968"><param name="Name" value="GLM_FORCE_DEPTH_ZERO_TO_ONE"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="model_8hpp.html#aa53e0967978ad7a8792f6961156ec968"><param name="Name" value="model.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="first__test_8cpp.html#a816ab7d5c2ce1f0a01216042837beb93"><param name="Name" value="GLM_FORCE_RADIANS"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="first__test_8cpp.html#a816ab7d5c2ce1f0a01216042837beb93"><param name="Name" value="first_test.cpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="game__object_8hpp.html#a816ab7d5c2ce1f0a01216042837beb93"><param name="Name" value="GLM_FORCE_RADIANS"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="game__object_8hpp.html#a816ab7d5c2ce1f0a01216042837beb93"><param name="Name" value="game_object.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="model_8hpp.html#a816ab7d5c2ce1f0a01216042837beb93"><param name="Name" value="GLM_FORCE_RADIANS"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="model_8hpp.html#a816ab7d5c2ce1f0a01216042837beb93"><param name="Name" value="model.hpp"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_queue_family_indices.html#ad996d82f217e66c2e71f7d2801f8cea8"><param name="Name" value="graphicsFamily"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_queue_family_indices.html#ad4e47c84fb624fa1c970acaa0a65a696"><param name="Name" value="graphicsFamilyHasValue"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a4a40e0cccdd4c1b3dd840fe8e2a1b9c9"><param name="Name" value="graphicsQueue()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#ad564ff4a410422918416004cbfb29e07"><param name="Name" value="height()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html#aa881baa92f22b00b4435ba014a4ac40c"><param name="Name" value="HEIGHT"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#a5f35795b309b75a6307bc2b71d902ef2"><param name="Name" value="id_t"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a65bf2dc77700ab941caec9ab15d82afa"><param name="Name" value="imageCount()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#af79d02ca54f050415f818df3ff5140a6"><param name="Name" value="inputAssemblyInfo"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_queue_family_indices.html#abeeef83fb1917526d8d713085744b6b9"><param name="Name" value="isComplete()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4"><param name="Name" value="main()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4"><param name="Name" value="main.cpp"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_transform2_d___component.html#a3ab89de3300479569ee5ae092f9e0a1a"><param name="Name" value="mat2()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a82288aecf69bcdcc0e2c0d6e525709f9"><param name="Name" value="MAX_FRAMES_IN_FLIGHT"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html#ab07f0b65355ee225b7e827b030840752"><param name="Name" value="Model(const Model &amp;)=delete"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html#a3160d503440410109ba049e8501fc1b1"><param name="Name" value="Model(Device &amp;device, const std::vector&lt; Vertex &gt; &amp;verticies)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="model_8hpp.html"><param name="Name" value="model.hpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="model_8hpp.html#aa53e0967978ad7a8792f6961156ec968"><param name="Name" value="GLM_FORCE_DEPTH_ZERO_TO_ONE"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="model_8hpp.html"><param name="Name" value="model.hpp"></OBJECT>
+  <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="model_8hpp.html#a816ab7d5c2ce1f0a01216042837beb93"><param name="Name" value="GLM_FORCE_RADIANS"></OBJECT>
+  </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#a0e2537cdc1451bd103d085fe2f7ae8ec"><param name="Name" value="model"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#af2749bee4dc10bb630639892e5839c70"><param name="Name" value="multisampleInfo"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_simple_push_constant_data.html#a0387a7feb49b1a549584efcd10127dae"><param name="Name" value="offset"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a6151eb20159fc8cf528a40f788634d5d"><param name="Name" value="operator=(const Device &amp;)=delete"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html#a502edb60a80b8f233e2a606dc5a1bfc9"><param name="Name" value="operator=(const FirstTest &amp;)=delete"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#a55f79f0f069a6973bb3941bed867d648"><param name="Name" value="operator=(const GameObject &amp;)=delete"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html#a938c9508055ee973569a678f0e7b3243"><param name="Name" value="operator=(const Model &amp;)=delete"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html#ad6f9140fd5c52c470922b6416c160b03"><param name="Name" value="operator=(const Pipeline &amp;)=delete"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#aeac9c6298a89cabb0f3a46537b705b2e"><param name="Name" value="operator=(const PipelineConfigInfo &amp;)=delete"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a432f19b5581e7a6b21863ccab37b4b64"><param name="Name" value="operator=(const SwapChain &amp;)=delete"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html#a87195df9b3d0616dbc9b42b042b94c29"><param name="Name" value="operator=(const Window &amp;)=delete"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a190e484949079a7bc1b89e233eb24836"><param name="Name" value="operator=(Device &amp;&amp;)=delete"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#a2fb0731028d32dfdfd05522bbf55b0cd"><param name="Name" value="operator=(GameObject &amp;&amp;)=default"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html#addb66f814dfdcf5ab9e8c1c394e95abb"><param name="Name" value="Pipeline()=default"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html#a3cdd84b75f6effbfe5d4745e4c003309"><param name="Name" value="Pipeline(const Pipeline &amp;)=delete"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html#a70c74fc3f16b6407d062f1b284e0dff0"><param name="Name" value="Pipeline(Device &amp;device, const std::string &amp;vertFilePath, const std::string &amp;fragFilePath, const PipelineConfigInfo configInfo)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#a60b8d16412bc257ee75ea324a8dd654a"><param name="Name" value="PipelineConfigInfo()=default"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#acfca5f8d78fcb895055b09d8819d9030"><param name="Name" value="pipelineLayout"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_model_1_1_vertex.html#a4ebaf6fe341d4c2e52df4e2cb95cc4d9"><param name="Name" value="position"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_queue_family_indices.html#a72cb4002bc4ee8cb4ad32fc2b270de7a"><param name="Name" value="presentFamily"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_queue_family_indices.html#a2f3bfaefad9e8338ed09a44187c0b5ef"><param name="Name" value="presentFamilyHasValue"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_swap_chain_support_details.html#a1e924955c92c4cab575a0c99e451b738"><param name="Name" value="presentModes"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a522545cf12e6a3e11522c60d751d6833"><param name="Name" value="presentQueue()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#aa21b177cd0be90aec7ecb0179fd7e734"><param name="Name" value="properties"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#a49e68fcfec16e572277de541a84c0086"><param name="Name" value="rasterizationInfo"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#a9dc36f73322973991b76c50e1699b221"><param name="Name" value="renderPass"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html#a0f31e90160d16c1ed8e86ab99276432e"><param name="Name" value="ResetFlag_WindowResized()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html#a905363df2403c92de3da3fb24fa9673b"><param name="Name" value="Run()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html#a9ff4c2b5e9d07acc9eb5454ffcdb4ff5"><param name="Name" value="ShouldClose()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html#aae5365a9bbdf34c8d8b5ac1993bcebca"><param name="Name" value="Sierpinski(std::vector&lt; Model::Vertex &gt; &amp;vertices, int depth, glm::vec2 left, glm::vec2 right, glm::vec2 top)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a78bbedddd61a8befbe772baf46f2bc9b"><param name="Name" value="submitCommandBuffers(const VkCommandBuffer *buffers, uint32_t *imageIndex)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#ac218e5086d951b33f2f056e54bcdfc2d"><param name="Name" value="subpass"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#a5f068bfa59fef43e83ea22f64390f3cd"><param name="Name" value="surface()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#acdd09c6dc0557d6b8889d360bfe169b6"><param name="Name" value="SwapChain(const SwapChain &amp;)=delete"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a28ffd9fc853641200b7d22a82d4b6678"><param name="Name" value="SwapChain(Device &amp;deviceRef, VkExtent2D windowExtent)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a446c8a493a9baa381af05d98f5b40d89"><param name="Name" value="SwapChain(Device &amp;deviceRef, VkExtent2D windowExtent, std::shared_ptr&lt; SwapChain &gt; previous)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_game_object.html#a034f46f8f39f6bd03a89ea9749380fd5"><param name="Name" value="transform2D"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_simple_push_constant_data.html#accbcacd7987cc4fc6a0439fbde1cd468"><param name="Name" value="transform"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_transform2_d___component.html#a61dd87d229118f0af6632a023dfbdfa0"><param name="Name" value="translation"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_blocky_vulkan_1_1_pipeline_config_info.html#abf9d4590b94afc9da9222a8b86805a4c"><param name="Name" value="viewportInfo"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html#a212571d9aceb5c39a5c3351f49693d8a"><param name="Name" value="WasWindowResized()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a7734e42d1b5b2e7de41256950ffdd760"><param name="Name" value="width()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html#a93b93e723eacdc4e26d7999f74e69b12"><param name="Name" value="WIDTH"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html#a6e7eb3b0adfb60564df5db025a10f309"><param name="Name" value="Window(const Window &amp;)=delete"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html#a8e9aec6037e2788564d22151d08c7baf"><param name="Name" value="Window(int w, int h, std::string name)"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_device.html#af4d1bbf15ca45ebc0df540f447701c35"><param name="Name" value="~Device()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_first_test.html#a21d40444d4659ff4b68046682665c84e"><param name="Name" value="~FirstTest()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_model.html#a130ba2bea277851e74b0603e6edf2135"><param name="Name" value="~Model()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_pipeline.html#a6bd38169705e7b71be2ce6300e8c3cab"><param name="Name" value="~Pipeline()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_swap_chain.html#a15d6d8b52a7997bdd27be2d22a35c9a5"><param name="Name" value="~SwapChain()"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="class_blocky_vulkan_1_1_window.html#a2cee7976fcb8feddc70c346ac300e940"><param name="Name" value="~Window()"></OBJECT>
+</UL>
+</BODY>
+</HTML>

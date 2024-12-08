@@ -1,0 +1,88 @@
+.TH "BlockyVulkan::GameObject" 3 "Sun Dec 8 2024 18:35:01" "Version 0.1" "VulkanBlock" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+BlockyVulkan::GameObject
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fR#include <game_object\&.hpp>\fP
+.SS "Public Types"
+
+.in +1c
+.ti -1c
+.RI "using \fBid_t\fP = unsigned int"
+.br
+.in -1c
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGameObject\fP (const \fBGameObject\fP &)=delete"
+.br
+.ti -1c
+.RI "\fBGameObject\fP & \fBoperator=\fP (const \fBGameObject\fP &)=delete"
+.br
+.ti -1c
+.RI "\fBGameObject\fP (\fBGameObject\fP &&)=default"
+.br
+.ti -1c
+.RI "\fBGameObject\fP & \fBoperator=\fP (\fBGameObject\fP &&)=default"
+.br
+.ti -1c
+.RI "const \fBid_t\fP \fBGetId\fP ()"
+.br
+.in -1c
+.SS "Static Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "static \fBGameObject\fP \fBcreateGameObject\fP ()"
+.br
+.in -1c
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "std::shared_ptr< \fBModel\fP > \fBmodel\fP {}"
+.br
+.ti -1c
+.RI "glm::vec3 \fBcolor\fP {}"
+.br
+.ti -1c
+.RI "\fBTransform2D_Component\fP \fBtransform2D\fP {}"
+.br
+.in -1c
+.SH "Member Typedef Documentation"
+.PP 
+.SS "using \fBBlockyVulkan::GameObject::id_t\fP = unsigned int"
+
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "BlockyVulkan::GameObject::GameObject (const \fBGameObject\fP & )\fR [delete]\fP"
+
+.SS "BlockyVulkan::GameObject::GameObject (\fBGameObject\fP && )\fR [default]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "static \fBGameObject\fP BlockyVulkan::GameObject::createGameObject ()\fR [inline]\fP, \fR [static]\fP"
+
+.SS "const \fBid_t\fP BlockyVulkan::GameObject::GetId ()\fR [inline]\fP"
+
+.SS "\fBGameObject\fP & BlockyVulkan::GameObject::operator= (const \fBGameObject\fP & )\fR [delete]\fP"
+
+.SS "\fBGameObject\fP & BlockyVulkan::GameObject::operator= (\fBGameObject\fP && )\fR [default]\fP"
+
+.SH "Member Data Documentation"
+.PP 
+.SS "glm::vec3 BlockyVulkan::GameObject::color {}"
+
+.SS "std::shared_ptr<\fBModel\fP> BlockyVulkan::GameObject::model {}"
+
+.SS "\fBTransform2D_Component\fP BlockyVulkan::GameObject::transform2D {}"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for VulkanBlock from the source code\&.

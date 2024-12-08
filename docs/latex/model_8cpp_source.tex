@@ -1,0 +1,86 @@
+\doxysection{model.\+cpp}
+\label{model_8cpp_source}\index{src/model/model.cpp@{src/model/model.cpp}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}model.hpp"{}}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }BlockyVulkan\ \{}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ Model::Model(\ Device\ \&device,\ \textcolor{keyword}{const}\ std::vector<Vertex>\ \&verticies\ )\ :\ device(device)\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ CreateVertexBuffers(\ verticies\ );}
+\DoxyCodeLine{00010\ \}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ Model::\string~Model()\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ vkDestroyBuffer(\ device.device(),\ vertexBuffer,\ \textcolor{keyword}{nullptr}\ );}
+\DoxyCodeLine{00014\ \ \ \ \ vkFreeMemory(\ device.device(),\ vertexBufferMemory,\ \textcolor{keyword}{nullptr}\ );}
+\DoxyCodeLine{00015\ \}}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keywordtype}{void}\ Model::CreateVertexBuffers(\ \textcolor{keyword}{const}\ std::vector<Vertex>\ \&verticies\ )\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ vertexCount\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(\ verticies.size()\ );}
+\DoxyCodeLine{00019\ \ \ \ \ assert(\ vertexCount\ >=\ 3\ \&\&\ \textcolor{stringliteral}{"{}Vertex\ count\ must\ be\ at\ least\ 3!"{}}\ );}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ VkDeviceSize\ bufferSize\ =\ \textcolor{keyword}{sizeof}(\ verticies[\ 0\ ]\ )\ *\ vertexCount;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ device.createBuffer(\ bufferSize,\ VK\_BUFFER\_USAGE\_VERTEX\_BUFFER\_BIT,}
+\DoxyCodeLine{00024\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VK\_MEMORY\_PROPERTY\_HOST\_VISIBLE\_BIT\ |\ VK\_MEMORY\_PROPERTY\_HOST\_COHERENT\_BIT,}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertexBuffer,}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertexBufferMemory}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{void}\ *data;}
+\DoxyCodeLine{00030\ \ \ \ \ vkMapMemory(\ device.device(),\ vertexBufferMemory,\ 0,\ bufferSize,\ 0,\ \&data\ );}
+\DoxyCodeLine{00031\ \ \ \ \ memcpy(\ data,\ verticies.data(),\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(bufferSize)\ );}
+\DoxyCodeLine{00032\ \ \ \ \ vkUnmapMemory(\ device.device(),\ vertexBufferMemory\ );}
+\DoxyCodeLine{00033\ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{void}\ Model::Draw(\ VkCommandBuffer\ commandBuffer\ )\ \{}
+\DoxyCodeLine{00036\ \ \ \ \ vkCmdDraw(\ commandBuffer,\ vertexCount,\ 1,\ 0,\ 0\ );}
+\DoxyCodeLine{00037\ \}}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \textcolor{keywordtype}{void}\ Model::Bind(\ VkCommandBuffer\ commandBuffer\ )\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ VkBuffer\ buffers[]\ =\ \{\ vertexBuffer\ \};}
+\DoxyCodeLine{00041\ \ \ \ \ VkDeviceSize\ offsets[]\ =\ \{\ 0\ \};}
+\DoxyCodeLine{00042\ \ \ \ \ vkCmdBindVertexBuffers(\ commandBuffer,\ 0,\ 1,\ buffers,\ offsets\ );}
+\DoxyCodeLine{00043\ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ std::vector<VkVertexInputBindingDescription>\ Model::Vertex::GetBindingDescriptions()\ \{}
+\DoxyCodeLine{00046\ \ \ \ \ std::vector<VkVertexInputBindingDescription>\ bindingDescriptions(\ 1\ );}
+\DoxyCodeLine{00047\ \ \ \ \ bindingDescriptions[\ 0\ ].binding\ =\ 0;}
+\DoxyCodeLine{00048\ \ \ \ \ bindingDescriptions[\ 0\ ].stride\ =\ \textcolor{keyword}{sizeof}(Vertex);}
+\DoxyCodeLine{00049\ \ \ \ \ bindingDescriptions[\ 0\ ].inputRate\ =\ VK\_VERTEX\_INPUT\_RATE\_VERTEX;}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordflow}{return}\ bindingDescriptions;}
+\DoxyCodeLine{00052\ \}}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ std::vector<VkVertexInputAttributeDescription>\ Model::Vertex::GetAttributeDescriptions()\ \{}
+\DoxyCodeLine{00055\ \ \ \ \ std::vector<VkVertexInputAttributeDescription>\ attributeDescriptions(\ 2\ );}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \textcolor{comment}{//\ Position}}
+\DoxyCodeLine{00058\ \ \ \ \ attributeDescriptions[\ 0\ ].binding\ =\ 0;}
+\DoxyCodeLine{00059\ \ \ \ \ attributeDescriptions[\ 0\ ].location\ =\ 0;}
+\DoxyCodeLine{00060\ \ \ \ \ attributeDescriptions[\ 0\ ].format\ =\ VK\_FORMAT\_R32G32\_SFLOAT;}
+\DoxyCodeLine{00061\ \ \ \ \ attributeDescriptions[\ 0\ ].offset\ =\ offsetof(Vertex,\ position);}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ Color}}
+\DoxyCodeLine{00064\ \ \ \ \ attributeDescriptions[\ 1\ ].binding\ =\ 0;}
+\DoxyCodeLine{00065\ \ \ \ \ attributeDescriptions[\ 1\ ].location\ =\ 1;}
+\DoxyCodeLine{00066\ \ \ \ \ attributeDescriptions[\ 1\ ].format\ =\ VK\_FORMAT\_R32G32B32\_SFLOAT;}
+\DoxyCodeLine{00067\ \ \ \ \ attributeDescriptions[\ 1\ ].offset\ =\ offsetof(Vertex,\ color);}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00069\ \ \ \ \ \textcolor{comment}{/*\ Shortened\ form\ */}}
+\DoxyCodeLine{00070\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00071\ \textcolor{comment}{\ \ \ \ \ \ \ \ @return\ \{}}
+\DoxyCodeLine{00072\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \{\ 0,\ 0,\ VK\_FORMAT\_R32G32\_SFLOAT,\ offsetof(Vertex,\ position)\},}}
+\DoxyCodeLine{00073\ \textcolor{comment}{\ \ \ \ \ \ \ \ \ \ \ \ \{\ 0,\ 1,\ VK\_FORMAT\_R32G32B32\_SFLOAT,\ offsetof(Vertex,\ color)\};}}
+\DoxyCodeLine{00074\ \textcolor{comment}{\ \ \ \ \ \ \ \ \}}}
+\DoxyCodeLine{00075\ \textcolor{comment}{\ \ \ \ */}}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keywordflow}{return}\ attributeDescriptions;}
+\DoxyCodeLine{00078\ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \}}
+
+\end{DoxyCode}

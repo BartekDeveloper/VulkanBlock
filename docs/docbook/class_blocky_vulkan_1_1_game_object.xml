@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_blocky_vulkan_1_1_game_object" xml:lang="en-US">
+<title>BlockyVulkan::GameObject Class Reference</title>
+<indexterm><primary>BlockyVulkan::GameObject</primary></indexterm>
+<para>
+<computeroutput>#include &lt;game_object.hpp&gt;</computeroutput>
+</para>
+Collaboration diagram for BlockyVulkan::GameObject:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_blocky_vulkan_1_1_game_object__coll__graph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para>using <link linkend="_class_blocky_vulkan_1_1_game_object_1a5f35795b309b75a6307bc2b71d902ef2">id_t</link> = unsigned int</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_blocky_vulkan_1_1_game_object_1af7d60a002f79a1b5d8d51d0264db2bb4">GameObject</link> (const <link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link> &amp; <link linkend="_class_blocky_vulkan_1_1_game_object_1a55f79f0f069a6973bb3941bed867d648">operator=</link> (const <link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link> &amp;)=delete</para>
+</listitem>
+            <listitem><para><link linkend="_class_blocky_vulkan_1_1_game_object_1a3ae0b3a37c5d4506e5f86107699cf6cf">GameObject</link> (<link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link> &amp;&amp;)=default</para>
+</listitem>
+            <listitem><para><link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link> &amp; <link linkend="_class_blocky_vulkan_1_1_game_object_1a2fb0731028d32dfdfd05522bbf55b0cd">operator=</link> (<link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link> &amp;&amp;)=default</para>
+</listitem>
+            <listitem><para>const <link linkend="_class_blocky_vulkan_1_1_game_object_1a5f35795b309b75a6307bc2b71d902ef2">id_t</link> <link linkend="_class_blocky_vulkan_1_1_game_object_1a033bebd4ff0c3f8b319a9ea205e8378d">GetId</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Static Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para>static <link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link> <link linkend="_class_blocky_vulkan_1_1_game_object_1a0cf4c0d3e2627d56d7385c4d98e7735a">createGameObject</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>std::shared_ptr&lt; <link linkend="_class_blocky_vulkan_1_1_model">Model</link> &gt; <link linkend="_class_blocky_vulkan_1_1_game_object_1a0e2537cdc1451bd103d085fe2f7ae8ec">model</link> {}</para>
+</listitem>
+            <listitem><para>glm::vec3 <link linkend="_class_blocky_vulkan_1_1_game_object_1ac420658a47b19a666a8c20ef8c6e5953">color</link> {}</para>
+</listitem>
+            <listitem><para><link linkend="_struct_blocky_vulkan_1_1_transform2_d___component">Transform2D_Component</link> <link linkend="_class_blocky_vulkan_1_1_game_object_1a034f46f8f39f6bd03a89ea9749380fd5">transform2D</link> {}</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line <link linkend="_game__object_8hpp_source_1l00022">22</link> of file <link linkend="_game__object_8hpp_source">game_object.hpp</link>.</para>
+</section>
+<section>
+<title>Member Typedef Documentation</title>
+<anchor xml:id="_class_blocky_vulkan_1_1_game_object_1a5f35795b309b75a6307bc2b71d902ef2"/><section>
+    <title>id_t</title>
+<indexterm><primary>id_t</primary><secondary>BlockyVulkan::GameObject</secondary></indexterm>
+<indexterm><primary>BlockyVulkan::GameObject</primary><secondary>id_t</secondary></indexterm>
+<para><computeroutput>using <link linkend="_class_blocky_vulkan_1_1_game_object_1a5f35795b309b75a6307bc2b71d902ef2">BlockyVulkan::GameObject::id_t</link> = unsigned int</computeroutput></para><para>
+Definition at line <link linkend="_game__object_8hpp_source_1l00024">24</link> of file <link linkend="_game__object_8hpp_source">game_object.hpp</link>.</para>
+</section>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_blocky_vulkan_1_1_game_object_1af7d60a002f79a1b5d8d51d0264db2bb4"/><section>
+    <title>GameObject()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>GameObject</primary><secondary>BlockyVulkan::GameObject</secondary></indexterm>
+<indexterm><primary>BlockyVulkan::GameObject</primary><secondary>GameObject</secondary></indexterm>
+<para><computeroutput>BlockyVulkan::GameObject::GameObject (const <link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link> &amp; )<computeroutput>[delete]</computeroutput></computeroutput></para>Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_blocky_vulkan_1_1_game_object_af7d60a002f79a1b5d8d51d0264db2bb4_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_blocky_vulkan_1_1_game_object_1a3ae0b3a37c5d4506e5f86107699cf6cf"/><section>
+    <title>GameObject()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>GameObject</primary><secondary>BlockyVulkan::GameObject</secondary></indexterm>
+<indexterm><primary>BlockyVulkan::GameObject</primary><secondary>GameObject</secondary></indexterm>
+<para><computeroutput>BlockyVulkan::GameObject::GameObject (<link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link> &amp;&amp; )<computeroutput>[default]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_blocky_vulkan_1_1_game_object_1a0cf4c0d3e2627d56d7385c4d98e7735a"/><section>
+    <title>createGameObject()</title>
+<indexterm><primary>createGameObject</primary><secondary>BlockyVulkan::GameObject</secondary></indexterm>
+<indexterm><primary>BlockyVulkan::GameObject</primary><secondary>createGameObject</secondary></indexterm>
+<para><computeroutput>static <link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link> BlockyVulkan::GameObject::createGameObject ( )<computeroutput>[inline]</computeroutput>, <computeroutput>[static]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_game__object_8hpp_source_1l00026">26</link> of file <link linkend="_game__object_8hpp_source">game_object.hpp</link>.</para>
+Here is the call graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_blocky_vulkan_1_1_game_object_a0cf4c0d3e2627d56d7385c4d98e7735a_cgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+<anchor xml:id="_class_blocky_vulkan_1_1_game_object_1a033bebd4ff0c3f8b319a9ea205e8378d"/><section>
+    <title>GetId()</title>
+<indexterm><primary>GetId</primary><secondary>BlockyVulkan::GameObject</secondary></indexterm>
+<indexterm><primary>BlockyVulkan::GameObject</primary><secondary>GetId</secondary></indexterm>
+<para><computeroutput>const <link linkend="_class_blocky_vulkan_1_1_game_object_1a5f35795b309b75a6307bc2b71d902ef2">id_t</link> BlockyVulkan::GameObject::GetId ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+Definition at line <link linkend="_game__object_8hpp_source_1l00036">36</link> of file <link linkend="_game__object_8hpp_source">game_object.hpp</link>.</para>
+</section>
+<anchor xml:id="_class_blocky_vulkan_1_1_game_object_1a55f79f0f069a6973bb3941bed867d648"/><section>
+    <title>operator=()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>operator=</primary><secondary>BlockyVulkan::GameObject</secondary></indexterm>
+<indexterm><primary>BlockyVulkan::GameObject</primary><secondary>operator=</secondary></indexterm>
+<para><computeroutput><link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link> &amp; BlockyVulkan::GameObject::operator= (const <link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link> &amp; )<computeroutput>[delete]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_blocky_vulkan_1_1_game_object_1a2fb0731028d32dfdfd05522bbf55b0cd"/><section>
+    <title>operator=()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>operator=</primary><secondary>BlockyVulkan::GameObject</secondary></indexterm>
+<indexterm><primary>BlockyVulkan::GameObject</primary><secondary>operator=</secondary></indexterm>
+<para><computeroutput><link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link> &amp; BlockyVulkan::GameObject::operator= (<link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link> &amp;&amp; )<computeroutput>[default]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_blocky_vulkan_1_1_game_object_1ac420658a47b19a666a8c20ef8c6e5953"/><section>
+    <title>color</title>
+<indexterm><primary>color</primary><secondary>BlockyVulkan::GameObject</secondary></indexterm>
+<indexterm><primary>BlockyVulkan::GameObject</primary><secondary>color</secondary></indexterm>
+<para><computeroutput>glm::vec3 BlockyVulkan::GameObject::color {}</computeroutput></para><para>
+Definition at line <link linkend="_game__object_8hpp_source_1l00041">41</link> of file <link linkend="_game__object_8hpp_source">game_object.hpp</link>.</para>
+</section>
+<anchor xml:id="_class_blocky_vulkan_1_1_game_object_1a0e2537cdc1451bd103d085fe2f7ae8ec"/><section>
+    <title>model</title>
+<indexterm><primary>model</primary><secondary>BlockyVulkan::GameObject</secondary></indexterm>
+<indexterm><primary>BlockyVulkan::GameObject</primary><secondary>model</secondary></indexterm>
+<para><computeroutput>std::shared_ptr&lt;<link linkend="_class_blocky_vulkan_1_1_model">Model</link>&gt; BlockyVulkan::GameObject::model {}</computeroutput></para><para>
+Definition at line <link linkend="_game__object_8hpp_source_1l00040">40</link> of file <link linkend="_game__object_8hpp_source">game_object.hpp</link>.</para>
+</section>
+<anchor xml:id="_class_blocky_vulkan_1_1_game_object_1a034f46f8f39f6bd03a89ea9749380fd5"/><section>
+    <title>transform2D</title>
+<indexterm><primary>transform2D</primary><secondary>BlockyVulkan::GameObject</secondary></indexterm>
+<indexterm><primary>BlockyVulkan::GameObject</primary><secondary>transform2D</secondary></indexterm>
+<para><computeroutput><link linkend="_struct_blocky_vulkan_1_1_transform2_d___component">Transform2D_Component</link> BlockyVulkan::GameObject::transform2D {}</computeroutput></para><para>
+Definition at line <link linkend="_game__object_8hpp_source_1l00042">42</link> of file <link linkend="_game__object_8hpp_source">game_object.hpp</link>.</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+src/game_object/<link linkend="_game__object_8hpp">game_object.hpp</link></section>
+</section>

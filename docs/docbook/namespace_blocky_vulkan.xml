@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespace_blocky_vulkan" xml:lang="en-US">
+<title>BlockyVulkan Namespace Reference</title>
+<indexterm><primary>BlockyVulkan</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_blocky_vulkan_1_1_device">Device</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_blocky_vulkan_1_1_first_test">FirstTest</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_blocky_vulkan_1_1_game_object">GameObject</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_blocky_vulkan_1_1_model">Model</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_blocky_vulkan_1_1_pipeline">Pipeline</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_blocky_vulkan_1_1_pipeline_config_info">PipelineConfigInfo</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_blocky_vulkan_1_1_queue_family_indices">QueueFamilyIndices</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_blocky_vulkan_1_1_simple_push_constant_data">SimplePushConstantData</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_blocky_vulkan_1_1_swap_chain">SwapChain</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_blocky_vulkan_1_1_swap_chain_support_details">SwapChainSupportDetails</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_struct_blocky_vulkan_1_1_transform2_d___component">Transform2D_Component</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_class_blocky_vulkan_1_1_window">Window</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>VkResult <link linkend="_namespace_blocky_vulkan_1a9d56f27ff0564350bf95525132a7cf4f">CreateDebugUtilsMessengerEXT</link> (VkInstance instance, const VkDebugUtilsMessengerCreateInfoEXT *pCreateInfo, const VkAllocationCallbacks *pAllocator, VkDebugUtilsMessengerEXT *pDebugMessenger)</para>
+</listitem>
+            <listitem><para>void <link linkend="_namespace_blocky_vulkan_1aa99a2fcfffc744977e17b0af23cfeafb">DestroyDebugUtilsMessengerEXT</link> (VkInstance instance, VkDebugUtilsMessengerEXT debugMessenger, const VkAllocationCallbacks *pAllocator)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_namespace_blocky_vulkan_1a9d56f27ff0564350bf95525132a7cf4f"/><section>
+    <title>CreateDebugUtilsMessengerEXT()</title>
+<indexterm><primary>CreateDebugUtilsMessengerEXT</primary><secondary>BlockyVulkan</secondary></indexterm>
+<indexterm><primary>BlockyVulkan</primary><secondary>CreateDebugUtilsMessengerEXT</secondary></indexterm>
+<para><computeroutput>VkResult BlockyVulkan::CreateDebugUtilsMessengerEXT (VkInstance instance, const VkDebugUtilsMessengerCreateInfoEXT * pCreateInfo, const VkAllocationCallbacks * pAllocator, VkDebugUtilsMessengerEXT * pDebugMessenger)</computeroutput></para><para>
+Definition at line <link linkend="_device_8cpp_source_1l00022">22</link> of file <link linkend="_device_8cpp_source">device.cpp</link>.</para>
+</section>
+<anchor xml:id="_namespace_blocky_vulkan_1aa99a2fcfffc744977e17b0af23cfeafb"/><section>
+    <title>DestroyDebugUtilsMessengerEXT()</title>
+<indexterm><primary>DestroyDebugUtilsMessengerEXT</primary><secondary>BlockyVulkan</secondary></indexterm>
+<indexterm><primary>BlockyVulkan</primary><secondary>DestroyDebugUtilsMessengerEXT</secondary></indexterm>
+<para><computeroutput>void BlockyVulkan::DestroyDebugUtilsMessengerEXT (VkInstance instance, VkDebugUtilsMessengerEXT debugMessenger, const VkAllocationCallbacks * pAllocator)</computeroutput></para><para>
+Definition at line <link linkend="_device_8cpp_source_1l00037">37</link> of file <link linkend="_device_8cpp_source">device.cpp</link>.</para>
+Here is the caller graph for this function:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="namespace_blocky_vulkan_aa99a2fcfffc744977e17b0af23cfeafb_icgraph.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+</section>
+</section>
+</section>

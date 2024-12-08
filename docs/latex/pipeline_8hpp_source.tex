@@ -1,0 +1,69 @@
+\doxysection{pipeline.\+hpp}
+\hypertarget{pipeline_8hpp_source}{}\label{pipeline_8hpp_source}\index{pipeline.hpp@{pipeline.hpp}}
+\mbox{\hyperlink{pipeline_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{device_8hpp}{../device/device.hpp}}"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{comment}{//\ std}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespace_blocky_vulkan}{BlockyVulkan}}\ \{}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info}{PipelineConfigInfo}}\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ \mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info_a60b8d16412bc257ee75ea324a8dd654a}{PipelineConfigInfo}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info}{PipelineConfigInfo}}\ \&\mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info_aeac9c6298a89cabb0f3a46537b705b2e}{operator=}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info}{PipelineConfigInfo}}\ \&\ )\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ VkPipelineViewportStateCreateInfo\ \mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info_abf9d4590b94afc9da9222a8b86805a4c}{viewportInfo}};}
+\DoxyCodeLine{00017\ \ \ \ \ VkPipelineInputAssemblyStateCreateInfo\ \mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info_af79d02ca54f050415f818df3ff5140a6}{inputAssemblyInfo}};}
+\DoxyCodeLine{00018\ \ \ \ \ VkPipelineRasterizationStateCreateInfo\ \mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info_a49e68fcfec16e572277de541a84c0086}{rasterizationInfo}};}
+\DoxyCodeLine{00019\ \ \ \ \ VkPipelineMultisampleStateCreateInfo\ \mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info_af2749bee4dc10bb630639892e5839c70}{multisampleInfo}};}
+\DoxyCodeLine{00020\ \ \ \ \ VkPipelineColorBlendStateCreateInfo\ \mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info_a2dcfd03ff283e7ef7ba256c2cd2a7010}{colorBlendInfo}};}
+\DoxyCodeLine{00021\ \ \ \ \ VkPipelineDepthStencilStateCreateInfo\ \mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info_ae5ebd9012649adcbe2fdb35b896a3e87}{depthStencilInfo}};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ VkPipelineColorBlendAttachmentState\ \mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info_ace48c96bcff001251bd0ab9a6c28ee06}{colorBlendAttachment}};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ std::vector<VkDynamicState>\ \mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info_ac754f6d94c8df9b55641efabec67c5f6}{dynamicStateEnables}};}
+\DoxyCodeLine{00026\ \ \ \ \ VkPipelineDynamicStateCreateInfo\ \mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info_a698beed88b6819a26b0e4650ed8d0210}{dynamicStateInfo}};}
+\DoxyCodeLine{00027\ }
+\DoxyCodeLine{00028\ \ \ \ \ VkPipelineLayout\ \mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info_acfca5f8d78fcb895055b09d8819d9030}{pipelineLayout}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00029\ \ \ \ \ VkRenderPass\ \mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info_a9dc36f73322973991b76c50e1699b221}{renderPass}}\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00030\ \ \ \ \ uint32\_t\ \mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info_ac218e5086d951b33f2f056e54bcdfc2d}{subpass}}\ =\ 0;}
+\DoxyCodeLine{00031\ \};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00033\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_blocky_vulkan_1_1_pipeline}{Pipeline}}\ \{}
+\DoxyCodeLine{00034\ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00035\ \ \ \ \ \mbox{\hyperlink{class_blocky_vulkan_1_1_pipeline_addb66f814dfdcf5ab9e8c1c394e95abb}{Pipeline}}(\mbox{\hyperlink{class_blocky_vulkan_1_1_device}{Device}}\ \&device,\ \textcolor{keyword}{const}\ std::string\ \&vertFilePath,}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&fragFilePath,}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info}{PipelineConfigInfo}}\ configInfo);}
+\DoxyCodeLine{00038\ \ \ \ \ \mbox{\hyperlink{class_blocky_vulkan_1_1_pipeline_a6bd38169705e7b71be2ce6300e8c3cab}{\string~Pipeline}}();}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ \mbox{\hyperlink{class_blocky_vulkan_1_1_pipeline_a3cdd84b75f6effbfe5d4745e4c003309}{Pipeline}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_blocky_vulkan_1_1_pipeline}{Pipeline}}\ \&\ )\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00041\ \ \ \ \ \mbox{\hyperlink{class_blocky_vulkan_1_1_pipeline}{Pipeline}}\ \&\mbox{\hyperlink{class_blocky_vulkan_1_1_pipeline_ad6f9140fd5c52c470922b6416c160b03}{operator=}}(\ \textcolor{keyword}{const}\ \mbox{\hyperlink{class_blocky_vulkan_1_1_pipeline}{Pipeline}}\ \&\ )\ =\ \textcolor{keyword}{delete};}
+\DoxyCodeLine{00042\ \ \ \ \ \mbox{\hyperlink{class_blocky_vulkan_1_1_pipeline_addb66f814dfdcf5ab9e8c1c394e95abb}{Pipeline}}()\ =\ \textcolor{keywordflow}{default};}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_blocky_vulkan_1_1_pipeline_a790267c38cf3e3a95cde697d4c88be51}{Bind}}(\ VkCommandBuffer\ commandBuffer\ );}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00046\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_blocky_vulkan_1_1_pipeline_a921ac3065459aee5818a300bb87e8eed}{DefaultPipelineConfigInfo}}(\mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info}{PipelineConfigInfo}}\ \&configInfo);}
+\DoxyCodeLine{00047\ }
+\DoxyCodeLine{00048\ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00049\ \ \ \ \ \textcolor{keyword}{static}\ std::vector<char>\ ReadFile(\textcolor{keyword}{const}\ std::string\ \&filePath);}
+\DoxyCodeLine{00050\ }
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keywordtype}{void}\ CreateGraphicsPipeline(\textcolor{keyword}{const}\ std::string\ \&vertFilePath,}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&fragFilePath,}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \mbox{\hyperlink{struct_blocky_vulkan_1_1_pipeline_config_info}{PipelineConfigInfo}}\ \&configInfo);}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{void}\ CreateShaderModule(\ \textcolor{keyword}{const}\ std::vector<char>\ \&code,\ VkShaderModule\ *shaderModule\ );}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ \mbox{\hyperlink{class_blocky_vulkan_1_1_device}{Device}}\ \&\mbox{\hyperlink{class_blocky_vulkan_1_1_device}{Device}};}
+\DoxyCodeLine{00058\ \ \ \ \ VkPipeline\ graphicsPipeline;}
+\DoxyCodeLine{00059\ \ \ \ \ VkShaderModule\ vertShaderModule;}
+\DoxyCodeLine{00060\ \ \ \ \ VkShaderModule\ fragShaderModule;}
+\DoxyCodeLine{00061\ }
+\DoxyCodeLine{00062\ \};}
+\DoxyCodeLine{00063\ \}\ \ \textcolor{comment}{//\ namespace\ BlockyVulkan}}
+
+\end{DoxyCode}

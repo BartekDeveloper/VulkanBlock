@@ -1,0 +1,238 @@
+\doxysection{pipeline.\+cpp}
+\label{pipeline_8cpp_source}\index{src/pipeline/pipeline.cpp@{src/pipeline/pipeline.cpp}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ "{}pipeline.hpp"{}}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <iosfwd>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}../model/model.hpp"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#include\ "{}../device/device.hpp"{}}}
+\DoxyCodeLine{00011\ }
+\DoxyCodeLine{00012\ \textcolor{keyword}{namespace\ }BlockyVulkan\ \{}
+\DoxyCodeLine{00013\ Pipeline::Pipeline(\ BlockyVulkan::Device\ \&device,}
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&vertFilePath,}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&fragFilePath,}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ PipelineConfigInfo\ configInfo\ )}
+\DoxyCodeLine{00017\ \ \ \ \ :\ Device(\ device\ )\ \{}
+\DoxyCodeLine{00018\ \ \ \ \ CreateGraphicsPipeline(\ vertFilePath,\ fragFilePath,\ configInfo\ );}
+\DoxyCodeLine{00019\ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ Pipeline::\string~Pipeline()\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ vkDestroyShaderModule(\ Device.device(),\ vertShaderModule,\ \textcolor{keyword}{nullptr}\ );}
+\DoxyCodeLine{00023\ \ \ \ \ vkDestroyShaderModule(\ Device.device(),\ fragShaderModule,\ \textcolor{keyword}{nullptr}\ );}
+\DoxyCodeLine{00024\ \ \ \ \ vkDestroyPipeline(\ Device.device(),\ graphicsPipeline,\ \textcolor{keyword}{nullptr}\ );}
+\DoxyCodeLine{00025\ \}}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ std::vector<char>\ Pipeline::ReadFile(\ \textcolor{keyword}{const}\ std::string\ \&filePath\ )\ \{}
+\DoxyCodeLine{00028\ \ \ \ \ std::ifstream\ file\{\ filePath,\ std::ios::ate\ |\ std::ios::binary\ \};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordflow}{if}(\ !file.is\_open()\ )\ \{}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\ \textcolor{stringliteral}{"{}Failed\ to\ open\ file:\ "{}}\ +\ filePath\ );}
+\DoxyCodeLine{00032\ \ \ \ \ \}}
+\DoxyCodeLine{00033\ }
+\DoxyCodeLine{00034\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ fileSize\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}(\ file.tellg()\ );}
+\DoxyCodeLine{00035\ \ \ \ \ std::vector<char>\ buffer(\ fileSize\ );}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ \ \ \ \ file.seekg(\ 0\ );}
+\DoxyCodeLine{00038\ \ \ \ \ file.read(\ buffer.data(),\ fileSize\ );}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00040\ \ \ \ \ file.close();}
+\DoxyCodeLine{00041\ \ \ \ \ \textcolor{keywordflow}{return}\ buffer;}
+\DoxyCodeLine{00042\ \}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \textcolor{keywordtype}{void}\ Pipeline::CreateGraphicsPipeline(\ \textcolor{keyword}{const}\ std::string\ \&vertFilePath,}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \&fragFilePath,}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ PipelineConfigInfo\ \&configInfo\ )\ \{}
+\DoxyCodeLine{00047\ \ \ \ \ assert(\ configInfo.pipelineLayout\ !=\ VK\_NULL\_HANDLE\ \&\&}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Cannot\ create\ graphics\ pipeline:\ No\ pipelineLayout\ provided!\ (at\ "{}}}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}configInfo)"{}}\ );}
+\DoxyCodeLine{00050\ \ \ \ \ assert(\ configInfo.renderPass\ !=\ VK\_NULL\_HANDLE\ \&\&}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Cannot\ create\ graphics\ pipeline:\ No\ renderPass\ provided!\ (at\ "{}}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}configInfo)"{}}\ );}
+\DoxyCodeLine{00053\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{auto}\ vertCode\ =\ ReadFile(\ vertFilePath\ );}
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keyword}{auto}\ fragCode\ =\ ReadFile(\ fragFilePath\ );}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Vert\ Shader\ Code\ Size:\ "{}}\ <<\ vertCode.size()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00058\ \ \ \ \ std::cout\ <<\ \textcolor{stringliteral}{"{}Frag\ Shader\ Code\ Size:\ "{}}\ <<\ fragCode.size()\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ CreateShaderModule(\ vertCode,\ \&vertShaderModule\ );}
+\DoxyCodeLine{00061\ \ \ \ \ CreateShaderModule(\ fragCode,\ \&fragShaderModule\ );}
+\DoxyCodeLine{00062\ }
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{comment}{//\ Setting\ up\ shader\ stages}}
+\DoxyCodeLine{00064\ \ \ \ \ VkPipelineShaderStageCreateInfo\ shaderStages[\ 2\ ];}
+\DoxyCodeLine{00065\ }
+\DoxyCodeLine{00066\ \ \ \ \ \textcolor{comment}{//\ Vertex\ shader\ stage}}
+\DoxyCodeLine{00067\ \ \ \ \ shaderStages[\ 0\ ].sType\ =\ VK\_STRUCTURE\_TYPE\_PIPELINE\_SHADER\_STAGE\_CREATE\_INFO;}
+\DoxyCodeLine{00068\ \ \ \ \ shaderStages[\ 0\ ].stage\ =\ VK\_SHADER\_STAGE\_VERTEX\_BIT;}
+\DoxyCodeLine{00069\ \ \ \ \ shaderStages[\ 0\ ].module\ =\ vertShaderModule;}
+\DoxyCodeLine{00070\ \ \ \ \ shaderStages[\ 0\ ].pName\ =\ \textcolor{stringliteral}{"{}main"{}};}
+\DoxyCodeLine{00071\ \ \ \ \ shaderStages[\ 0\ ].flags\ =\ 0;}
+\DoxyCodeLine{00072\ \ \ \ \ shaderStages[\ 0\ ].pNext\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00073\ \ \ \ \ shaderStages[\ 0\ ].pSpecializationInfo\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \textcolor{comment}{//\ Fragment\ shader\ stage}}
+\DoxyCodeLine{00076\ \ \ \ \ shaderStages[\ 1\ ].sType\ =\ VK\_STRUCTURE\_TYPE\_PIPELINE\_SHADER\_STAGE\_CREATE\_INFO;}
+\DoxyCodeLine{00077\ \ \ \ \ shaderStages[\ 1\ ].stage\ =\ VK\_SHADER\_STAGE\_FRAGMENT\_BIT;}
+\DoxyCodeLine{00078\ \ \ \ \ shaderStages[\ 1\ ].module\ =\ fragShaderModule;}
+\DoxyCodeLine{00079\ \ \ \ \ shaderStages[\ 1\ ].pName\ =\ \textcolor{stringliteral}{"{}main"{}};}
+\DoxyCodeLine{00080\ \ \ \ \ shaderStages[\ 1\ ].flags\ =\ 0;}
+\DoxyCodeLine{00081\ \ \ \ \ shaderStages[\ 1\ ].pNext\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00082\ \ \ \ \ shaderStages[\ 1\ ].pSpecializationInfo\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{comment}{//\ From\ model\ descriptions}}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{auto}\ BindingDescriptions\ =\ Model::Vertex::GetBindingDescriptions();}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{auto}\ AttributeDescriptions\ =\ Model::Vertex::GetAttributeDescriptions();}
+\DoxyCodeLine{00087\ }
+\DoxyCodeLine{00088\ \ \ \ \ \textcolor{comment}{//\ Input\ info\ (Vertex)}}
+\DoxyCodeLine{00089\ \ \ \ \ VkPipelineVertexInputStateCreateInfo\ vertexInputInfo\{\};}
+\DoxyCodeLine{00090\ \ \ \ \ vertexInputInfo.sType\ =}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ VK\_STRUCTURE\_TYPE\_PIPELINE\_VERTEX\_INPUT\_STATE\_CREATE\_INFO;}
+\DoxyCodeLine{00092\ \ \ \ \ vertexInputInfo.vertexAttributeDescriptionCount\ =}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(\ AttributeDescriptions.size()\ );}
+\DoxyCodeLine{00094\ \ \ \ \ vertexInputInfo.vertexBindingDescriptionCount\ =}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(\ BindingDescriptions.size()\ );}
+\DoxyCodeLine{00096\ \ \ \ \ vertexInputInfo.pVertexAttributeDescriptions\ =\ AttributeDescriptions.data();}
+\DoxyCodeLine{00097\ \ \ \ \ vertexInputInfo.pVertexBindingDescriptions\ =\ BindingDescriptions.data();}
+\DoxyCodeLine{00098\ }
+\DoxyCodeLine{00099\ \ \ \ \ \textcolor{comment}{//\ Pipeline\ info}}
+\DoxyCodeLine{00100\ \ \ \ \ VkGraphicsPipelineCreateInfo\ pipelineInfo\{\};}
+\DoxyCodeLine{00101\ \ \ \ \ pipelineInfo.sType\ =\ VK\_STRUCTURE\_TYPE\_GRAPHICS\_PIPELINE\_CREATE\_INFO;}
+\DoxyCodeLine{00102\ \ \ \ \ pipelineInfo.stageCount\ =\ 2;}
+\DoxyCodeLine{00103\ \ \ \ \ pipelineInfo.pStages\ =\ shaderStages;}
+\DoxyCodeLine{00104\ \ \ \ \ pipelineInfo.pVertexInputState\ =\ \&vertexInputInfo;}
+\DoxyCodeLine{00105\ \ \ \ \ pipelineInfo.pInputAssemblyState\ =\ \&configInfo.inputAssemblyInfo;}
+\DoxyCodeLine{00106\ \ \ \ \ pipelineInfo.pViewportState\ =\ \&configInfo.viewportInfo;}
+\DoxyCodeLine{00107\ \ \ \ \ pipelineInfo.pRasterizationState\ =\ \&configInfo.rasterizationInfo;}
+\DoxyCodeLine{00108\ \ \ \ \ pipelineInfo.pMultisampleState\ =\ \&configInfo.multisampleInfo;}
+\DoxyCodeLine{00109\ \ \ \ \ pipelineInfo.pColorBlendState\ =\ \&configInfo.colorBlendInfo;}
+\DoxyCodeLine{00110\ \ \ \ \ pipelineInfo.pDepthStencilState\ =\ \&configInfo.depthStencilInfo;}
+\DoxyCodeLine{00111\ \ \ \ \ pipelineInfo.pDynamicState\ =\ \&configInfo.dynamicStateInfo;}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \ \ \ \ pipelineInfo.layout\ =\ configInfo.pipelineLayout;}
+\DoxyCodeLine{00114\ \ \ \ \ pipelineInfo.renderPass\ =\ configInfo.renderPass;}
+\DoxyCodeLine{00115\ \ \ \ \ pipelineInfo.subpass\ =\ configInfo.subpass;}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \ \ \ \ pipelineInfo.basePipelineIndex\ =\ -\/1;}
+\DoxyCodeLine{00118\ \ \ \ \ pipelineInfo.basePipelineHandle\ =\ VK\_NULL\_HANDLE;}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \textcolor{keywordflow}{if}(\ vkCreateGraphicsPipelines(\ Device.device(),\ VK\_NULL\_HANDLE,\ 1,}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&pipelineInfo,\ \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \&graphicsPipeline\ )\ !=\ VK\_SUCCESS\ )\ \{}
+\DoxyCodeLine{00123\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\ \textcolor{stringliteral}{"{}Failed\ to\ create\ graphics\ pipeline!"{}}\ );}
+\DoxyCodeLine{00124\ \ \ \ \ \}}
+\DoxyCodeLine{00125\ \}}
+\DoxyCodeLine{00126\ }
+\DoxyCodeLine{00127\ \textcolor{keywordtype}{void}\ Pipeline::CreateShaderModule(\ \textcolor{keyword}{const}\ std::vector<char>\ \&code,}
+\DoxyCodeLine{00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ VkShaderModule\ *shaderModule\ )\ \{}
+\DoxyCodeLine{00129\ \ \ \ \ VkShaderModuleCreateInfo\ createInfo\{\};}
+\DoxyCodeLine{00130\ }
+\DoxyCodeLine{00131\ \ \ \ \ createInfo.sType\ =\ VK\_STRUCTURE\_TYPE\_SHADER\_MODULE\_CREATE\_INFO;}
+\DoxyCodeLine{00132\ \ \ \ \ createInfo.codeSize\ =\ code.size();}
+\DoxyCodeLine{00133\ \ \ \ \ createInfo.pCode\ =\ \textcolor{keyword}{reinterpret\_cast<}\textcolor{keyword}{const\ }uint32\_t\ *\textcolor{keyword}{>}(\ code.data()\ );}
+\DoxyCodeLine{00134\ }
+\DoxyCodeLine{00135\ \ \ \ \ \textcolor{keywordflow}{if}(\ vkCreateShaderModule(\ Device.device(),\ \&createInfo,\ \textcolor{keyword}{nullptr},}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ shaderModule\ )\ !=\ VK\_SUCCESS\ )\ \{}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\ \textcolor{stringliteral}{"{}Failed\ to\ create\ shader\ module!"{}}\ );}
+\DoxyCodeLine{00138\ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \}}
+\DoxyCodeLine{00140\ }
+\DoxyCodeLine{00141\ \textcolor{keywordtype}{void}\ Pipeline::Bind(\ VkCommandBuffer\ commandBuffer\ )\ \{}
+\DoxyCodeLine{00142\ \ \ \ \ vkCmdBindPipeline(\ commandBuffer,\ VK\_PIPELINE\_BIND\_POINT\_GRAPHICS,}
+\DoxyCodeLine{00143\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ graphicsPipeline\ );}
+\DoxyCodeLine{00144\ \}}
+\DoxyCodeLine{00145\ }
+\DoxyCodeLine{00146\ \textcolor{keywordtype}{void}\ Pipeline::DefaultPipelineConfigInfo(\ PipelineConfigInfo\ \&configInfo\ )\ \{}
+\DoxyCodeLine{00147\ \ \ \ \ \textcolor{comment}{//\ Input\ assembly}}
+\DoxyCodeLine{00148\ \ \ \ \ configInfo.inputAssemblyInfo.sType\ =}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ VK\_STRUCTURE\_TYPE\_PIPELINE\_INPUT\_ASSEMBLY\_STATE\_CREATE\_INFO;}
+\DoxyCodeLine{00150\ \ \ \ \ configInfo.inputAssemblyInfo.topology\ =\ VK\_PRIMITIVE\_TOPOLOGY\_TRIANGLE\_LIST;}
+\DoxyCodeLine{00151\ \ \ \ \ configInfo.inputAssemblyInfo.primitiveRestartEnable\ =\ VK\_FALSE;}
+\DoxyCodeLine{00152\ }
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{comment}{//\ Viewport}}
+\DoxyCodeLine{00154\ \ \ \ \ configInfo.viewportInfo.sType\ =\ VK\_STRUCTURE\_TYPE\_PIPELINE\_VIEWPORT\_STATE\_CREATE\_INFO;}
+\DoxyCodeLine{00155\ \ \ \ \ configInfo.viewportInfo.viewportCount\ =\ 1;}
+\DoxyCodeLine{00156\ \ \ \ \ configInfo.viewportInfo.pViewports\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00157\ \ \ \ \ configInfo.viewportInfo.scissorCount\ =\ 1;}
+\DoxyCodeLine{00158\ \ \ \ \ configInfo.viewportInfo.pScissors\ =\ \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{00159\ }
+\DoxyCodeLine{00160\ \ \ \ \ \textcolor{comment}{//\ Rasterization}}
+\DoxyCodeLine{00161\ \ \ \ \ configInfo.rasterizationInfo.sType\ =}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ VK\_STRUCTURE\_TYPE\_PIPELINE\_RASTERIZATION\_STATE\_CREATE\_INFO;}
+\DoxyCodeLine{00163\ \ \ \ \ configInfo.rasterizationInfo.depthClampEnable\ =\ VK\_FALSE;}
+\DoxyCodeLine{00164\ \ \ \ \ configInfo.rasterizationInfo.rasterizerDiscardEnable\ =\ VK\_FALSE;}
+\DoxyCodeLine{00165\ \ \ \ \ configInfo.rasterizationInfo.polygonMode\ =\ VK\_POLYGON\_MODE\_FILL;}
+\DoxyCodeLine{00166\ \ \ \ \ configInfo.rasterizationInfo.lineWidth\ =\ 1.f;}
+\DoxyCodeLine{00167\ \ \ \ \ configInfo.rasterizationInfo.cullMode\ =\ VK\_CULL\_MODE\_NONE;}
+\DoxyCodeLine{00168\ \ \ \ \ configInfo.rasterizationInfo.frontFace\ =\ VK\_FRONT\_FACE\_CLOCKWISE;}
+\DoxyCodeLine{00169\ \ \ \ \ configInfo.rasterizationInfo.depthBiasEnable\ =\ VK\_FALSE;}
+\DoxyCodeLine{00170\ \ \ \ \ configInfo.rasterizationInfo.depthBiasConstantFactor\ =\ .0f;\ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00171\ \ \ \ \ configInfo.rasterizationInfo.depthBiasClamp\ =\ .0f;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00172\ \ \ \ \ configInfo.rasterizationInfo.depthBiasSlopeFactor\ =\ .0f;\ \ \ \ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00173\ }
+\DoxyCodeLine{00174\ \ \ \ \ \textcolor{comment}{//\ Multisampling}}
+\DoxyCodeLine{00175\ \ \ \ \ configInfo.multisampleInfo.sType\ =}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ VK\_STRUCTURE\_TYPE\_PIPELINE\_MULTISAMPLE\_STATE\_CREATE\_INFO;}
+\DoxyCodeLine{00177\ \ \ \ \ configInfo.multisampleInfo.sampleShadingEnable\ =\ VK\_FALSE;}
+\DoxyCodeLine{00178\ \ \ \ \ configInfo.multisampleInfo.rasterizationSamples\ =\ VK\_SAMPLE\_COUNT\_1\_BIT;}
+\DoxyCodeLine{00179\ \ \ \ \ configInfo.multisampleInfo.minSampleShading\ =\ 1.f;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00180\ \ \ \ \ configInfo.multisampleInfo.pSampleMask\ =\ \textcolor{keyword}{nullptr};\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00181\ \ \ \ \ configInfo.multisampleInfo.alphaToCoverageEnable\ =\ VK\_FALSE;\ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00182\ \ \ \ \ configInfo.multisampleInfo.alphaToOneEnable\ =\ VK\_FALSE;\ \ \ \ \ \ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00183\ }
+\DoxyCodeLine{00184\ \ \ \ \ \textcolor{comment}{//\ Color\ blending}}
+\DoxyCodeLine{00185\ \ \ \ \ configInfo.colorBlendAttachment.colorWriteMask\ =}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ VK\_COLOR\_COMPONENT\_R\_BIT\ |\ VK\_COLOR\_COMPONENT\_G\_BIT\ |}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ VK\_COLOR\_COMPONENT\_B\_BIT\ |\ VK\_COLOR\_COMPONENT\_A\_BIT;}
+\DoxyCodeLine{00188\ \ \ \ \ configInfo.colorBlendAttachment.blendEnable\ =\ VK\_FALSE;}
+\DoxyCodeLine{00189\ \ \ \ \ configInfo.colorBlendAttachment.srcColorBlendFactor\ =}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ VK\_BLEND\_FACTOR\_ONE;\ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00191\ \ \ \ \ configInfo.colorBlendAttachment.dstColorBlendFactor\ =}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ VK\_BLEND\_FACTOR\_ZERO;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00193\ \ \ \ \ configInfo.colorBlendAttachment.colorBlendOp\ =\ VK\_BLEND\_OP\_ADD;\ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00194\ \ \ \ \ configInfo.colorBlendAttachment.srcAlphaBlendFactor\ =}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ VK\_BLEND\_FACTOR\_ONE;\ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00196\ \ \ \ \ configInfo.colorBlendAttachment.dstAlphaBlendFactor\ =}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ VK\_BLEND\_FACTOR\_ZERO;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00198\ \ \ \ \ configInfo.colorBlendAttachment.alphaBlendOp\ =\ VK\_BLEND\_OP\_ADD;\ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00199\ }
+\DoxyCodeLine{00200\ \ \ \ \ configInfo.colorBlendInfo.sType\ =}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ VK\_STRUCTURE\_TYPE\_PIPELINE\_COLOR\_BLEND\_STATE\_CREATE\_INFO;}
+\DoxyCodeLine{00202\ \ \ \ \ configInfo.colorBlendInfo.logicOpEnable\ =\ VK\_FALSE;}
+\DoxyCodeLine{00203\ \ \ \ \ configInfo.colorBlendInfo.logicOp\ =\ VK\_LOGIC\_OP\_COPY;\ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00204\ \ \ \ \ configInfo.colorBlendInfo.attachmentCount\ =\ 1;}
+\DoxyCodeLine{00205\ \ \ \ \ configInfo.colorBlendInfo.pAttachments\ =\ \&configInfo.colorBlendAttachment;}
+\DoxyCodeLine{00206\ \ \ \ \ configInfo.colorBlendInfo.blendConstants[\ 0\ ]\ =\ .0f;\ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00207\ \ \ \ \ configInfo.colorBlendInfo.blendConstants[\ 1\ ]\ =\ .0f;\ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00208\ \ \ \ \ configInfo.colorBlendInfo.blendConstants[\ 2\ ]\ =\ .0f;\ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00209\ \ \ \ \ configInfo.colorBlendInfo.blendConstants[\ 3\ ]\ =\ .0f;\ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00210\ }
+\DoxyCodeLine{00211\ \ \ \ \ \textcolor{comment}{//\ Depth\ testing}}
+\DoxyCodeLine{00212\ \ \ \ \ configInfo.depthStencilInfo.sType\ =}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ VK\_STRUCTURE\_TYPE\_PIPELINE\_DEPTH\_STENCIL\_STATE\_CREATE\_INFO;}
+\DoxyCodeLine{00214\ \ \ \ \ configInfo.depthStencilInfo.depthTestEnable\ =\ VK\_TRUE;}
+\DoxyCodeLine{00215\ \ \ \ \ configInfo.depthStencilInfo.depthWriteEnable\ =\ VK\_TRUE;}
+\DoxyCodeLine{00216\ \ \ \ \ configInfo.depthStencilInfo.depthCompareOp\ =\ VK\_COMPARE\_OP\_LESS;}
+\DoxyCodeLine{00217\ \ \ \ \ configInfo.depthStencilInfo.depthBoundsTestEnable\ =\ VK\_FALSE;}
+\DoxyCodeLine{00218\ \ \ \ \ configInfo.depthStencilInfo.minDepthBounds\ =\ .0f;\ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00219\ \ \ \ \ configInfo.depthStencilInfo.maxDepthBounds\ =\ 1.f;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00220\ \ \ \ \ configInfo.depthStencilInfo.stencilTestEnable\ =\ VK\_FALSE;\ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00221\ \ \ \ \ configInfo.depthStencilInfo.front\ =\ \{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00222\ \ \ \ \ configInfo.depthStencilInfo.back\ =\ \{\};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Optional}}
+\DoxyCodeLine{00223\ }
+\DoxyCodeLine{00224\ \ \ \ \ \textcolor{comment}{//\ Dynamic\ state}}
+\DoxyCodeLine{00225\ \ \ \ \ configInfo.dynamicStateEnables\ =\ \{\ VK\_DYNAMIC\_STATE\_VIEWPORT,\ VK\_DYNAMIC\_STATE\_SCISSOR\ \};}
+\DoxyCodeLine{00226\ }
+\DoxyCodeLine{00227\ \ \ \ \ configInfo.dynamicStateInfo.sType\ =\ VK\_STRUCTURE\_TYPE\_PIPELINE\_DYNAMIC\_STATE\_CREATE\_INFO;}
+\DoxyCodeLine{00228\ \ \ \ \ configInfo.dynamicStateInfo.pDynamicStates\ =\ configInfo.dynamicStateEnables.data();}
+\DoxyCodeLine{00229\ \ \ \ \ configInfo.dynamicStateInfo.dynamicStateCount\ =\ \textcolor{keyword}{static\_cast<}uint32\_t\textcolor{keyword}{>}(\ configInfo.dynamicStateEnables.size()\ );}
+\DoxyCodeLine{00230\ \ \ \ \ configInfo.dynamicStateInfo.flags\ =\ 0;}
+\DoxyCodeLine{00231\ \}}
+\DoxyCodeLine{00232\ \}}
+
+\end{DoxyCode}

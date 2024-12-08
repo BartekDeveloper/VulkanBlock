@@ -19,7 +19,7 @@ struct PipelineConfigInfo {
     VkPipelineMultisampleStateCreateInfo multisampleInfo;
     VkPipelineColorBlendStateCreateInfo colorBlendInfo;
     VkPipelineDepthStencilStateCreateInfo depthStencilInfo;
-   
+
     VkPipelineColorBlendAttachmentState colorBlendAttachment;
 
     std::vector<VkDynamicState> dynamicStateEnables;
@@ -31,33 +31,33 @@ struct PipelineConfigInfo {
 };
 
 class Pipeline {
- public:
-  Pipeline(Device &device, const std::string &vertFilePath,
-           const std::string &fragFilePath,
-           const PipelineConfigInfo configInfo);
-  ~Pipeline();
+  public:
+    Pipeline(Device &device, const std::string &vertFilePath,
+             const std::string &fragFilePath,
+             const PipelineConfigInfo configInfo);
+    ~Pipeline();
 
-  Pipeline( const Pipeline & ) = delete;
-  Pipeline &operator=( const Pipeline & ) = delete;
-  Pipeline() = default;
+    Pipeline( const Pipeline & ) = delete;
+    Pipeline &operator=( const Pipeline & ) = delete;
+    Pipeline() = default;
 
-  void Bind( VkCommandBuffer commandBuffer );
+    void Bind( VkCommandBuffer commandBuffer );
 
-  static void DefaultPipelineConfigInfo(PipelineConfigInfo &configInfo);
+    static void DefaultPipelineConfigInfo(PipelineConfigInfo &configInfo);
 
- private:
-  static std::vector<char> ReadFile(const std::string &filePath);
+  private:
+    static std::vector<char> ReadFile(const std::string &filePath);
 
-  void CreateGraphicsPipeline(const std::string &vertFilePath,
-                              const std::string &fragFilePath,
-                              const PipelineConfigInfo &configInfo);
+    void CreateGraphicsPipeline(const std::string &vertFilePath,
+                                const std::string &fragFilePath,
+                                const PipelineConfigInfo &configInfo);
 
-  void CreateShaderModule( const std::vector<char> &code, VkShaderModule *shaderModule );
+    void CreateShaderModule( const std::vector<char> &code, VkShaderModule *shaderModule );
 
-  Device &Device;
-  VkPipeline graphicsPipeline;
-  VkShaderModule vertShaderModule;
-  VkShaderModule fragShaderModule;
+    Device &Device;
+    VkPipeline graphicsPipeline;
+    VkShaderModule vertShaderModule;
+    VkShaderModule fragShaderModule;
 
 };
 }  // namespace BlockyVulkan

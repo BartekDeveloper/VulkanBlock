@@ -1,0 +1,200 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="first__test_8hpp" kind="file" language="C++">
+    <compoundname>first_test.hpp</compoundname>
+    <includes refid="device_8hpp" local="yes">../device/device.hpp</includes>
+    <includes refid="game__object_8hpp" local="yes">../game_object/game_object.hpp</includes>
+    <includes refid="model_8hpp" local="yes">../model/model.hpp</includes>
+    <includes refid="pipeline_8hpp" local="yes">../pipeline/pipeline.hpp</includes>
+    <includes refid="swap__chain_8hpp" local="yes">../swapchain/swap_chain.hpp</includes>
+    <includes refid="window_8hpp" local="yes">../window/window.hpp</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">vector</includes>
+    <includedby refid="first__test_8cpp" local="yes">first_test.cpp</includedby>
+    <includedby refid="main_8cpp" local="yes">main.cpp</includedby>
+    <incdepgraph>
+      <node id="5">
+        <label>GLFW/glfw3.h</label>
+      </node>
+      <node id="2">
+        <label>../device/device.hpp</label>
+        <link refid="device_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="8">
+        <label>../game_object/game_object.hpp</label>
+        <link refid="game__object_8hpp"/>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>../model/model.hpp</label>
+        <link refid="model_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>../pipeline/pipeline.hpp</label>
+        <link refid="pipeline_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="13">
+        <label>../swapchain/swap_chain.hpp</label>
+        <link refid="swap__chain_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>first_test.hpp</label>
+        <link refid="first__test_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="12" relation="include">
+        </childnode>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>../window/window.hpp</label>
+        <link refid="window_8hpp"/>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+      </node>
+      <node id="9">
+        <label>glm/glm.hpp</label>
+      </node>
+      <node id="11">
+        <label>memory</label>
+      </node>
+      <node id="6">
+        <label>string</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+      <node id="3">
+        <label>vulkan/vulkan.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="3">
+        <label>main.cpp</label>
+        <link refid="main_8cpp"/>
+      </node>
+      <node id="2">
+        <label>first_test.cpp</label>
+        <link refid="first__test_8cpp"/>
+      </node>
+      <node id="1">
+        <label>first_test.hpp</label>
+        <link refid="first__test_8hpp"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_blocky_vulkan_1_1_first_test" prot="public">BlockyVulkan::FirstTest</innerclass>
+    <innernamespace refid="namespace_blocky_vulkan">BlockyVulkan</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="device_8hpp" kindref="compound">../device/device.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="game__object_8hpp" kindref="compound">../game_object/game_object.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="model_8hpp" kindref="compound">../model/model.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="pipeline_8hpp" kindref="compound">../pipeline/pipeline.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="swap__chain_8hpp" kindref="compound">../swapchain/swap_chain.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="window_8hpp" kindref="compound">../window/window.hpp</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>std</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal"><ref refid="namespace_blocky_vulkan" kindref="compound">BlockyVulkan</ref><sp/>{</highlight></codeline>
+<codeline lineno="14" refid="class_blocky_vulkan_1_1_first_test" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_blocky_vulkan_1_1_first_test" kindref="compound">FirstTest</ref><sp/>{</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="16" refid="class_blocky_vulkan_1_1_first_test_1a93b93e723eacdc4e26d7999f74e69b12" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_first_test_1a93b93e723eacdc4e26d7999f74e69b12" kindref="member">WIDTH</ref>{800};</highlight></codeline>
+<codeline lineno="17" refid="class_blocky_vulkan_1_1_first_test_1aa881baa92f22b00b4435ba014a4ac40c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">static</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">constexpr</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_first_test_1aa881baa92f22b00b4435ba014a4ac40c" kindref="member">HEIGHT</ref>{600};</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_blocky_vulkan_1_1_first_test_1aae748a33a479466a837baaa37df9c39f" kindref="member">FirstTest</ref>();</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_blocky_vulkan_1_1_first_test_1a21d40444d4659ff4b68046682665c84e" kindref="member">~FirstTest</ref>();</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22" refid="class_blocky_vulkan_1_1_first_test_1ad39f53e8a673178131bd33cef109d98f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_blocky_vulkan_1_1_first_test_1ad39f53e8a673178131bd33cef109d98f" kindref="member">FirstTest</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_first_test" kindref="compound">FirstTest</ref><sp/>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="23" refid="class_blocky_vulkan_1_1_first_test_1a502edb60a80b8f233e2a606dc5a1bfc9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_blocky_vulkan_1_1_first_test" kindref="compound">FirstTest</ref><sp/>&amp;<ref refid="class_blocky_vulkan_1_1_first_test_1a502edb60a80b8f233e2a606dc5a1bfc9" kindref="member">operator=</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_first_test" kindref="compound">FirstTest</ref><sp/>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_first_test_1a905363df2403c92de3da3fb24fa9673b" kindref="member">Run</ref>();</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_blocky_vulkan_1_1_first_test_1aae5365a9bbdf34c8d8b5ac1993bcebca" kindref="member">Sierpinski</ref>(std::vector&lt;Model::Vertex&gt;<sp/>&amp;vertices,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>depth,</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>glm::vec2<sp/>left,<sp/>glm::vec2<sp/>right,<sp/>glm::vec2<sp/>top);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>LoadGameObjects();</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CreatePipelineLayout();</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CreatePipeline();</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>CreateCommandBuffers();</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>FreeCommandBuffers();</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>DrawFrame();</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>RecreateSwapChain();</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>RecordCommandBuffer(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>imageIndex);</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>RenderGameObjects(VkCommandBuffer<sp/>commandBuffer);</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_blocky_vulkan_1_1_window" kindref="compound">Window</ref><sp/>window{<ref refid="class_blocky_vulkan_1_1_first_test_1a93b93e723eacdc4e26d7999f74e69b12" kindref="member">WIDTH</ref>,<sp/><ref refid="class_blocky_vulkan_1_1_first_test_1aa881baa92f22b00b4435ba014a4ac40c" kindref="member">HEIGHT</ref>,<sp/></highlight><highlight class="stringliteral">&quot;Hello<sp/>Vulkan!&quot;</highlight><highlight class="normal">};</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_blocky_vulkan_1_1_device" kindref="compound">Device</ref><sp/>device{window};</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unique_ptr&lt;SwapChain&gt;<sp/>swapChain;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/>std::unique_ptr&lt;Pipeline&gt;<sp/>pipeline;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>VkPipelineLayout<sp/>pipelineLayout;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;VkCommandBuffer&gt;<sp/>commandBuffers;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/>std::vector&lt;GameObject&gt;<sp/>gameObjects;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal">};<sp/><sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>BlockyVulkan</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="X:/Pro/GameDev/VulkanBlock/src/test_1/first_test.hpp"/>
+  </compounddef>
+</doxygen>

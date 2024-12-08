@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<book xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_index" xml:lang="en-US">
+    <info>
+    <title>VulkanBlock</title>
+    </info>
+    <xi:include href="md__r_e_a_d_m_e.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<chapter>
+    <title>Namespace Documentation</title>
+<xi:include href="namespace_blocky_vulkan.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>Class Documentation</title>
+    <xi:include href="class_blocky_vulkan_1_1_device.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_blocky_vulkan_1_1_first_test.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_blocky_vulkan_1_1_game_object.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_blocky_vulkan_1_1_model.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_blocky_vulkan_1_1_pipeline.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_blocky_vulkan_1_1_pipeline_config_info.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_blocky_vulkan_1_1_queue_family_indices.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_blocky_vulkan_1_1_simple_push_constant_data.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_blocky_vulkan_1_1_swap_chain.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_blocky_vulkan_1_1_swap_chain_support_details.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_blocky_vulkan_1_1_transform2_d___component.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="struct_blocky_vulkan_1_1_model_1_1_vertex.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="class_blocky_vulkan_1_1_window.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<chapter>
+    <title>File Documentation</title>
+    <xi:include href="main_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="main_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="_r_e_a_d_m_e_8md.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="device_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="device_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="device_8hpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="device_8hpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="game__object_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="game__object_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="game__object_8hpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="game__object_8hpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="model_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="model_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="model_8hpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="model_8hpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="pipeline_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="pipeline_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="pipeline_8hpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="pipeline_8hpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="swap__chain_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="swap__chain_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="swap__chain_8hpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="swap__chain_8hpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="first__test_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="first__test_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="first__test_8hpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="first__test_8hpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="window_8cpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="window_8cpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="window_8hpp.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="window_8hpp_source.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+</chapter>
+<index/>
+</book>

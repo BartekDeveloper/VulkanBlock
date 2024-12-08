@@ -1,0 +1,234 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.12.0" xml:lang="en-US">
+  <compounddef id="struct_blocky_vulkan_1_1_pipeline_config_info" kind="struct" language="C++" prot="public">
+    <compoundname>BlockyVulkan::PipelineConfigInfo</compoundname>
+    <includes refid="pipeline_8hpp" local="no">pipeline.hpp</includes>
+    <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_blocky_vulkan_1_1_pipeline_config_info_1abf9d4590b94afc9da9222a8b86805a4c" prot="public" static="no" mutable="no">
+        <type>VkPipelineViewportStateCreateInfo</type>
+        <definition>VkPipelineViewportStateCreateInfo BlockyVulkan::PipelineConfigInfo::viewportInfo</definition>
+        <argsstring></argsstring>
+        <name>viewportInfo</name>
+        <qualifiedname>BlockyVulkan::PipelineConfigInfo::viewportInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" line="16" column="39" bodyfile="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_blocky_vulkan_1_1_pipeline_config_info_1af79d02ca54f050415f818df3ff5140a6" prot="public" static="no" mutable="no">
+        <type>VkPipelineInputAssemblyStateCreateInfo</type>
+        <definition>VkPipelineInputAssemblyStateCreateInfo BlockyVulkan::PipelineConfigInfo::inputAssemblyInfo</definition>
+        <argsstring></argsstring>
+        <name>inputAssemblyInfo</name>
+        <qualifiedname>BlockyVulkan::PipelineConfigInfo::inputAssemblyInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" line="17" column="44" bodyfile="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_blocky_vulkan_1_1_pipeline_config_info_1a49e68fcfec16e572277de541a84c0086" prot="public" static="no" mutable="no">
+        <type>VkPipelineRasterizationStateCreateInfo</type>
+        <definition>VkPipelineRasterizationStateCreateInfo BlockyVulkan::PipelineConfigInfo::rasterizationInfo</definition>
+        <argsstring></argsstring>
+        <name>rasterizationInfo</name>
+        <qualifiedname>BlockyVulkan::PipelineConfigInfo::rasterizationInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" line="18" column="44" bodyfile="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_blocky_vulkan_1_1_pipeline_config_info_1af2749bee4dc10bb630639892e5839c70" prot="public" static="no" mutable="no">
+        <type>VkPipelineMultisampleStateCreateInfo</type>
+        <definition>VkPipelineMultisampleStateCreateInfo BlockyVulkan::PipelineConfigInfo::multisampleInfo</definition>
+        <argsstring></argsstring>
+        <name>multisampleInfo</name>
+        <qualifiedname>BlockyVulkan::PipelineConfigInfo::multisampleInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" line="19" column="42" bodyfile="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_blocky_vulkan_1_1_pipeline_config_info_1a2dcfd03ff283e7ef7ba256c2cd2a7010" prot="public" static="no" mutable="no">
+        <type>VkPipelineColorBlendStateCreateInfo</type>
+        <definition>VkPipelineColorBlendStateCreateInfo BlockyVulkan::PipelineConfigInfo::colorBlendInfo</definition>
+        <argsstring></argsstring>
+        <name>colorBlendInfo</name>
+        <qualifiedname>BlockyVulkan::PipelineConfigInfo::colorBlendInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" line="20" column="41" bodyfile="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_blocky_vulkan_1_1_pipeline_config_info_1ae5ebd9012649adcbe2fdb35b896a3e87" prot="public" static="no" mutable="no">
+        <type>VkPipelineDepthStencilStateCreateInfo</type>
+        <definition>VkPipelineDepthStencilStateCreateInfo BlockyVulkan::PipelineConfigInfo::depthStencilInfo</definition>
+        <argsstring></argsstring>
+        <name>depthStencilInfo</name>
+        <qualifiedname>BlockyVulkan::PipelineConfigInfo::depthStencilInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" line="21" column="43" bodyfile="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_blocky_vulkan_1_1_pipeline_config_info_1ace48c96bcff001251bd0ab9a6c28ee06" prot="public" static="no" mutable="no">
+        <type>VkPipelineColorBlendAttachmentState</type>
+        <definition>VkPipelineColorBlendAttachmentState BlockyVulkan::PipelineConfigInfo::colorBlendAttachment</definition>
+        <argsstring></argsstring>
+        <name>colorBlendAttachment</name>
+        <qualifiedname>BlockyVulkan::PipelineConfigInfo::colorBlendAttachment</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" line="23" column="41" bodyfile="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_blocky_vulkan_1_1_pipeline_config_info_1ac754f6d94c8df9b55641efabec67c5f6" prot="public" static="no" mutable="no">
+        <type>std::vector&lt; VkDynamicState &gt;</type>
+        <definition>std::vector&lt;VkDynamicState&gt; BlockyVulkan::PipelineConfigInfo::dynamicStateEnables</definition>
+        <argsstring></argsstring>
+        <name>dynamicStateEnables</name>
+        <qualifiedname>BlockyVulkan::PipelineConfigInfo::dynamicStateEnables</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" line="25" column="17" bodyfile="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_blocky_vulkan_1_1_pipeline_config_info_1a698beed88b6819a26b0e4650ed8d0210" prot="public" static="no" mutable="no">
+        <type>VkPipelineDynamicStateCreateInfo</type>
+        <definition>VkPipelineDynamicStateCreateInfo BlockyVulkan::PipelineConfigInfo::dynamicStateInfo</definition>
+        <argsstring></argsstring>
+        <name>dynamicStateInfo</name>
+        <qualifiedname>BlockyVulkan::PipelineConfigInfo::dynamicStateInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" line="26" column="38" bodyfile="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_blocky_vulkan_1_1_pipeline_config_info_1acfca5f8d78fcb895055b09d8819d9030" prot="public" static="no" mutable="no">
+        <type>VkPipelineLayout</type>
+        <definition>VkPipelineLayout BlockyVulkan::PipelineConfigInfo::pipelineLayout</definition>
+        <argsstring></argsstring>
+        <name>pipelineLayout</name>
+        <qualifiedname>BlockyVulkan::PipelineConfigInfo::pipelineLayout</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" line="28" column="22" bodyfile="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_blocky_vulkan_1_1_pipeline_config_info_1a9dc36f73322973991b76c50e1699b221" prot="public" static="no" mutable="no">
+        <type>VkRenderPass</type>
+        <definition>VkRenderPass BlockyVulkan::PipelineConfigInfo::renderPass</definition>
+        <argsstring></argsstring>
+        <name>renderPass</name>
+        <qualifiedname>BlockyVulkan::PipelineConfigInfo::renderPass</qualifiedname>
+        <initializer>= nullptr</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" line="29" column="18" bodyfile="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="struct_blocky_vulkan_1_1_pipeline_config_info_1ac218e5086d951b33f2f056e54bcdfc2d" prot="public" static="no" mutable="no">
+        <type>uint32_t</type>
+        <definition>uint32_t BlockyVulkan::PipelineConfigInfo::subpass</definition>
+        <argsstring></argsstring>
+        <name>subpass</name>
+        <qualifiedname>BlockyVulkan::PipelineConfigInfo::subpass</qualifiedname>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" line="30" column="14" bodyfile="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" bodystart="30" bodyend="-1"/>
+      </memberdef>
+    </sectiondef>
+    <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_blocky_vulkan_1_1_pipeline_config_info_1a60b8d16412bc257ee75ea324a8dd654a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>BlockyVulkan::PipelineConfigInfo::PipelineConfigInfo</definition>
+        <argsstring>()=default</argsstring>
+        <name>PipelineConfigInfo</name>
+        <qualifiedname>BlockyVulkan::PipelineConfigInfo::PipelineConfigInfo</qualifiedname>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" line="13" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="struct_blocky_vulkan_1_1_pipeline_config_info_1aeac9c6298a89cabb0f3a46537b705b2e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_blocky_vulkan_1_1_pipeline_config_info" kindref="compound">PipelineConfigInfo</ref> &amp;</type>
+        <definition>PipelineConfigInfo &amp; BlockyVulkan::PipelineConfigInfo::operator=</definition>
+        <argsstring>(const PipelineConfigInfo &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <qualifiedname>BlockyVulkan::PipelineConfigInfo::operator=</qualifiedname>
+        <param>
+          <type>const <ref refid="struct_blocky_vulkan_1_1_pipeline_config_info" kindref="compound">PipelineConfigInfo</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" line="14" column="24"/>
+      </memberdef>
+    </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" line="12" column="1" bodyfile="X:/Pro/GameDev/VulkanBlock/src/pipeline/pipeline.hpp" bodystart="12" bodyend="31"/>
+    <listofallmembers>
+      <member refid="struct_blocky_vulkan_1_1_pipeline_config_info_1ace48c96bcff001251bd0ab9a6c28ee06" prot="public" virt="non-virtual"><scope>BlockyVulkan::PipelineConfigInfo</scope><name>colorBlendAttachment</name></member>
+      <member refid="struct_blocky_vulkan_1_1_pipeline_config_info_1a2dcfd03ff283e7ef7ba256c2cd2a7010" prot="public" virt="non-virtual"><scope>BlockyVulkan::PipelineConfigInfo</scope><name>colorBlendInfo</name></member>
+      <member refid="struct_blocky_vulkan_1_1_pipeline_config_info_1ae5ebd9012649adcbe2fdb35b896a3e87" prot="public" virt="non-virtual"><scope>BlockyVulkan::PipelineConfigInfo</scope><name>depthStencilInfo</name></member>
+      <member refid="struct_blocky_vulkan_1_1_pipeline_config_info_1ac754f6d94c8df9b55641efabec67c5f6" prot="public" virt="non-virtual"><scope>BlockyVulkan::PipelineConfigInfo</scope><name>dynamicStateEnables</name></member>
+      <member refid="struct_blocky_vulkan_1_1_pipeline_config_info_1a698beed88b6819a26b0e4650ed8d0210" prot="public" virt="non-virtual"><scope>BlockyVulkan::PipelineConfigInfo</scope><name>dynamicStateInfo</name></member>
+      <member refid="struct_blocky_vulkan_1_1_pipeline_config_info_1af79d02ca54f050415f818df3ff5140a6" prot="public" virt="non-virtual"><scope>BlockyVulkan::PipelineConfigInfo</scope><name>inputAssemblyInfo</name></member>
+      <member refid="struct_blocky_vulkan_1_1_pipeline_config_info_1af2749bee4dc10bb630639892e5839c70" prot="public" virt="non-virtual"><scope>BlockyVulkan::PipelineConfigInfo</scope><name>multisampleInfo</name></member>
+      <member refid="struct_blocky_vulkan_1_1_pipeline_config_info_1aeac9c6298a89cabb0f3a46537b705b2e" prot="public" virt="non-virtual"><scope>BlockyVulkan::PipelineConfigInfo</scope><name>operator=</name></member>
+      <member refid="struct_blocky_vulkan_1_1_pipeline_config_info_1a60b8d16412bc257ee75ea324a8dd654a" prot="public" virt="non-virtual"><scope>BlockyVulkan::PipelineConfigInfo</scope><name>PipelineConfigInfo</name></member>
+      <member refid="struct_blocky_vulkan_1_1_pipeline_config_info_1acfca5f8d78fcb895055b09d8819d9030" prot="public" virt="non-virtual"><scope>BlockyVulkan::PipelineConfigInfo</scope><name>pipelineLayout</name></member>
+      <member refid="struct_blocky_vulkan_1_1_pipeline_config_info_1a49e68fcfec16e572277de541a84c0086" prot="public" virt="non-virtual"><scope>BlockyVulkan::PipelineConfigInfo</scope><name>rasterizationInfo</name></member>
+      <member refid="struct_blocky_vulkan_1_1_pipeline_config_info_1a9dc36f73322973991b76c50e1699b221" prot="public" virt="non-virtual"><scope>BlockyVulkan::PipelineConfigInfo</scope><name>renderPass</name></member>
+      <member refid="struct_blocky_vulkan_1_1_pipeline_config_info_1ac218e5086d951b33f2f056e54bcdfc2d" prot="public" virt="non-virtual"><scope>BlockyVulkan::PipelineConfigInfo</scope><name>subpass</name></member>
+      <member refid="struct_blocky_vulkan_1_1_pipeline_config_info_1abf9d4590b94afc9da9222a8b86805a4c" prot="public" virt="non-virtual"><scope>BlockyVulkan::PipelineConfigInfo</scope><name>viewportInfo</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

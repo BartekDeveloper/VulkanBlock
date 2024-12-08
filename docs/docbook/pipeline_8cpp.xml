@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_pipeline_8cpp" xml:lang="en-US">
+<title>src/pipeline/pipeline.cpp File Reference</title>
+<indexterm><primary>src/pipeline/pipeline.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;pipeline.hpp&quot;<?linebreak?>#include &lt;cassert&gt;<?linebreak?>#include &lt;fstream&gt;<?linebreak?>#include &lt;iosfwd&gt;<?linebreak?>#include &lt;iostream&gt;<?linebreak?>#include &lt;stdexcept&gt;<?linebreak?>#include &quot;../model/model.hpp&quot;<?linebreak?>#include &quot;../device/device.hpp&quot;<?linebreak?></programlisting>Include dependency graph for pipeline.cpp:<para>
+    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="pipeline_8cpp__incl.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespace_blocky_vulkan">BlockyVulkan</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

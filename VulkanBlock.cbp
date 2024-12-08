@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="VulkanBlock" />
+		<Option pch_mode="2" />
+		<Option compiler="clang" />
+		<Build>
+			<Target title="Debug Win32">
+				<Option output="./Debug/VulkanBlock" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Debug/" />
+				<Option deps_output="./Debug/" />
+				<Option type="0" />
+				<Option compiler="clang" />
+				<Compiler>
+					<Add option="/D_UNICODE /DUNICODE" />
+					<Add option="/Zi" />
+					<Add option="/DWIN32" />
+					<Add option="/D_DEBUG" />
+					<Add option="/D_CONSOLE" />
+					<Add option="/W3" />
+					<Add directory="./include/" />
+					<Add directory="X:/Pro/GameDev/vulkan/Libraries/glfw-3.4.bin.WIN64/include/" />
+					<Add directory="X:/Pro/GameDev/vulkan/Libraries/glm/" />
+					<Add directory="C:/VulkanSDK/1.3.296.0/Include/" />
+				</Compiler>
+				<Linker>
+					<Add option="/debug" />
+					<Add library="vulkan-1.lib" />
+					<Add library="glfw3.lib" />
+					<Add library="winmm.lib" />
+					<Add library="comctl32.lib" />
+					<Add library="kernel32.lib" />
+					<Add library="user32.lib" />
+					<Add library="gdi32.lib" />
+					<Add library="winspool.lib" />
+					<Add library="comdlg32.lib" />
+					<Add library="advapi32.lib" />
+					<Add library="shell32.lib" />
+					<Add library="ole32.lib" />
+					<Add library="oleaut32.lib" />
+					<Add library="uuid.lib" />
+					<Add library="odbc32.lib" />
+					<Add library="odbccp32.lib" />
+					<Add directory="./lib/" />
+					<Add directory="X:/Pro/GameDev/vulkan/Libraries/glfw-3.4.bin.WIN64/lib-vc2022/" />
+					<Add directory="C:/VulkanSDK/1.3.296.0/Lib/" />
+				</Linker>
+				<ExtraCommands>
+					<Add before="compile_shaders" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Debug x64">
+				<Option output="./Debug/VulkanBlock" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Debug/" />
+				<Option deps_output="./Debug/" />
+				<Option type="0" />
+				<Option compiler="clang" />
+				<Compiler>
+					<Add option="/D_UNICODE /DUNICODE" />
+					<Add option="/Zi" />
+					<Add option="/D_DEBUG" />
+					<Add option="/D_CONSOLE" />
+					<Add option="/W3" />
+					<Add directory="./include/" />
+					<Add directory="X:/Pro/GameDev/vulkan/Libraries/glfw-3.4.bin.WIN64/include/" />
+					<Add directory="X:/Pro/GameDev/vulkan/Libraries/glm/" />
+					<Add directory="C:/VulkanSDK/1.3.296.0/Include/" />
+				</Compiler>
+				<Linker>
+					<Add option="/debug" />
+					<Add library="vulkan-1.lib" />
+					<Add library="glfw3.lib" />
+					<Add library="winmm.lib" />
+					<Add library="comctl32.lib" />
+					<Add library="kernel32.lib" />
+					<Add library="user32.lib" />
+					<Add library="gdi32.lib" />
+					<Add library="winspool.lib" />
+					<Add library="comdlg32.lib" />
+					<Add library="advapi32.lib" />
+					<Add library="shell32.lib" />
+					<Add library="ole32.lib" />
+					<Add library="oleaut32.lib" />
+					<Add library="uuid.lib" />
+					<Add library="odbc32.lib" />
+					<Add library="odbccp32.lib" />
+					<Add directory="./lib/" />
+					<Add directory="X:/Pro/GameDev/vulkan/Libraries/glfw-3.4.bin.WIN64/lib-vc2022/" />
+					<Add directory="C:/VulkanSDK/1.3.296.0/Lib/" />
+				</Linker>
+				<ExtraCommands>
+					<Add before="compile_shaders" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Release x64">
+				<Option output="./Release/VulkanBlock" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Release/" />
+				<Option deps_output="./Release/" />
+				<Option type="0" />
+				<Option compiler="clang" />
+				<Compiler>
+					<Add option="/D_UNICODE /DUNICODE" />
+					<Add option="/DNDEBUG" />
+					<Add option="/D_CONSOLE" />
+					<Add option="/W3" />
+					<Add directory="./include/" />
+					<Add directory="X:/Pro/GameDev/vulkan/Libraries/glfw-3.4.bin.WIN64/include/" />
+					<Add directory="X:/Pro/GameDev/vulkan/Libraries/glm/" />
+					<Add directory="C:/VulkanSDK/1.3.296.0/Include/" />
+				</Compiler>
+				<Linker>
+					<Add option="/debug" />
+					<Add library="vulkan-1.lib" />
+					<Add library="glfw3.lib" />
+					<Add library="winmm.lib" />
+					<Add library="comctl32.lib" />
+					<Add library="kernel32.lib" />
+					<Add library="user32.lib" />
+					<Add library="gdi32.lib" />
+					<Add library="winspool.lib" />
+					<Add library="comdlg32.lib" />
+					<Add library="advapi32.lib" />
+					<Add library="shell32.lib" />
+					<Add library="ole32.lib" />
+					<Add library="oleaut32.lib" />
+					<Add library="uuid.lib" />
+					<Add library="odbc32.lib" />
+					<Add library="odbccp32.lib" />
+					<Add directory="./lib/" />
+					<Add directory="X:/Pro/GameDev/vulkan/Libraries/glfw-3.4.bin.WIN64/lib-vc2022/" />
+					<Add directory="C:/VulkanSDK/1.3.296.0/Lib/" />
+				</Linker>
+				<ExtraCommands>
+					<Add before="compile_shaders" />
+				</ExtraCommands>
+			</Target>
+			<Target title="Release Win32">
+				<Option output="./Release/VulkanBlock" prefix_auto="1" extension_auto="1" />
+				<Option object_output="Release/" />
+				<Option deps_output="./Release/" />
+				<Option type="0" />
+				<Option compiler="clang" />
+				<Compiler>
+					<Add option="/D_UNICODE /DUNICODE" />
+					<Add option="/DWIN32" />
+					<Add option="/DNDEBUG" />
+					<Add option="/D_CONSOLE" />
+					<Add option="/W3" />
+					<Add directory="./include/" />
+					<Add directory="X:/Pro/GameDev/vulkan/Libraries/glfw-3.4.bin.WIN64/include/" />
+					<Add directory="X:/Pro/GameDev/vulkan/Libraries/glm/" />
+					<Add directory="C:/VulkanSDK/1.3.296.0/Include/" />
+				</Compiler>
+				<Linker>
+					<Add option="/debug" />
+					<Add library="vulkan-1.lib" />
+					<Add library="glfw3.lib" />
+					<Add library="winmm.lib" />
+					<Add library="comctl32.lib" />
+					<Add library="kernel32.lib" />
+					<Add library="user32.lib" />
+					<Add library="gdi32.lib" />
+					<Add library="winspool.lib" />
+					<Add library="comdlg32.lib" />
+					<Add library="advapi32.lib" />
+					<Add library="shell32.lib" />
+					<Add library="ole32.lib" />
+					<Add library="oleaut32.lib" />
+					<Add library="uuid.lib" />
+					<Add library="odbc32.lib" />
+					<Add library="odbccp32.lib" />
+					<Add directory="./lib/" />
+					<Add directory="X:/Pro/GameDev/vulkan/Libraries/glfw-3.4.bin.WIN64/lib-vc2022/" />
+					<Add directory="C:/VulkanSDK/1.3.296.0/Lib/" />
+				</Linker>
+				<ExtraCommands>
+					<Add before="compile_shaders" />
+				</ExtraCommands>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add directory="." />
+		</Compiler>
+		<ResourceCompiler>
+			<Add directory="." />
+		</ResourceCompiler>
+		<Linker>
+			<Add option="/pdb:$(TARGET_OUTPUT_DIR)$(TARGET_OUTPUT_BASENAME).pdb" />
+		</Linker>
+		<Unit filename="main.cpp" />
+		<Unit filename="src/device/device.cpp" />
+		<Unit filename="src/device/device.hpp" />
+		<Unit filename="src/game_object/game_object.cpp" />
+		<Unit filename="src/game_object/game_object.hpp" />
+		<Unit filename="src/model/model.cpp" />
+		<Unit filename="src/model/model.hpp" />
+		<Unit filename="src/pipeline/pipeline.cpp" />
+		<Unit filename="src/pipeline/pipeline.hpp" />
+		<Unit filename="src/swapchain/swap_chain.cpp" />
+		<Unit filename="src/swapchain/swap_chain.hpp" />
+		<Unit filename="src/test_1/first_test.cpp" />
+		<Unit filename="src/test_1/first_test.hpp" />
+		<Unit filename="src/window/window.cpp" />
+		<Unit filename="src/window/window.hpp" />
+		<Extensions>
+			<DoxyBlocks>
+				<comment_style block="4" line="1" />
+				<doxyfile_project project_number="0.1" output_directory="docs" />
+				<doxyfile_build extract_all="1" />
+				<doxyfile_warnings />
+				<doxyfile_output html_help="1" chi="1" binary_toc="1" latex="1" rtf="1" man="1" xml="1" autogen_def="1" perl_mod="1" />
+				<doxyfile_dot class_diagrams="1" have_dot="1" />
+				<general use_at_in_tags="1" />
+			</DoxyBlocks>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
