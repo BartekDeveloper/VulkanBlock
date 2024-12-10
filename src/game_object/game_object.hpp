@@ -4,7 +4,6 @@
                            // os settings)
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE  // forcing depth to be from 0 to 1
 #include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
 
 #include "../model/model.hpp"
 
