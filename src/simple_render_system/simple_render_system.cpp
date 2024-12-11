@@ -60,8 +60,10 @@ namespace BlockyVulkan {
                 "shaders/simple.frag.spv", pipelineConfig );
     }
 
-    void SimpleRenderSystem::RenderGameObjects( VkCommandBuffer commandBuffer, std::vector<GameObject> &gameObjects ) {
+    void SimpleRenderSystem::RenderGameObjects(VkCommandBuffer commandBuffer, std::vector<GameObject> &gameObjects, const Camera &camera) {
         pipeline->Bind( commandBuffer );
+
+        auto projView = camera.GetProj() * camera.GetView();
 
         for( auto &obj : gameObjects ) {
             obj.transform3D.rotation.y = glm::mod( obj.transform3D.rotation.y + 0.0001f, glm::two_pi<float>() );
@@ -69,7 +71,7 @@ namespace BlockyVulkan {
 
             SimplePushConstantData push{};
             push.color = obj.color;
-            push.transform = obj.transform3D.Mat4();
+            push.transform = projView * obj.transform3D.Mat4();
 
             vkCmdPushConstants(
                 commandBuffer, pipelineLayout,

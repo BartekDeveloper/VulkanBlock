@@ -278,8 +278,7 @@
       <RootFolder>.</RootFolder>
     </CustomBuildStep>
     <PreBuildEvent>
-      <Command>
-      </Command>
+      <Command>compile_shaders</Command>
     </PreBuildEvent>
     <PreBuildEvent>
       <Message>Compile Shaders</Message>
@@ -311,6 +310,7 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\camera\camera.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\device\device.cpp" />
     <ClCompile Include="src\game_object\game_object.cpp" />
@@ -323,6 +323,7 @@
     <ClCompile Include="src\window\window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\camera\camera.hpp" />
     <ClInclude Include="src\renderer\renderer.hpp" />
     <ClInclude Include="src\game_object\game_object.hpp" />
     <ClInclude Include="src\model\model.hpp" />

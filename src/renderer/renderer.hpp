@@ -20,6 +20,7 @@ namespace BlockyVulkan {
         Renderer &operator=( const Renderer & ) = delete;
 
         const VkRenderPass GetSwapChainRenderPass() const { return swapChain->GetRenderPass(); }
+        const float GetAspectRatio() const { return swapChain->ExtentAspectRatio(); }
         const bool IsFrameInProgress() const { return didFrameStarted; }
 
         const VkCommandBuffer GetCurrentCommandBuffer() const {

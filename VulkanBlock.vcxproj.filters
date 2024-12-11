@@ -45,6 +45,9 @@
     <ClCompile Include="src\simple_render_system\simple_render_system.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\camera\camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\window\window.hpp">
@@ -74,6 +77,9 @@
     <ClInclude Include="src\simple_render_system\simple_render_system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\camera\camera.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="compile_shaders.bat">
@@ -82,8 +88,18 @@
     <None Include="README.md" />
     <None Include=".gitattributes" />
     <None Include=".gitignore" />
-    <None Include="resources.bat">
+    <None Include="--resources.bat">
       <Filter>Source Files</Filter>
     </None>
+    <None Include="VulkanBlock.cbp" />
+    <None Include="VulkanBlock.layout" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Icon.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Icon.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
