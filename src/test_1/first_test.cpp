@@ -60,13 +60,21 @@ namespace BlockyVulkan {
     }
 
     void FirstTest::LoadGameObjects() {
-        std::shared_ptr<Model> model = Model::CreateModelFromFile(device, "assets/models/smooth_vase.obj");
+        std::shared_ptr<Model> smoothVaseModel = Model::CreateModelFromFile(device, "assets/models/smooth_vase.obj");
 
-        auto gameObj = GameObject::CreateGameObject();
-        gameObj.model = model;
-        gameObj.transform3D.translation = { .0f, .0f, .5f };
-        gameObj.transform3D.scale = { 1.f, 1.f, 1.f };
+        auto smoothVase = GameObject::CreateGameObject();
+        smoothVase.model = smoothVaseModel;
+        smoothVase.transform3D.translation = { .1f, .5f, 1.5f };
+        smoothVase.transform3D.scale = { 1.f, 1.f, 1.f };
 
-        gameObjects.push_back(std::move(gameObj));
+        std::shared_ptr<Model> flatVaseModel = Model::CreateModelFromFile(device, "assets/models/flat_vase.obj");
+
+        auto  flatVase = GameObject::CreateGameObject();
+        flatVase.model = flatVaseModel;
+        flatVase.transform3D.translation = { -.1f, .5f, 1.5f };
+        flatVase.transform3D.scale = { 1.f, 1.f, 1.f };
+
+        gameObjects.push_back(std::move(smoothVase));
+        gameObjects.push_back(std::move(flatVase));
     }
 }

@@ -12,8 +12,8 @@
 namespace BlockyVulkan {
 
     struct SimplePushConstantData {
-        glm::mat4 transform{ 1.f };  // Initializes main diagonal, not every entry
-        alignas( 16 ) glm::vec3 color;
+        mat4 transform{ 1.f };  // Initializes main diagonal, not every entry
+        mat4 normalMatrix{1.f};
     };
 
     SimpleRenderSystem::SimpleRenderSystem(Device &device, VkRenderPass renderPass) : device{device} {
@@ -66,9 +66,11 @@ namespace BlockyVulkan {
         auto projView = camera.GetProj() * camera.GetView();
 
         for( auto &obj : gameObjects ) {
+            auto modelMatrix = obj.transform3D.Mat4();
+
             SimplePushConstantData push{};
-            push.color = obj.color;
-            push.transform = projView * obj.transform3D.Mat4();
+            push.transform = projView * modelMatrix;
+            push.normalMatrix = obj.transform3D.NormalMatrix();
 
             vkCmdPushConstants(
                 commandBuffer, pipelineLayout,
