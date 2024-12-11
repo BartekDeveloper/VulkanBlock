@@ -1,38 +1,42 @@
 #include "first_test.hpp"
 
+#include "../controller/keyboard_ctrl.hpp"
 #include "../camera/camera.hpp"
 #include "../simple_render_system/simple_render_system.hpp"
 
-#define GLM_FORCE_RADIANS  // forcing radians instead of degrees (no matter your
-                           // os settings)
+#define GLM_FORCE_RADIANS  // forcing radians instead of degrees (no matter your os settings)
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE  // forcing depth to be from 0 to 1
 #include <glm/glm.hpp>
-#include <glm/gtc/constants.hpp>
-
-// std
-#include <array>
-#include <cassert>
-#include <iostream>
+#include <chrono>
 
 namespace BlockyVulkan {
+    #define MAX_FRAME_TIME 1000.f
 
     FirstTest::FirstTest() { LoadGameObjects(); }
     FirstTest::~FirstTest() {}
 
-    void FirstTest::Run() {
-      /* Get number of max push constant(irrelevant, beacuse i dont need more than
-       specs 128 bytes, but still, just for fun, i guess...) */
-        std::cout << "Limit max push constant size: "
-            << device.properties.limits.maxPushConstantsSize << "\n";
 
+    void FirstTest::Run() {
         SimpleRenderSystem renderSystem{ device, renderer.GetSwapChainRenderPass() };
 
         Camera camera{};
-        //camera.SetViewDir(vec3{0.f}, vec3{.5f, 0.f, 1.f});
-        camera.SetViewTarget(vec3{-1.f, -2.f, -20.f}, vec3{0.f, 0.f, 2.5f});
+
+        auto viewObj = GameObject::CreateGameObject();
+        KeyboardCtrl camCtrl{};
+
+        auto currTime = std::chrono::high_resolution_clock::now();
 
         while ( !window.ShouldClose() ) {
             glfwPollEvents();
+
+            auto newTime = std::chrono::high_resolution_clock::now();
+            float deltaTime = std::chrono::duration<float, std::chrono::seconds::period>(newTime - currTime).count();
+            currTime = newTime;
+
+            deltaTime = glm::min(deltaTime, MAX_FRAME_TIME);
+
+            camCtrl.MoveInPlaneXZ(window.GetGLFW_Window(), deltaTime, viewObj);
+            camera.SetViewYXZ(viewObj.transform3D.translation, viewObj.transform3D.rotation);
 
             // aR is Aspect Ratio, but shortened, so its easier to write i guess... 
             float aR = renderer.GetAspectRatio();
@@ -117,11 +121,11 @@ namespace BlockyVulkan {
     void FirstTest::LoadGameObjects() {
         std::shared_ptr<Model> model = CreateCubeModel(device, { .0f, .0f, .0f });
 
-        auto cube = GameObject::createGameObject();
+        auto cube = GameObject::CreateGameObject();
         cube.model = model;
         cube.transform3D.translation = { .0f, .0f, 2.5f };
         cube.transform3D.scale = { .5f, .5f, .5f };
 
         gameObjects.push_back(std::move(cube));
     }
-}  // namespace BlockyVulkan
+}

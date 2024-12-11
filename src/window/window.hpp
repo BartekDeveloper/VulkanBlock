@@ -1,9 +1,10 @@
 #pragma once
+#define GLFW_INCLUDE_VULKAN
 
-#include <vulkan/vulkan.h>
+#include <cstdint>
 #include <GLFW/glfw3.h>
 #include <string>
-#include <GLFW/glfw3.h>
+#include <vulkan/vulkan_core.h>
 
 namespace BlockyVulkan {
 
@@ -18,15 +19,11 @@ class Window {
     bool ShouldClose() {
         return glfwWindowShouldClose( window );
     }
-    VkExtent2D getExtend() {
-        return { static_cast<uint32_t>(width), static_cast<uint32_t>(height) };
-    }
-    bool WasWindowResized() {
-        return frameBufferResized;
-    }
-    void ResetFlag_WindowResized() {
-        frameBufferResized = false;
-    }
+    VkExtent2D getExtend() { return { static_cast<uint32_t>(width), static_cast<uint32_t>(height) }; }
+    bool WasWindowResized() {return frameBufferResized; }
+    void ResetFlag_WindowResized() { frameBufferResized = false; }
+
+    GLFWwindow* GetGLFW_Window() const { return window; }
 
     void CreateWindowSurface( VkInstance instance, VkSurfaceKHR *surface );
 

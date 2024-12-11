@@ -312,6 +312,7 @@
   <ItemGroup>
     <ClCompile Include="src\camera\camera.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\controller\keyboard_ctrl.cpp" />
     <ClCompile Include="src\device\device.cpp" />
     <ClCompile Include="src\game_object\game_object.cpp" />
     <ClCompile Include="src\model\model.cpp" />
@@ -324,6 +325,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\camera\camera.hpp" />
+    <ClInclude Include="src\controller\keyboard_ctrl.hpp" />
     <ClInclude Include="src\renderer\renderer.hpp" />
     <ClInclude Include="src\game_object\game_object.hpp" />
     <ClInclude Include="src\model\model.hpp" />

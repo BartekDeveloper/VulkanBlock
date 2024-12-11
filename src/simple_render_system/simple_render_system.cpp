@@ -66,9 +66,6 @@ namespace BlockyVulkan {
         auto projView = camera.GetProj() * camera.GetView();
 
         for( auto &obj : gameObjects ) {
-            obj.transform3D.rotation.y = glm::mod( obj.transform3D.rotation.y + 0.0001f, glm::two_pi<float>() );
-            obj.transform3D.rotation.z = glm::mod( obj.transform3D.rotation.z + 0.000005f, glm::two_pi<float>() );
-
             SimplePushConstantData push{};
             push.color = obj.color;
             push.transform = projView * obj.transform3D.Mat4();

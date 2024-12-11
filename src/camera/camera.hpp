@@ -4,10 +4,10 @@
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE // forcing depth to be from 0 to 1
 #include <glm/glm.hpp>
 
-using glm::vec3;
-using glm::mat4;
-
 namespace BlockyVulkan {
+
+    using glm::vec3;
+    using glm::mat4;
 
     class Camera {
     public:
@@ -35,8 +35,8 @@ namespace BlockyVulkan {
         const mat4& GetView() const { return viewMat; }
 
     private:
-        mat4 projMat{1.f};
-        mat4 viewMat{1.f};
-         
+        mat4 projMat{ 1.f };
+        mat4 viewMat{ 1.f };
+
     };
 }
