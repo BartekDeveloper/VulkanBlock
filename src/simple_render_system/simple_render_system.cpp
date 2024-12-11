@@ -56,8 +56,8 @@ namespace BlockyVulkan {
         pipelineConfig.pipelineLayout = pipelineLayout;
 
         pipeline =
-            std::make_unique<Pipeline>( device, "shaders/simple.vert.spv",
-                "shaders/simple.frag.spv", pipelineConfig );
+            std::make_unique<Pipeline>( device, "assets/shaders/simple.vert.spv",
+                "assets/shaders/simple.frag.spv", pipelineConfig );
     }
 
     void SimpleRenderSystem::RenderGameObjects(VkCommandBuffer commandBuffer, std::vector<GameObject> &gameObjects, const Camera &camera) {

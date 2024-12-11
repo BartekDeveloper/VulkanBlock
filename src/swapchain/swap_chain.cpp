@@ -333,7 +333,7 @@ void SwapChain::CreateDepthResources() {
         imageInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
         imageInfo.flags = 0;
 
-        device.createImageWithInfo(imageInfo, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT,
+        device.CreateImageWithInfo(imageInfo, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT,
                                    depthImages[i], depthImageMemorys[i]);
 
         VkImageViewCreateInfo viewInfo{};
@@ -431,7 +431,7 @@ VkExtent2D SwapChain::ChooseSwapExtent(
 }
 
 VkFormat SwapChain::FindDepthFormat() {
-    return device.findSupportedFormat( {
+    return device.FindSupportedFormat( {
         VK_FORMAT_D32_SFLOAT, VK_FORMAT_D32_SFLOAT_S8_UINT,
         VK_FORMAT_D24_UNORM_S8_UINT},
     VK_IMAGE_TILING_OPTIMAL, VK_FORMAT_FEATURE_DEPTH_STENCIL_ATTACHMENT_BIT);

@@ -1,7 +1,27 @@
 #include "model.hpp"
 
+#include "../utils/utils.hpp"
+
+#define TINYOBJLOADER_IMPLEMENTATION
+#include <tiny_obj_loader.h>
+#define GLM_ENABLE_EXPERIMENTAL
+#include <glm/gtx/hash.hpp>
+
 #include <cassert>
 #include <cstring>
+#include <iostream>
+#include <unordered_map>
+
+namespace std {
+    template<>
+    struct hash<BlockyVulkan::Model::Vertex> {
+        size_t operator()(BlockyVulkan::Model::Vertex const &vertex) const {
+            size_t seed = 0;
+            BlockyVulkan::HashCombine(seed, vertex.position, vertex.color, vertex.normal, vertex.uv);
+            return seed;
+        }
+    };
+}
 
 namespace BlockyVulkan {
 
@@ -19,6 +39,16 @@ namespace BlockyVulkan {
             vkFreeMemory(device.device(), indexBufferMemory, nullptr);
         }
     }
+
+    std::unique_ptr<Model> Model::CreateModelFromFile(Device &device, const std::string &filepath) {
+        Builder builder{};
+        builder.LoadModel(filepath);
+
+        std::cout << "Vertex count: " << builder.vertices.size() << "\n";
+
+        return std::make_unique<Model>(device, builder);
+    }
+
 
     void Model::CreateVertexBuffers(const std::vector<Vertex> &vertices) {
         vertexCount = static_cast<uint32_t>(vertices.size());
@@ -98,10 +128,10 @@ namespace BlockyVulkan {
 
     void Model::Draw(VkCommandBuffer commandBuffer) {
         if (hasIndexBuffer) {
-            vkCmdDrawIndexed(commandBuffer, indexCount, 1, 0, 0, 0 );
+            vkCmdDrawIndexed(commandBuffer, indexCount, 1, 0, 0, 0);
             return;
         }
-        
+
         vkCmdDraw(commandBuffer, vertexCount, 1, 0, 0);
     }
 
@@ -125,29 +155,77 @@ namespace BlockyVulkan {
     }
 
     std::vector<VkVertexInputAttributeDescription> Model::Vertex::GetAttributeDescriptions() {
-        std::vector<VkVertexInputAttributeDescription> attributeDescriptions(2);
+        std::vector<VkVertexInputAttributeDescription> attributeDescriptions{};
 
-        // Position
-        attributeDescriptions[0].binding = 0;
-        attributeDescriptions[0].location = 0;
-        attributeDescriptions[0].format = VK_FORMAT_R32G32B32_SFLOAT;
-        attributeDescriptions[0].offset = offsetof(Vertex, position);
-
-        // Color
-        attributeDescriptions[1].binding = 0;
-        attributeDescriptions[1].location = 1;
-        attributeDescriptions[1].format = VK_FORMAT_R32G32B32_SFLOAT;
-        attributeDescriptions[1].offset = offsetof(Vertex, color);
-
-        /* Shortened form */
-        /*
-            @return {
-                { 0, 0, VK_FORMAT_R32G32_SFLOAT, offsetof(Vertex, position)},
-                { 0, 1, VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex, color)};
-            }
-        */
+        // Positions
+        attributeDescriptions.push_back({ 0, 0, VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex, position) });
+        // Colors
+        attributeDescriptions.push_back({ 1, 0, VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex, color)});
+        // Normals
+        attributeDescriptions.push_back({ 2, 0, VK_FORMAT_R32G32B32_SFLOAT, offsetof(Vertex, normal)});
+        // UVs
+        attributeDescriptions.push_back({ 3, 0, VK_FORMAT_R32G32_SFLOAT, offsetof(Vertex, uv) });
 
         return attributeDescriptions;
+    }
+
+
+    void Model::Builder::LoadModel(const std::string &filepath) {
+        tinyobj::attrib_t attrib;
+
+        std::vector<tinyobj::shape_t> shapes;
+        std::vector<tinyobj::material_t> materials;
+
+        std::string warn, err;
+
+        if (!tinyobj::LoadObj(&attrib, &shapes, &materials, &warn, &err, filepath.c_str())) {
+            throw std::runtime_error("Failed to load object from .obj file:  " + filepath + "  \n\t  " + warn + err);
+        }
+
+        vertices.clear();
+        indices.clear();
+        std::unordered_map<Vertex, uint32_t> uniqueVertices;
+
+        for (const auto &shape : shapes) {
+            for (const auto &idx : shape.mesh.indices) {
+                Vertex vertex{};
+
+                if (idx.vertex_index >= 0) {
+                    vertex.position = {
+                        attrib.vertices[3 * idx.vertex_index + 0],
+                        attrib.vertices[3 * idx.vertex_index + 1],
+                        attrib.vertices[3 * idx.vertex_index + 2],
+                    };
+
+                    vertex.color = {
+                        attrib.colors[3 * idx.vertex_index + 0],
+                        attrib.colors[3 * idx.vertex_index + 1],
+                        attrib.colors[3 * idx.vertex_index + 2],
+                    };
+                }
+
+                if (idx.normal_index >= 0) {
+                    vertex.normal = {
+                        attrib.normals[3 * idx.normal_index + 0],
+                        attrib.normals[3 * idx.normal_index + 1],
+                        attrib.normals[3 * idx.normal_index + 2],
+                    };
+                }
+
+                if (idx.texcoord_index >= 0) {
+                    vertex.uv = {
+                        attrib.texcoords[2 * idx.texcoord_index + 0],
+                        attrib.texcoords[2 * idx.texcoord_index + 1],
+                    };
+                }
+
+                if (uniqueVertices.count(vertex) == 0) {
+                    uniqueVertices[vertex] = static_cast<uint32_t>(vertices.size());
+                    vertices.push_back(vertex);
+                }
+                indices.push_back(uniqueVertices[vertex]);
+            }
+        }
     }
 
 }
