@@ -124,8 +124,8 @@ namespace BlockyVulkan {
         renderPassInfo.renderArea.extent = swapChain->GetSwapChainExtent();
 
         std::array<VkClearValue, 2> clearValues{};
-        clearValues[ 0 ].color = { .1f, .1f, .1f, 1.f };
-        clearValues[ 1 ].depthStencil = { 1.f, 0 };
+        clearValues[0].color = { .1f, .1f, .1f, 1.f };
+        clearValues[1].depthStencil = { 1.f, 0 };
 
         renderPassInfo.clearValueCount = static_cast<uint32_t>( clearValues.size() );
         renderPassInfo.pClearValues = clearValues.data();
