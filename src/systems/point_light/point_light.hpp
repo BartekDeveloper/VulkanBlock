@@ -12,16 +12,16 @@
 #include <vector>
 
 namespace BlockyVulkan {
-    class SimpleRenderSystem {
+    class PointLight {
     public:
 
-        SimpleRenderSystem(Device &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout);
-        ~SimpleRenderSystem();
+        PointLight(Device &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout);
+        ~PointLight();
 
-        SimpleRenderSystem(const SimpleRenderSystem &) = delete;
-        SimpleRenderSystem &operator=(const SimpleRenderSystem &) = delete;
+        PointLight(const PointLight &) = delete;
+        PointLight &operator=(const PointLight &) = delete;
 
-        void RenderGameObjects(FrameInfo &frameInfo);
+        void Render(FrameInfo &frameInfo);
 
     private:
         void CreatePipelineLayout(VkDescriptorSetLayout globalSetLayout);

@@ -2,6 +2,7 @@
 #include "../controller/keyboard_ctrl.hpp"
 #include "../camera/camera.hpp"
 #include "../systems/simple_render_system/simple_render_system.hpp"
+#include "../systems/point_light/point_light.hpp"
 #include "../buffer/buffer.hpp"
 
 #define GLM_FORCE_RADIANS  // forcing radians instead of degrees (no matter your os settings)
@@ -29,7 +30,7 @@ namespace BlockyVulkan {
         /*    vec3 lightDirection = glm::normalize(vec3{1.f, -3.f, -1.f});*/
         vec4 ambientLight{1.f, 1.f, 1.f, .03f};
         vec3 lightPos{-1.f};
-        alignas(16) vec4 light{1.f, 1.f, 1.f, 10.f};
+        alignas(16) vec4 light{.8f, 0.f, 1.f, 10.f};
     };
 
     // For not too big resize window acceleration
@@ -73,6 +74,7 @@ namespace BlockyVulkan {
         }
 
         SimpleRenderSystem renderSystem{device, renderer.GetSwapChainRenderPass(), globalSetLayout->GetDescriptorSetLayout()};
+        PointLight pointLight{ device, renderer.GetSwapChainRenderPass(), globalSetLayout->GetDescriptorSetLayout() };
 
         // Initializing camera
         Camera camera{};
@@ -130,7 +132,7 @@ namespace BlockyVulkan {
                 // Rendering frame
                 renderer.BeginSwapChainRenderPass(commandBuffer);
                 renderSystem.RenderGameObjects(frameInfo);
-
+                pointLight.Render(frameInfo);
                 // End frame
                 // (from suffering lol)
                 renderer.EndSwapChainRenderPass(commandBuffer);

@@ -1,4 +1,4 @@
-#include "simple_render_system.hpp"
+#include "point_light.hpp"
 
 #define GLM_FORCE_RADIANS  // forcing radians instead of degrees (no matter your
                            // os settings)
@@ -10,26 +10,20 @@
 #include <stdexcept>
 
 namespace BlockyVulkan {
-
-    struct SimplePushConstantData {
-        mat4 modelMatrix{ 1.f };  // Initializes main diagonal, not every entry
-        mat4 normalMatrix{1.f};
-    };
-
-    SimpleRenderSystem::SimpleRenderSystem(Device &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout) : device{device} {
+    PointLight::PointLight(Device &device, VkRenderPass renderPass, VkDescriptorSetLayout globalSetLayout) : device{device} {
         CreatePipelineLayout(globalSetLayout);
         CreatePipeline(renderPass);
     }
 
-    SimpleRenderSystem::~SimpleRenderSystem() { vkDestroyPipelineLayout( device.device(), pipelineLayout, nullptr ); }
+    PointLight::~PointLight() { vkDestroyPipelineLayout( device.device(), pipelineLayout, nullptr ); }
 
-    void SimpleRenderSystem::CreatePipelineLayout(VkDescriptorSetLayout globalSetLayout) {
-        // Creating push constants
-        VkPushConstantRange pushConstRange{};
-        pushConstRange.stageFlags =
-            VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT;
-        pushConstRange.offset = 0;
-        pushConstRange.size = sizeof( SimplePushConstantData );
+    void PointLight::CreatePipelineLayout(VkDescriptorSetLayout globalSetLayout) {
+        //// Creating push constants
+        //VkPushConstantRange pushConstRange{};
+        //pushConstRange.stageFlags =
+        //    VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT;
+        //pushConstRange.offset = 0;
+        //pushConstRange.size = sizeof( SimplePushConstantData );
 
         // Layout for descriptor sets
         std::vector<VkDescriptorSetLayout> descriptorSetLayouts{globalSetLayout};
@@ -40,8 +34,8 @@ namespace BlockyVulkan {
         pipelineLayoutInfo.sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO;
         pipelineLayoutInfo.setLayoutCount = static_cast<uint32_t>(descriptorSetLayouts.size());
         pipelineLayoutInfo.pSetLayouts = descriptorSetLayouts.data();
-        pipelineLayoutInfo.pushConstantRangeCount = 1;
-        pipelineLayoutInfo.pPushConstantRanges = &pushConstRange;
+        pipelineLayoutInfo.pushConstantRangeCount = 0;
+        pipelineLayoutInfo.pPushConstantRanges = nullptr;
 
         if( vkCreatePipelineLayout( device.device(), &pipelineLayoutInfo, nullptr,
             &pipelineLayout ) != VK_SUCCESS ) {
@@ -49,21 +43,28 @@ namespace BlockyVulkan {
         }
     }
 
-    void SimpleRenderSystem::CreatePipeline(VkRenderPass renderPass) {
+    void PointLight::CreatePipeline(VkRenderPass renderPass) {
         assert( pipelineLayout != nullptr &&
             "Cannot create pipeline before pipeline layout!" );
 
         PipelineConfigInfo pipelineConfig{};
         Pipeline::DefaultPipelineConfigInfo( pipelineConfig );
+
+        pipelineConfig.attributeDescriptions.clear(); // So not to trigger validation layers' warnings
+        pipelineConfig.bindingDescriptions.clear();   // So not to trigger validation layers' warnings
+
         pipelineConfig.renderPass = renderPass;
         pipelineConfig.pipelineLayout = pipelineLayout;
 
-        pipeline =
-            std::make_unique<Pipeline>( device, "assets/shaders/simple.vert.spv",
-                "assets/shaders/simple.frag.spv", pipelineConfig );
+        pipeline = std::make_unique<Pipeline>(
+            device,
+            "assets/shaders/point_light.vert.spv",
+            "assets/shaders/point_light.frag.spv",
+            pipelineConfig
+        );
     }
 
-    void SimpleRenderSystem::RenderGameObjects(FrameInfo &frameInfo) {
+    void PointLight::Render(FrameInfo &frameInfo) {
         pipeline->Bind( frameInfo.commandBuffer );
 
         vkCmdBindDescriptorSets(
@@ -77,28 +78,6 @@ namespace BlockyVulkan {
             nullptr
         );
 
-        for( auto &kv : frameInfo.gameObjects) {
-            auto idx = kv.first;
-            auto& obj = kv.second;
-
-            if(obj.model == nullptr) continue;
-
-            SimplePushConstantData push{};
-            push.modelMatrix = obj.transform3D.Mat4();
-            push.normalMatrix = obj.transform3D.NormalMatrix();
-
-            vkCmdPushConstants(
-                frameInfo.commandBuffer,
-                pipelineLayout,
-                VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT,
-                0,
-                sizeof(SimplePushConstantData),
-                &push
-            );
-
-            obj.model->Bind( frameInfo.commandBuffer );
-            obj.model->Draw( frameInfo.commandBuffer );
-        }
+        vkCmdDraw(frameInfo.commandBuffer, 6, 1, 0, 0);
     }
-
 }
