@@ -13,14 +13,17 @@ layout(push_constant) uniform Push {
 } push;
 
 const vec3 DIR_TO_LIGHT = normalize(vec3(1.0, -3.0, -1.0));
-const float AMBIENT = 0.1;
- 
+const float AMBIENT = 0.01; // Normalized ambient value
+
 void main() {
-    gl_Position = vec4(push.transform * vec4(position, 2.0));
-    
+    gl_Position = vec4(push.transform * vec4(position, 1.0));
+
     vec3 normalWorldSpace = normalize(mat3(push.normalMatrix) * normal);
-    float lightIntensivity = AMBIENT + max(dot(normalWorldSpace, DIR_TO_LIGHT), 0);
+    float lightIntensity = max(dot(normalWorldSpace, DIR_TO_LIGHT), 0.0);
 
-    fragColor = lightIntensivity * color;
+    // Combine diffuse and ambient light
+    vec3 diffuse = lightIntensity * color;
+    vec3 ambient = AMBIENT * color;
+    
+    fragColor = diffuse + ambient; // Final color
 }
-

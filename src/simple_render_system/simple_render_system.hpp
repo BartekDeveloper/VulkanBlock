@@ -4,6 +4,7 @@
 #include "../device/device.hpp"
 #include "../game_object/game_object.hpp"
 #include "../pipeline/pipeline.hpp"
+#include "../frame_info/frame_info.hpp"
 
 
 // std
@@ -20,7 +21,7 @@ namespace BlockyVulkan {
         SimpleRenderSystem(const SimpleRenderSystem &) = delete;
         SimpleRenderSystem &operator=(const SimpleRenderSystem &) = delete;
 
-        void RenderGameObjects(VkCommandBuffer commandBuffer, std::vector<GameObject> &gameObjects, const Camera &camera);
+        void RenderGameObjects(FrameInfo &frameInfo, std::vector<GameObject> &gameObjects);
 
     private:
         void CreatePipelineLayout();

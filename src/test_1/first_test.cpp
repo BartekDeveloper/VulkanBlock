@@ -3,20 +3,43 @@
 #include "../controller/keyboard_ctrl.hpp"
 #include "../camera/camera.hpp"
 #include "../simple_render_system/simple_render_system.hpp"
+#include "../buffer/buffer.hpp"
 
 #define GLM_FORCE_RADIANS  // forcing radians instead of degrees (no matter your os settings)
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE  // forcing depth to be from 0 to 1
 #include <glm/glm.hpp>
 #include <chrono>
+#include <numeric>
+#include <stdexcept>
+#include <cassert>
+#include <array>
 
 namespace BlockyVulkan {
-#define MAX_FRAME_TIME 1000.f
+
+    struct GlobalUBO {
+        mat4 projectionView{1.f};
+        vec3 lightDirection = glm::normalize(vec3{1.f, -3.f, -1.f});
+    };
+
+    #define MAX_FRAME_TIME 100.f
 
     FirstTest::FirstTest() { LoadGameObjects(); }
     FirstTest::~FirstTest() {}
 
 
     void FirstTest::Run() {
+        std::vector<std::unique_ptr<Buffer>> uboBuffers{SwapChain::MAX_FRAMES_IN_FLIGHT};
+        for (int i = 0; i < uboBuffers.size(); i++) {
+            uboBuffers[i] = std::make_unique<Buffer>(
+                device,
+                sizeof(GlobalUBO),
+                1,
+                VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT,
+                VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT
+            );
+
+            uboBuffers[i]->Map();
+        }
         SimpleRenderSystem renderSystem{ device, renderer.GetSwapChainRenderPass() };
 
         Camera camera{};
@@ -45,9 +68,24 @@ namespace BlockyVulkan {
 
             // Begin frame
             if (auto commandBuffer = renderer.BeginFrame()) {
-                renderer.BeginSwapChainRenderPass(commandBuffer);
+                int frameIdx = renderer.GetFrameIndex();
 
-                renderSystem.RenderGameObjects(commandBuffer, gameObjects, camera);
+                FrameInfo frameInfo{
+                    frameIdx,
+                    deltaTime,
+                    commandBuffer,
+                    camera
+                };
+                
+                // Update
+                GlobalUBO ubo{};
+                ubo.projectionView = camera.GetProj() * camera.GetView();
+                uboBuffers[frameIdx]->WriteToBuffer(&ubo);
+                uboBuffers[frameIdx]->Flush();
+
+                // Render frame
+                renderer.BeginSwapChainRenderPass(commandBuffer);
+                renderSystem.RenderGameObjects(frameInfo, gameObjects);
 
                 // End frame
                 renderer.EndSwapChainRenderPass(commandBuffer);

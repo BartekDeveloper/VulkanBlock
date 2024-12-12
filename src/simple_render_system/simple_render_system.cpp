@@ -60,10 +60,10 @@ namespace BlockyVulkan {
                 "assets/shaders/simple.frag.spv", pipelineConfig );
     }
 
-    void SimpleRenderSystem::RenderGameObjects(VkCommandBuffer commandBuffer, std::vector<GameObject> &gameObjects, const Camera &camera) {
-        pipeline->Bind( commandBuffer );
+    void SimpleRenderSystem::RenderGameObjects(FrameInfo &frameInfo, std::vector<GameObject> &gameObjects) {
+        pipeline->Bind( frameInfo.commandBuffer );
 
-        auto projView = camera.GetProj() * camera.GetView();
+        auto projView = frameInfo.cam.GetProj() * frameInfo.cam.GetView();
 
         for( auto &obj : gameObjects ) {
             auto modelMatrix = obj.transform3D.Mat4();
@@ -73,12 +73,12 @@ namespace BlockyVulkan {
             push.normalMatrix = obj.transform3D.NormalMatrix();
 
             vkCmdPushConstants(
-                commandBuffer, pipelineLayout,
+                frameInfo.commandBuffer, pipelineLayout,
                 VK_SHADER_STAGE_VERTEX_BIT | VK_SHADER_STAGE_FRAGMENT_BIT, 0,
                 sizeof( SimplePushConstantData ), &push );
 
-            obj.model->Bind( commandBuffer );
-            obj.model->Draw( commandBuffer );
+            obj.model->Bind( frameInfo.commandBuffer );
+            obj.model->Draw( frameInfo.commandBuffer );
         }
     }
 

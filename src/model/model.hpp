@@ -1,7 +1,7 @@
 #pragma once
 
 #include "../device/device.hpp"
-#include <vulkan/vulkan.h>
+#include "../buffer/buffer.hpp"
 
 #define GLM_FORCE_RADIANS // forcing radians instead of degrees (no matter your os settings)
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE // forcing depth to be from 0 to 1
@@ -59,13 +59,11 @@ namespace BlockyVulkan {
 
         Device &device;
 
-        VkBuffer vertexBuffer;
-        VkDeviceMemory vertexBufferMemory;
+        std::unique_ptr<Buffer> vertexBuffer;
         uint32_t vertexCount;
 
         bool hasIndexBuffer{ false };
-        VkBuffer indexBuffer;
-        VkDeviceMemory indexBufferMemory;
+        std::unique_ptr<Buffer> indexBuffer;
         uint32_t indexCount;
     };
 }
