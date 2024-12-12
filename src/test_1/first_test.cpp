@@ -16,11 +16,19 @@
 #include <array>
 
 namespace BlockyVulkan {
+    using glm::vec2;
+    using glm::vec3;
+    using glm::vec4;
+    using glm::mat3;
+    using glm::mat4;
 
     // Some ubo for lighting i guess...
     struct GlobalUBO {
         mat4 projectionView{1.f};
-        vec3 lightDirection = glm::normalize(vec3{1.f, -3.f, -1.f});
+        /*    vec3 lightDirection = glm::normalize(vec3{1.f, -3.f, -1.f});*/
+        vec4 ambientLight{1.f, 1.f, 1.f, .01f};
+        vec3 lightPos{-1.f};
+        alignas(16) vec4 light{1.f, 1.f, 1.f, 10.f};
     };
 
     // For not too big resize window acceleration
