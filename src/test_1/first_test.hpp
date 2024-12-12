@@ -33,6 +33,6 @@ class FirstTest {
 
     // Note: Order here matters!
     std::unique_ptr<DescriptorPool> globalPool{};
-    std::vector<GameObject> gameObjects;
+    GameObject::Map gameObjects;
 };
 };

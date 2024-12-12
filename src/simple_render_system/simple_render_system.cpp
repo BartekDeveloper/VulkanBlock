@@ -63,7 +63,7 @@ namespace BlockyVulkan {
                 "assets/shaders/simple.frag.spv", pipelineConfig );
     }
 
-    void SimpleRenderSystem::RenderGameObjects(FrameInfo &frameInfo, std::vector<GameObject> &gameObjects) {
+    void SimpleRenderSystem::RenderGameObjects(FrameInfo &frameInfo) {
         pipeline->Bind( frameInfo.commandBuffer );
 
         vkCmdBindDescriptorSets(
@@ -77,7 +77,12 @@ namespace BlockyVulkan {
             nullptr
         );
 
-        for( auto &obj : gameObjects ) {
+        for( auto &kv : frameInfo.gameObjects) {
+            auto idx = kv.first;
+            auto& obj = kv.second;
+
+            if(obj.model == nullptr) continue;
+
             SimplePushConstantData push{};
             push.modelMatrix = obj.transform3D.Mat4();
             push.normalMatrix = obj.transform3D.NormalMatrix();

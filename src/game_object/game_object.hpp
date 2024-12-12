@@ -7,7 +7,8 @@
 
 #include "../model/model.hpp"
 
-// std
+
+#include <unordered_map>
 #include <memory>
 
 using glm::mat4;
@@ -32,6 +33,7 @@ namespace BlockyVulkan {
     class GameObject {
     public:
         using id_t = unsigned int;
+        using Map = std::unordered_map<id_t, GameObject>;
 
         static GameObject CreateGameObject() { static id_t currentId = 0; return GameObject(currentId++); }
 

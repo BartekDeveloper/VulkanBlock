@@ -26,7 +26,7 @@ namespace BlockyVulkan {
     struct GlobalUBO {
         mat4 projectionView{1.f};
         /*    vec3 lightDirection = glm::normalize(vec3{1.f, -3.f, -1.f});*/
-        vec4 ambientLight{1.f, 1.f, 1.f, .01f};
+        vec4 ambientLight{1.f, 1.f, 1.f, .03f};
         vec3 lightPos{-1.f};
         alignas(16) vec4 light{1.f, 1.f, 1.f, 10.f};
     };
@@ -59,7 +59,7 @@ namespace BlockyVulkan {
         }
 
         auto globalSetLayout = DescriptorSetLayout::Builder(device)
-            .AddBinding(0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, VK_SHADER_STAGE_VERTEX_BIT)
+            .AddBinding(0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, VK_SHADER_STAGE_ALL_GRAPHICS)
             .Build();
 
         std::vector<VkDescriptorSet> globalDescriptorSets(SwapChain::MAX_FRAMES_IN_FLIGHT);
@@ -101,7 +101,7 @@ namespace BlockyVulkan {
 
             // aR is Aspect Ratio, but shortened, so its easier to write i guess... 
             float aR = renderer.GetAspectRatio();
-            camera.SetPerspProj(glm::radians(45.f), aR, .1f, 10.f);
+            camera.SetPerspProj(glm::radians(45.f), aR, .1f, 128.f);
 
             // Begin frame
             if (auto commandBuffer = renderer.BeginFrame()) {
@@ -114,7 +114,8 @@ namespace BlockyVulkan {
                     deltaTime,
                     commandBuffer,
                     camera,
-                    globalDescriptorSets[frameIdx]
+                    globalDescriptorSets[frameIdx],
+                    gameObjects
                 };
                 
                 // Update
@@ -126,7 +127,7 @@ namespace BlockyVulkan {
 
                 // Rendering frame
                 renderer.BeginSwapChainRenderPass(commandBuffer);
-                renderSystem.RenderGameObjects(frameInfo, gameObjects);
+                renderSystem.RenderGameObjects(frameInfo);
 
                 // End frame
                 // (from suffering lol)
@@ -161,10 +162,18 @@ namespace BlockyVulkan {
         enderDragon.transform3D.translation = { -1.f, .5f, 5.f };
         enderDragon.transform3D.scale = { .01f, -.01f, .01f };
 
+        // Loading flat ender dragon(stolen double(from author of this and from mojang/minecraft :) ) model from obj, transforming and stuff...
+        std::shared_ptr<Model> floorModel = Model::CreateModelFromFile(device, "assets/models/quad.obj");
+        auto floor = GameObject::CreateGameObject();
+        floor.model = floorModel;
+        floor.transform3D.translation = { 0.f, 1.f, 0.f };
+        floor.transform3D.scale = { 100.f, 1.f, 100.f };
+
         // Adding these objects to `gameObjects` vector
-        gameObjects.push_back(std::move(smoothVase));
-        gameObjects.push_back(std::move(flatVase));
-        gameObjects.push_back(std::move(enderDragon));
+        gameObjects.emplace(smoothVase.GetId(), std::move(smoothVase));
+        gameObjects.emplace(flatVase.GetId(), std::move(flatVase));
+        gameObjects.emplace(enderDragon.GetId(), std::move(enderDragon));
+        gameObjects.emplace(floor.GetId(), std::move(floor));
     }
 }
 
