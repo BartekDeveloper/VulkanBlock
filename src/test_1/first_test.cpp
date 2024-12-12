@@ -1,7 +1,7 @@
 #include "first_test.hpp"
 #include "../controller/keyboard_ctrl.hpp"
 #include "../camera/camera.hpp"
-#include "../simple_render_system/simple_render_system.hpp"
+#include "../systems/simple_render_system/simple_render_system.hpp"
 #include "../buffer/buffer.hpp"
 
 #define GLM_FORCE_RADIANS  // forcing radians instead of degrees (no matter your os settings)
@@ -24,7 +24,8 @@ namespace BlockyVulkan {
 
     // Some ubo for lighting i guess...
     struct GlobalUBO {
-        mat4 projectionView{1.f};
+        mat4 projection{ 1.f };
+        mat4 view{ 1.f };
         /*    vec3 lightDirection = glm::normalize(vec3{1.f, -3.f, -1.f});*/
         vec4 ambientLight{1.f, 1.f, 1.f, .03f};
         vec3 lightPos{-1.f};
@@ -121,7 +122,8 @@ namespace BlockyVulkan {
                 // Update
                 // setting up ubo
                 GlobalUBO ubo{};
-                ubo.projectionView = camera.GetProj() * camera.GetView();
+                ubo.projection = camera.GetProj();
+                ubo.view = camera.GetView();
                 uboBuffers[frameIdx]->WriteToBuffer(&ubo);
                 uboBuffers[frameIdx]->Flush();
 

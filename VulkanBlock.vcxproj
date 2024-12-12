@@ -321,7 +321,7 @@
     <ClCompile Include="src\model\model.cpp" />
     <ClCompile Include="src\pipeline\pipeline.cpp" />
     <ClCompile Include="src\renderer\renderer.cpp" />
-    <ClCompile Include="src\simple_render_system\simple_render_system.cpp" />
+    <ClCompile Include="src\systems\simple_render_system\simple_render_system.cpp" />
     <ClCompile Include="src\swapchain\swap_chain.cpp" />
     <ClCompile Include="src\test_1\first_test.cpp" />
     <ClCompile Include="src\utils\utils.cpp" />
@@ -339,7 +339,7 @@
     <ClInclude Include="src\model\model.hpp" />
     <ClInclude Include="src\device\device.hpp" />
     <ClInclude Include="src\pipeline\pipeline.hpp" />
-    <ClInclude Include="src\simple_render_system\simple_render_system.hpp" />
+    <ClInclude Include="src\systems\simple_render_system\simple_render_system.hpp" />
     <ClInclude Include="src\swapchain\swap_chain.hpp" />
     <ClInclude Include="src\test_1\first_test.hpp" />
     <ClInclude Include="src\utils\utils.hpp" />

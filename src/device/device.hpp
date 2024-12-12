@@ -2,7 +2,6 @@
 
 #include <vulkan/vulkan.h>
 #include "../window/window.hpp"
-#include <vulkan/vulkan.h>
 
 // std lib headers
 #include <string>

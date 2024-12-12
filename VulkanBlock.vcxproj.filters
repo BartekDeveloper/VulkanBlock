@@ -42,7 +42,7 @@
     <ClCompile Include="src\renderer\renderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\simple_render_system\simple_render_system.cpp">
+    <ClCompile Include="src\systems\simple_render_system\simple_render_system.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\camera\camera.cpp">
@@ -89,7 +89,7 @@
     <ClInclude Include="src\renderer\renderer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\simple_render_system\simple_render_system.hpp">
+    <ClInclude Include="src\systems\simple_render_system\simple_render_system.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\camera\camera.hpp">
