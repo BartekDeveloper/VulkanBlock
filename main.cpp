@@ -1,7 +1,7 @@
 
 #include "src/test_1/first_test.hpp"
 
-//* std
+// std
 #include <iostream>
 #include <cstdlib>
 #include <exception>
@@ -19,3 +19,5 @@ int main() {
 
     return EXIT_SUCCESS;
 }
+
+// Doesnt look like a lot of code, does it...

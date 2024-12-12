@@ -11,5 +11,6 @@ namespace BlockyVulkan {
         float deltaTime;
         VkCommandBuffer commandBuffer;
         Camera &cam;
+        VkDescriptorSet globalDescriptorSet;
     };
 }

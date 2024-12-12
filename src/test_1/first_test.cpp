@@ -1,5 +1,4 @@
 #include "first_test.hpp"
-
 #include "../controller/keyboard_ctrl.hpp"
 #include "../camera/camera.hpp"
 #include "../simple_render_system/simple_render_system.hpp"
@@ -8,6 +7,8 @@
 #define GLM_FORCE_RADIANS  // forcing radians instead of degrees (no matter your os settings)
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE  // forcing depth to be from 0 to 1
 #include <glm/glm.hpp>
+
+// std
 #include <chrono>
 #include <numeric>
 #include <stdexcept>
@@ -16,16 +17,24 @@
 
 namespace BlockyVulkan {
 
+    // Some ubo for lighting i guess...
     struct GlobalUBO {
         mat4 projectionView{1.f};
         vec3 lightDirection = glm::normalize(vec3{1.f, -3.f, -1.f});
     };
 
+    // For not too big resize window acceleration
     #define MAX_FRAME_TIME 100.f
 
-    FirstTest::FirstTest() { LoadGameObjects(); }
-    FirstTest::~FirstTest() {}
+    FirstTest::FirstTest() {
+        globalPool = DescriptorPool::Builder(device)
+            .SetMaxSets(SwapChain::MAX_FRAMES_IN_FLIGHT)
+            .AddPoolSize(VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, SwapChain::MAX_FRAMES_IN_FLIGHT)
+            .Build(); // Lol looks like I am programming Rust...(I am not)
 
+        LoadGameObjects();
+    }
+    FirstTest::~FirstTest() {}
 
     void FirstTest::Run() {
         std::vector<std::unique_ptr<Buffer>> uboBuffers{SwapChain::MAX_FRAMES_IN_FLIGHT};
@@ -40,54 +49,79 @@ namespace BlockyVulkan {
 
             uboBuffers[i]->Map();
         }
-        SimpleRenderSystem renderSystem{ device, renderer.GetSwapChainRenderPass() };
 
+        auto globalSetLayout = DescriptorSetLayout::Builder(device)
+            .AddBinding(0, VK_DESCRIPTOR_TYPE_UNIFORM_BUFFER, VK_SHADER_STAGE_VERTEX_BIT)
+            .Build();
+
+        std::vector<VkDescriptorSet> globalDescriptorSets(SwapChain::MAX_FRAMES_IN_FLIGHT);
+        for (int i = 0; i < globalDescriptorSets.size(); i++) {
+            auto bufferInfo = uboBuffers[i]->DescriptorInfo();
+            
+            DescriptorWriter(*globalSetLayout, *globalPool)
+                .WriteBuffer(0, &bufferInfo)
+                .Build(globalDescriptorSets[i]);
+        }
+
+        SimpleRenderSystem renderSystem{device, renderer.GetSwapChainRenderPass(), globalSetLayout->GetDescriptorSetLayout()};
+
+        // Initializing camera
         Camera camera{};
 
+        // Making View Object (for making camera position reference this object)
         auto viewObj = GameObject::CreateGameObject();
+        
+        // Initializing keyboard control
         KeyboardCtrl camCtrl{};
 
+        // Getting current time (for deltaTime calculations)
         auto currTime = std::chrono::high_resolution_clock::now();
 
+        // Main GLFW loop
         while (!window.ShouldClose()) {
             glfwPollEvents();
 
+            // Getting deltaTime
             auto newTime = std::chrono::high_resolution_clock::now();
             float deltaTime = std::chrono::duration<float, std::chrono::seconds::period>(newTime - currTime).count();
             currTime = newTime;
-
             deltaTime = glm::min(deltaTime, MAX_FRAME_TIME);
 
+            // Moving View Object (thus moving camera)
             camCtrl.MoveInPlaneXZ(window.GetGLFW_Window(), deltaTime, viewObj);
             camera.SetViewYXZ(viewObj.transform3D.translation, viewObj.transform3D.rotation);
 
             // aR is Aspect Ratio, but shortened, so its easier to write i guess... 
             float aR = renderer.GetAspectRatio();
-            //camera.SetOrthoProj(-aR, aR, -1, 1, -1, 1);
             camera.SetPerspProj(glm::radians(45.f), aR, .1f, 10.f);
 
             // Begin frame
             if (auto commandBuffer = renderer.BeginFrame()) {
+                // Getting current frame index (used for rendering)
                 int frameIdx = renderer.GetFrameIndex();
 
+                // Binding current info to frameInfo
                 FrameInfo frameInfo{
                     frameIdx,
                     deltaTime,
                     commandBuffer,
-                    camera
+                    camera,
+                    globalDescriptorSets[frameIdx]
                 };
                 
                 // Update
+                // setting up ubo
                 GlobalUBO ubo{};
                 ubo.projectionView = camera.GetProj() * camera.GetView();
                 uboBuffers[frameIdx]->WriteToBuffer(&ubo);
                 uboBuffers[frameIdx]->Flush();
 
-                // Render frame
+                // Rendering frame
                 renderer.BeginSwapChainRenderPass(commandBuffer);
                 renderSystem.RenderGameObjects(frameInfo, gameObjects);
 
                 // End frame
+                // (from suffering lol)
                 renderer.EndSwapChainRenderPass(commandBuffer);
                 renderer.EndFrame();
             }
@@ -98,21 +132,36 @@ namespace BlockyVulkan {
     }
 
     void FirstTest::LoadGameObjects() {
+        // Loading smooth vase model from obj, transforming and stuff...
         std::shared_ptr<Model> smoothVaseModel = Model::CreateModelFromFile(device, "assets/models/smooth_vase.obj");
-
         auto smoothVase = GameObject::CreateGameObject();
         smoothVase.model = smoothVaseModel;
         smoothVase.transform3D.translation = { .1f, .5f, 1.5f };
         smoothVase.transform3D.scale = { 1.f, 1.f, 1.f };
 
+        // Loading flat vase model(that ugly one) from obj, transforming and stuff...
         std::shared_ptr<Model> flatVaseModel = Model::CreateModelFromFile(device, "assets/models/flat_vase.obj");
-
         auto  flatVase = GameObject::CreateGameObject();
         flatVase.model = flatVaseModel;
         flatVase.transform3D.translation = { -.1f, .5f, 1.5f };
         flatVase.transform3D.scale = { 1.f, 1.f, 1.f };
 
+        // Loading flat ender dragon(stolen double(from author of this and from mojang/minecraft :) ) model from obj, transforming and stuff...
+        std::shared_ptr<Model> enderDragonModel = Model::CreateModelFromFile(device, "assets/models/ender_dragon.obj");
+        auto enderDragon = GameObject::CreateGameObject();
+        enderDragon.model = enderDragonModel;
+        enderDragon.transform3D.translation = { -1.f, .5f, 5.f };
+        enderDragon.transform3D.scale = { .01f, -.01f, .01f };
+
+        // Adding these objects to `gameObjects` vector
         gameObjects.push_back(std::move(smoothVase));
         gameObjects.push_back(std::move(flatVase));
+        gameObjects.push_back(std::move(enderDragon));
     }
 }
+
+
+
+
+
+

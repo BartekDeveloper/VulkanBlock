@@ -60,6 +60,9 @@
     <ClCompile Include="src\frame_info\frame_info.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\descriptors\descriptors.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\window\window.hpp">
@@ -107,6 +110,9 @@
     <ClInclude Include="src\frame_info\frame_info.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\descriptors\descriptors.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="compile_shaders.bat">
@@ -122,9 +128,6 @@
     <None Include="VulkanBlock.layout" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Icon.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="Icon.png">
       <Filter>Resource Files</Filter>
     </Image>

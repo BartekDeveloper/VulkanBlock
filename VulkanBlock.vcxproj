@@ -314,6 +314,7 @@
     <ClCompile Include="src\camera\camera.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="src\controller\keyboard_ctrl.cpp" />
+    <ClCompile Include="src\descriptors\descriptors.cpp" />
     <ClCompile Include="src\device\device.cpp" />
     <ClCompile Include="src\frame_info\frame_info.cpp" />
     <ClCompile Include="src\game_object\game_object.cpp" />
@@ -331,6 +332,7 @@
     <ClInclude Include="src\buffer\buffer.hpp" />
     <ClInclude Include="src\camera\camera.hpp" />
     <ClInclude Include="src\controller\keyboard_ctrl.hpp" />
+    <ClInclude Include="src\descriptors\descriptors.hpp" />
     <ClInclude Include="src\frame_info\frame_info.hpp" />
     <ClInclude Include="src\renderer\renderer.hpp" />
     <ClInclude Include="src\game_object\game_object.hpp" />
@@ -353,16 +355,6 @@
     <None Include="VulkanBlock.layout" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Icon.ico">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
-    </Image>
     <Image Include="Icon.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -4,6 +4,7 @@
 #include "../model/model.hpp"
 #include "../window/window.hpp"
 #include "../renderer/renderer.hpp"
+#include "../descriptors/descriptors.hpp"
 
 // std
 #include <memory>
@@ -30,6 +31,8 @@ class FirstTest {
     Device device{window};
     Renderer renderer{window, device};
 
+    // Note: Order here matters!
+    std::unique_ptr<DescriptorPool> globalPool{};
     std::vector<GameObject> gameObjects;
 };
-};  // namespace BlockyVulkan
+};
