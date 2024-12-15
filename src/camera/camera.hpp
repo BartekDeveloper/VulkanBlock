@@ -33,10 +33,13 @@ namespace BlockyVulkan {
 
         const mat4& GetProj() const { return projMat; }
         const mat4& GetView() const { return viewMat; }
+        const mat4& GetInvView() const { return inverseViewMat; };
+        const vec3 getPos() const { return vec3(inverseViewMat[3]); }
 
     private:
         mat4 projMat{ 1.f };
         mat4 viewMat{ 1.f };
+        mat4 inverseViewMat{1.f};
 
     };
 }

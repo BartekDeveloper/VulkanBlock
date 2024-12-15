@@ -25,6 +25,7 @@ namespace BlockyVulkan {
     struct GlobalUBO {
         mat4 projection{ 1.f };
         mat4 view{ 1.f };
+        mat4 inverseView{ 1.f };
         /*    vec3 lightDirection = glm::normalize(vec3{1.f, -3.f, -1.f});*/
         vec4 ambientLight{ 1.f, 1.f, 1.f, .03f };
         PointLight_t pointLights[MAX_LIGHTS];

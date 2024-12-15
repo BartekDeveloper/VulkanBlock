@@ -12,6 +12,7 @@ struct PointLight {
 layout(set = 0, binding = 0) uniform GlobalUbo {
     mat4 projection;
     mat4 view;
+    mat4 invView;
     vec4 ambientLight;
     PointLight pointLights[32];
     int numLights;
@@ -23,8 +24,12 @@ layout(push_constant) uniform Push {
     float radius;
 } push;
 
+const float PI = 3.1415926538;
 void main() {
     float dist = sqrt(dot(fragOffset, fragOffset));
     if(dist >= 1.0) discard;
-    outColor = vec4(push.color.xyz, 1.0);
+
+    float cosDist =  0.5 * (cos(dist * PI) + 1.0); // 1 -> 0
+    
+    outColor = vec4(push.color.xyz + (cosDist * 0.75) , cosDist);
 }

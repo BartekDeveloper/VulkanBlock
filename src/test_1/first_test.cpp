@@ -118,13 +118,14 @@ namespace BlockyVulkan {
                 GlobalUBO ubo{};
                 ubo.projection = camera.GetProj();
                 ubo.view = camera.GetView();
+                ubo.inverseView = camera.GetInvView();
                 pointLight.Update(frameInfo, ubo);
 
                 for (auto &kv : frameInfo.gameObjects) {
                     auto &obj = kv.second;
                     if(obj.pointLight == nullptr) continue;
 
-                    auto rot = glm::rotate(mat4(1.f), deltaTime, { -0.15f, -.8f, .25f });
+                    auto rot = glm::rotate(mat4(1.f), -deltaTime / 2, { -0.15f, -.8f, .25f });
                     obj.transform3D.translation = vec3(rot * vec4(obj.transform3D.translation, 1.f));
                 }
 
@@ -134,8 +135,12 @@ namespace BlockyVulkan {
 
                 // Rendering frame
                 renderer.BeginSwapChainRenderPass(commandBuffer);
+
+                
+                // Order here matters!
                 renderSystem.RenderGameObjects(frameInfo);
                 pointLight.Render(frameInfo);
+
                 // End frame
                 // (from suffering lol)
                 renderer.EndSwapChainRenderPass(commandBuffer);
@@ -187,7 +192,7 @@ namespace BlockyVulkan {
             std::shared_ptr<Model> floorModel = Model::CreateModelFromFile(device, "assets/models/quad.obj");
             auto floor = GameObject::CreateGameObject();
             floor.model = floorModel;
-            floor.transform3D.translation = { 0.f, 5.f, 0.f };
+            floor.transform3D.translation = { 0.f, 1.f, 0.f };
             floor.transform3D.scale = { 10.f, 1.f, 10.f };
 
             gameObjects.emplace(floor.GetId(), std::move(floor));
@@ -233,7 +238,7 @@ namespace BlockyVulkan {
 
             for (int i = 0; i < lights.size(); i++) {
                 float fi = (float)i;
-                auto pointLight = GameObject::MakePointLight((0.8f * fi) + 20.0f, (.01f * fi) + .05f, lights[i]);
+                auto pointLight = GameObject::MakePointLight(8.0f, 0.24f + .05f, lights[i]);
                 auto rotate = glm::rotate(
                     mat4(1.f),
                     (fi * glm::two_pi<float>()) / lights.size(),

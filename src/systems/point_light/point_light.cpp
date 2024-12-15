@@ -9,6 +9,7 @@
 // std
 #include <stdexcept>
 #include <cassert>
+#include <map>
 
 namespace BlockyVulkan {
 
@@ -56,6 +57,8 @@ namespace BlockyVulkan {
 
         PipelineConfigInfo pipelineConfig{};
         Pipeline::DefaultPipelineConfigInfo(pipelineConfig);
+        Pipeline::EnableAlphaBlending(pipelineConfig);
+
 
         pipelineConfig.attributeDescriptions.clear(); // So not to trigger validation layers' warnings
         pipelineConfig.bindingDescriptions.clear();   // So not to trigger validation layers' warnings
@@ -92,6 +95,18 @@ namespace BlockyVulkan {
     }
 
     void PointLight::Render(FrameInfo &frameInfo) {
+        // Sort Lights
+        std::map<float, GameObject::id_t> sorted;
+        for (auto &kv : frameInfo.gameObjects) {
+            auto &obj = kv.second;
+            if (obj.pointLight == nullptr) continue;
+
+            // Calculate Distance
+            auto offset = frameInfo.cam.getPos() - obj.transform3D.translation;
+            float distSquared = glm::dot(offset, offset);
+            sorted[distSquared] = obj.GetId();
+        }
+
         pipeline->Bind(frameInfo.commandBuffer);
 
         vkCmdBindDescriptorSets(
@@ -105,10 +120,10 @@ namespace BlockyVulkan {
             nullptr
         );
 
-        for (auto &kv : frameInfo.gameObjects) {
-            auto &obj = kv.second;
-
-            if (obj.pointLight == nullptr) continue;
+        // Iterate through sorted lights(`sorted` map) in reverse order
+        for (auto it = sorted.rbegin(); it != sorted.rend(); ++it) {
+            // use game obj to find light object
+            auto &obj = frameInfo.gameObjects.at(it->second);
 
             PointLightPushConst push{};
             push.position = vec4(obj.transform3D.translation, 1.f);
