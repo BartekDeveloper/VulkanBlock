@@ -30,12 +30,17 @@ namespace BlockyVulkan {
         mat3 NormalMatrix();
     };
 
+    struct PointLight_Component {
+        float power = 1.0f;
+    };
+
     class GameObject {
     public:
         using id_t = unsigned int;
         using Map = std::unordered_map<id_t, GameObject>;
 
         static GameObject CreateGameObject() { static id_t currentId = 0; return GameObject(currentId++); }
+        static GameObject MakePointLight(float power = 4.0f, float radius = 0.1f, vec3 color = vec3{1.f});
 
         GameObject(const GameObject &) = delete;
         GameObject &operator=(const GameObject &) = delete;
@@ -44,9 +49,12 @@ namespace BlockyVulkan {
 
         const id_t GetId() const { return id; }
 
-        std::shared_ptr<Model> model{};
         vec3 color{};
         Transform3D_Component transform3D{};
+
+        // Optional Components
+        std::shared_ptr<Model> model{};
+        std::unique_ptr<PointLight_Component> pointLight = nullptr;
 
     private:
         GameObject(id_t objId) : id{objId} {};

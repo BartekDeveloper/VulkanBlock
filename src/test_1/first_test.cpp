@@ -8,6 +8,7 @@
 #define GLM_FORCE_RADIANS  // forcing radians instead of degrees (no matter your os settings)
 #define GLM_FORCE_DEPTH_ZERO_TO_ONE  // forcing depth to be from 0 to 1
 #include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
 
 // std
 #include <chrono>
@@ -23,18 +24,8 @@ namespace BlockyVulkan {
     using glm::mat3;
     using glm::mat4;
 
-    // Some ubo for lighting i guess...
-    struct GlobalUBO {
-        mat4 projection{ 1.f };
-        mat4 view{ 1.f };
-        /*    vec3 lightDirection = glm::normalize(vec3{1.f, -3.f, -1.f});*/
-        vec4 ambientLight{1.f, 1.f, 1.f, .03f};
-        vec3 lightPos{-1.f};
-        alignas(16) vec4 light{.8f, 0.f, 1.f, 10.f};
-    };
-
     // For not too big resize window acceleration
-    #define MAX_FRAME_TIME 100.f
+#define MAX_FRAME_TIME 50.f
 
     FirstTest::FirstTest() {
         globalPool = DescriptorPool::Builder(device)
@@ -47,7 +38,7 @@ namespace BlockyVulkan {
     FirstTest::~FirstTest() {}
 
     void FirstTest::Run() {
-        std::vector<std::unique_ptr<Buffer>> uboBuffers{SwapChain::MAX_FRAMES_IN_FLIGHT};
+        std::vector<std::unique_ptr<Buffer>> uboBuffers{ SwapChain::MAX_FRAMES_IN_FLIGHT };
         for (int i = 0; i < uboBuffers.size(); i++) {
             uboBuffers[i] = std::make_unique<Buffer>(
                 device,
@@ -67,13 +58,13 @@ namespace BlockyVulkan {
         std::vector<VkDescriptorSet> globalDescriptorSets(SwapChain::MAX_FRAMES_IN_FLIGHT);
         for (int i = 0; i < globalDescriptorSets.size(); i++) {
             auto bufferInfo = uboBuffers[i]->DescriptorInfo();
-            
+
             DescriptorWriter(*globalSetLayout, *globalPool)
                 .WriteBuffer(0, &bufferInfo)
                 .Build(globalDescriptorSets[i]);
         }
 
-        SimpleRenderSystem renderSystem{device, renderer.GetSwapChainRenderPass(), globalSetLayout->GetDescriptorSetLayout()};
+        SimpleRenderSystem renderSystem{ device, renderer.GetSwapChainRenderPass(), globalSetLayout->GetDescriptorSetLayout() };
         PointLight pointLight{ device, renderer.GetSwapChainRenderPass(), globalSetLayout->GetDescriptorSetLayout() };
 
         // Initializing camera
@@ -81,7 +72,7 @@ namespace BlockyVulkan {
 
         // Making View Object (for making camera position reference this object)
         auto viewObj = GameObject::CreateGameObject();
-        
+
         // Initializing keyboard control
         KeyboardCtrl camCtrl{};
 
@@ -120,12 +111,24 @@ namespace BlockyVulkan {
                     globalDescriptorSets[frameIdx],
                     gameObjects
                 };
-                
+
                 // Update
+
                 // setting up ubo
                 GlobalUBO ubo{};
                 ubo.projection = camera.GetProj();
                 ubo.view = camera.GetView();
+                pointLight.Update(frameInfo, ubo);
+
+                for (auto &kv : frameInfo.gameObjects) {
+                    auto &obj = kv.second;
+                    if(obj.pointLight == nullptr) continue;
+
+                    auto rot = glm::rotate(mat4(1.f), deltaTime, { -0.15f, -.8f, .25f });
+                    obj.transform3D.translation = vec3(rot * vec4(obj.transform3D.translation, 1.f));
+                }
+
+
                 uboBuffers[frameIdx]->WriteToBuffer(&ubo);
                 uboBuffers[frameIdx]->Flush();
 
@@ -146,43 +149,99 @@ namespace BlockyVulkan {
 
     void FirstTest::LoadGameObjects() {
         // Loading smooth vase model from obj, transforming and stuff...
-        std::shared_ptr<Model> smoothVaseModel = Model::CreateModelFromFile(device, "assets/models/smooth_vase.obj");
-        auto smoothVase = GameObject::CreateGameObject();
-        smoothVase.model = smoothVaseModel;
-        smoothVase.transform3D.translation = { .1f, .5f, 1.5f };
-        smoothVase.transform3D.scale = { 1.f, 1.f, 1.f };
+        {
+            std::shared_ptr<Model> smoothVaseModel = Model::CreateModelFromFile(device, "assets/models/smooth_vase.obj");
+            auto smoothVase = GameObject::CreateGameObject();
+            smoothVase.model = smoothVaseModel;
+            smoothVase.transform3D.translation = { .1f, .5f, 1.5f };
+            smoothVase.transform3D.scale = { 1.f, 1.f, 1.f };
+
+            gameObjects.emplace(smoothVase.GetId(), std::move(smoothVase));
+        }
 
         // Loading flat vase model(that ugly one) from obj, transforming and stuff...
-        std::shared_ptr<Model> flatVaseModel = Model::CreateModelFromFile(device, "assets/models/flat_vase.obj");
-        auto  flatVase = GameObject::CreateGameObject();
-        flatVase.model = flatVaseModel;
-        flatVase.transform3D.translation = { -.1f, .5f, 1.5f };
-        flatVase.transform3D.scale = { 1.f, 1.f, 1.f };
+        {
+            std::shared_ptr<Model> flatVaseModel = Model::CreateModelFromFile(device, "assets/models/flat_vase.obj");
+            auto  flatVase = GameObject::CreateGameObject();
+            flatVase.model = flatVaseModel;
+            flatVase.transform3D.translation = { -.1f, .5f, 1.5f };
+            flatVase.transform3D.scale = { 1.f, 1.f, 1.f };
+
+            gameObjects.emplace(flatVase.GetId(), std::move(flatVase));
+        }
 
         // Loading flat ender dragon(stolen double(from author of this and from mojang/minecraft :) ) model from obj, transforming and stuff...
-        std::shared_ptr<Model> enderDragonModel = Model::CreateModelFromFile(device, "assets/models/ender_dragon.obj");
-        auto enderDragon = GameObject::CreateGameObject();
-        enderDragon.model = enderDragonModel;
-        enderDragon.transform3D.translation = { -1.f, .5f, 5.f };
-        enderDragon.transform3D.scale = { .01f, -.01f, .01f };
+        {
+            std::shared_ptr<Model> enderDragonModel = Model::CreateModelFromFile(device, "assets/models/ender_dragon.obj");
+            auto enderDragon = GameObject::CreateGameObject();
+            enderDragon.model = enderDragonModel;
+            enderDragon.transform3D.translation = { -1.f, .5f, 5.f };
+            enderDragon.transform3D.scale = { .01f, -.01f, .01f };
+            enderDragon.transform3D.rotation.y = 90.f;
 
-        // Loading flat ender dragon(stolen double(from author of this and from mojang/minecraft :) ) model from obj, transforming and stuff...
-        std::shared_ptr<Model> floorModel = Model::CreateModelFromFile(device, "assets/models/quad.obj");
-        auto floor = GameObject::CreateGameObject();
-        floor.model = floorModel;
-        floor.transform3D.translation = { 0.f, 1.f, 0.f };
-        floor.transform3D.scale = { 100.f, 1.f, 100.f };
+            gameObjects.emplace(enderDragon.GetId(), std::move(enderDragon));
+        }
 
-        // Adding these objects to `gameObjects` vector
-        gameObjects.emplace(smoothVase.GetId(), std::move(smoothVase));
-        gameObjects.emplace(flatVase.GetId(), std::move(flatVase));
-        gameObjects.emplace(enderDragon.GetId(), std::move(enderDragon));
-        gameObjects.emplace(floor.GetId(), std::move(floor));
+        // Loading floor  model from obj, transforming and stuff...
+        {
+            std::shared_ptr<Model> floorModel = Model::CreateModelFromFile(device, "assets/models/quad.obj");
+            auto floor = GameObject::CreateGameObject();
+            floor.model = floorModel;
+            floor.transform3D.translation = { 0.f, 5.f, 0.f };
+            floor.transform3D.scale = { 10.f, 1.f, 10.f };
+
+            gameObjects.emplace(floor.GetId(), std::move(floor));
+        }
+
+        // Adding Point lights to scene
+        {
+            std::vector<vec3> lights{
+                { .1f, .1f, .8f }, // Blue
+                { .1f, .1f, .8f }, // Blue
+                { .1f, .1f, .8f }, // Blue
+                { .1f, .1f, .8f }, // Blue
+                { .1f, .1f, .8f }, // Blue
+                { .1f, .1f, .8f }, // Blue
+                { .1f, .1f, .8f }, // Blue
+                { .1f, .1f, .8f }, // Blue
+                { .1f, .1f, .8f }, // Blue
+                { .1f, .1f, .8f }, // Blue
+                { .1f, .1f, .8f }, // Blue
+                { .1f, .1f, .8f }, // Blue
+                { .1f, .1f, .8f }, // Blue
+                { .1f, .1f, .8f }, // Blue
+                { .1f, .1f, .8f }, // Blue
+                { .1f, .1f, .8f }, // Blue
+                { .4f, .05f, .05f }, // Dark red
+                { .4f, .05f, .05f }, // Dark red
+                { .4f, .05f, .05f }, // Dark red
+                { .4f, .05f, .05f }, // Dark red
+                { .4f, .05f, .05f }, // Dark red
+                { .4f, .05f, .05f }, // Dark red
+                { .4f, .05f, .05f }, // Dark red
+                { .4f, .05f, .05f }, // Dark red
+                { .4f, .05f, .05f }, // Dark red
+                { .4f, .05f, .05f }, // Dark red
+                { .4f, .05f, .05f }, // Dark red
+                { .4f, .05f, .05f }, // Dark red
+                { .4f, .05f, .05f }, // Dark red
+                { .4f, .05f, .05f }, // Dark red
+                { .4f, .05f, .05f }, // Dark red
+                { .4f, .05f, .05f }  // Dark red
+            };
+
+
+            for (int i = 0; i < lights.size(); i++) {
+                float fi = (float)i;
+                auto pointLight = GameObject::MakePointLight((0.8f * fi) + 20.0f, (.01f * fi) + .05f, lights[i]);
+                auto rotate = glm::rotate(
+                    mat4(1.f),
+                    (fi * glm::two_pi<float>()) / lights.size(),
+                    { -0.15f, -.8f, 0.25f }
+                );
+                pointLight.transform3D.translation = vec3(rotate * vec4(-4.f, -1.75f, -8.f, 1.f));
+                gameObjects.emplace(pointLight.GetId(), std::move(pointLight));
+            }
+        }
     }
 }
-
-
-
-
-
-

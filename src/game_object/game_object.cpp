@@ -65,4 +65,14 @@ namespace BlockyVulkan {
             }
         };
     }
+
+    GameObject GameObject::MakePointLight(float power, float radius, vec3 color) {
+        GameObject gameObj = GameObject::CreateGameObject();
+        gameObj.color = color;
+        gameObj.transform3D.scale.x = radius;
+        gameObj.pointLight = std::make_unique<PointLight_Component>();
+        gameObj.pointLight->power = power;
+        
+        return gameObj;
+    }
 }

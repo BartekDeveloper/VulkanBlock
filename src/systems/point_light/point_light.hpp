@@ -21,6 +21,7 @@ namespace BlockyVulkan {
         PointLight(const PointLight &) = delete;
         PointLight &operator=(const PointLight &) = delete;
 
+        void Update(FrameInfo &frameInfo, GlobalUBO &ubo);
         void Render(FrameInfo &frameInfo);
 
     private:
