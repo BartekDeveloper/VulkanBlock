@@ -99,7 +99,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\include;X:\Pro\GameDev\vulkan\Libraries\glfw-3.4.bin.WIN64\include;X:\Pro\GameDev\vulkan\Libraries\glm;C:\VulkanSDK\1.3.296.0\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>X:\Pro\GameDev\global\include;.\include;X:\Pro\GameDev\vulkan\Libraries\glfw-3.4.bin.WIN64\include;X:\Pro\GameDev\vulkan\Libraries\glm;C:\VulkanSDK\1.3.296.0\Include</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
@@ -110,7 +110,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SuppressStartupBanner>false</SuppressStartupBanner>
       <Version>0.1</Version>
-      <AdditionalLibraryDirectories>.\lib;X:\Pro\GameDev\vulkan\Libraries\glfw-3.4.bin.WIN64\lib-vc2022;C:\VulkanSDK\1.3.296.0\Lib;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>X:\Pro\GameDev\global\libs;.\lib;X:\Pro\GameDev\vulkan\Libraries\glfw-3.4.bin.WIN64\lib-vc2022;C:\VulkanSDK\1.3.296.0\Lib;</AdditionalLibraryDirectories>
       <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
@@ -145,7 +145,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\include;X:\Pro\GameDev\vulkan\Libraries\glfw-3.4.bin.WIN64\include;X:\Pro\GameDev\vulkan\Libraries\glm;C:\VulkanSDK\1.3.296.0\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>X:\Pro\GameDev\global\include;.\include;X:\Pro\GameDev\vulkan\Libraries\glfw-3.4.bin.WIN64\include;X:\Pro\GameDev\vulkan\Libraries\glm;C:\VulkanSDK\1.3.296.0\Include</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
@@ -158,7 +158,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SuppressStartupBanner>false</SuppressStartupBanner>
       <Version>0.1</Version>
-      <AdditionalLibraryDirectories>.\lib;X:\Pro\GameDev\vulkan\Libraries\glfw-3.4.bin.WIN64\lib-vc2022;C:\VulkanSDK\1.3.296.0\Lib;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>X:\Pro\GameDev\global\libs;.\lib;X:\Pro\GameDev\vulkan\Libraries\glfw-3.4.bin.WIN64\lib-vc2022;C:\VulkanSDK\1.3.296.0\Lib;</AdditionalLibraryDirectories>
       <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <CustomBuildStep>
@@ -191,7 +191,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\include;X:\Pro\GameDev\vulkan\Libraries\glfw-3.4.bin.WIN64\include;X:\Pro\GameDev\vulkan\Libraries\glm;C:\VulkanSDK\1.3.296.0\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>X:\Pro\GameDev\global\include;.\include;X:\Pro\GameDev\vulkan\Libraries\glfw-3.4.bin.WIN64\include;X:\Pro\GameDev\vulkan\Libraries\glm;C:\VulkanSDK\1.3.296.0\Include</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
@@ -201,7 +201,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <Version>0.1</Version>
-      <AdditionalLibraryDirectories>.\lib;X:\Pro\GameDev\vulkan\Libraries\glfw-3.4.bin.WIN64\lib-vc2022;C:\VulkanSDK\1.3.296.0\Lib;</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>X:\Pro\GameDev\global\libs;.\lib;X:\Pro\GameDev\vulkan\Libraries\glfw-3.4.bin.WIN64\lib-vc2022;C:\VulkanSDK\1.3.296.0\Lib;</AdditionalLibraryDirectories>
       <SuppressStartupBanner>false</SuppressStartupBanner>
       <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
@@ -237,7 +237,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>.\include;X:\Pro\GameDev\vulkan\Libraries\glfw-3.4.bin.WIN64\include;X:\Pro\GameDev\vulkan\Libraries\glm;C:\VulkanSDK\1.3.296.0\Include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>X:\Pro\GameDev\global\include;.\include;X:\Pro\GameDev\vulkan\Libraries\glfw-3.4.bin.WIN64\include;X:\Pro\GameDev\vulkan\Libraries\glm;C:\VulkanSDK\1.3.296.0\Include</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
@@ -259,7 +259,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <Version>0.1</Version>
-      <AdditionalLibraryDirectories>.\lib;X:\Pro\GameDev\vulkan\Libraries\glfw-3.4.bin.WIN64\lib-vc2022;C:\VulkanSDK\1.3.296.0\Lib;$(WindowsSdkDir)\Lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>X:\Pro\GameDev\global\libs;.\lib;X:\Pro\GameDev\vulkan\Libraries\glfw-3.4.bin.WIN64\lib-vc2022;C:\VulkanSDK\1.3.296.0\Lib;$(WindowsSdkDir)\Lib</AdditionalLibraryDirectories>
       <SuppressStartupBanner>false</SuppressStartupBanner>
       <AdditionalDependencies>vulkan-1.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <PreventDllBinding>true</PreventDllBinding>
@@ -329,7 +329,6 @@
     <ClCompile Include="src\window\window.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\tiny_obj_loader.h" />
     <ClInclude Include="src\buffer\buffer.hpp" />
     <ClInclude Include="src\camera\camera.hpp" />
     <ClInclude Include="src\controller\keyboard_ctrl.hpp" />

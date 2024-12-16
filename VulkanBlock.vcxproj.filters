@@ -101,9 +101,6 @@
     <ClInclude Include="src\controller\keyboard_ctrl.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\tiny_obj_loader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="src\utils\utils.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>

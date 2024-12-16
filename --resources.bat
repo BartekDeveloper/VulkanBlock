@@ -1,6 +1,6 @@
 
 :: List of folders to copy
-set folders="shaders"
+set folders="assets"
 
 :: Target directories
 set target1=./x64/Debug/
